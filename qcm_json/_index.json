@@ -1,0 +1,48 @@
+{
+  "total_files": 7,
+  "total_questions": 280,
+  "files": [
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\1_IntroductionGenerale_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\1_IntroductionGenerale_qcm.json",
+      "topic": "Introduction au Big Data",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\2_HadoopIntro_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\2_HadoopIntro_qcm.json",
+      "topic": "Introduction à Hadoop",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\3_HDFS_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\3_HDFS_qcm.json",
+      "topic": "HDFS (Hadoop Distributed File System)",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\4_MapReduce_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\4_MapReduce_qcm.json",
+      "topic": "MapReduce",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\Hive-Commandes_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\Hive-Commandes_qcm.json",
+      "topic": "Hive Commandes",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\Hive_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\Hive_qcm.json",
+      "topic": "Apache Hive",
+      "num_questions": 40
+    },
+    {
+      "source": "C:\\Users\\baha9\\Downloads\\Big Data\\exams with correction\\TP-HadoopHDFS_exam\\qcm_questions_avec_corrections.md",
+      "output": "C:\\Users\\baha9\\Downloads\\Big Data\\qcm_json\\TP-HadoopHDFS_qcm.json",
+      "topic": "TP Hadoop HDFS",
+      "num_questions": 40
+    }
+  ]
+}

@@ -1,0 +1,1128 @@
+{
+  "topic_name": "Introduction à Hadoop",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Hadoop est un framework écrit dans quel langage de programmation ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Python",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "C++",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Java",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Scala",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hadoop est un framework libre et open source écrit en Java. Cela permet une grande portabilité et une large communauté de développeurs."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Quels sont les 3 modules principaux du framework Hadoop de base ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "HDFS, Hive, Pig",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "HDFS, YARN, MapReduce",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "MapReduce, Spark, HBase",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "YARN, Zookeeper, Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le cœur de Hadoop = HDFS (stockage) + YARN (gestion des ressources) + MapReduce (traitement). Hive, Pig, etc. font partie de l'écosystème mais pas du framework de base."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Que signifie l'acronyme HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hadoop Data File Storage",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "High Distributed File System",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Hadoop Distributed File System",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Hybrid Data File System",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hadoop Distributed File System - le système de fichiers distribués qui permet de stocker des pétaoctets de données sur un cluster."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Que signifie l'acronyme YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Yet Another Resource Navigator",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Yet Another Resource Negotiator",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Yarn Application Resource Node",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Yield And Resource Network",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Yet Another Resource Negotiator - YARN gère l'allocation des ressources (CPU, mémoire) entre les applications du cluster."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Quel est le principe fondamental du traitement dans Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Copier les données vers un serveur central pour le traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Traiter les données là où elles sont stockées",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Utiliser uniquement la mémoire vive pour le traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compresser les données avant le traitement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "C'est le principe clé de Hadoop : déplacer le calcul vers les données, pas l'inverse. Cela évite les coûts de transfert de pétaoctets de données sur le réseau."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Quelle est la caractéristique qui permet d'ajouter des machines au cluster selon les besoins ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Haute disponibilité",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Tolérance aux pannes",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Scalabilité",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Sécurité",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Scalabilité horizontale = ajouter des machines. Hadoop peut scaler de quelques nœuds à des milliers de nœuds selon les besoins en stockage et en calcul."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Quel outil de l'écosystème Hadoop permet d'écrire des scripts avec le langage Pig Latin ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Pig",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Sqoop",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Pig → Pig Latin (langage procédural de script). Hive → HiveQL (SQL-like déclaratif). Les deux simplifient l'écriture de jobs MapReduce."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Quel outil utilise un langage proche de SQL (HiveQL) pour interroger les données ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pig",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Impala",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Hive",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "HBase",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hive = Data Warehouse avec HiveQL. Impala utilise aussi HiveQL mais pour des requêtes directes sur HDFS/HBase sans MapReduce."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quel outil est utilisé pour l'ordonnancement des jobs MapReduce et la définition de workflows ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Zookeeper",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oozie",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Ambari",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Oozie = orchestrateur/scheduler de workflows Hadoop. Il permet de chaîner des jobs MapReduce, Pig, Hive en séquence ou en parallèle avec gestion des dépendances."
+    },
+    {
+      "question_number": 10,
+      "question_text": "HBase est une base de données NoSQL de quel type ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Orientée documents",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Orientée colonnes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Orientée graphes",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Clé-valeur simple",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HBase = NoSQL orienté colonnes (column-family store), inspiré de Google BigTable. MongoDB = orienté documents. Neo4j = orienté graphes."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Quel outil permet de collecter des logs et de les stocker dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sqoop",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Flume",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Kafka",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Storm",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Flume = collecte de logs/événements vers HDFS. Sqoop = transfert depuis/vers SGBD relationnels. Pensez \"Flume = Flux de logs\"."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Quel outil permet la lecture et l'écriture des données à partir de bases de données externes relationnelles ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Flume",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Kafka",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Sqoop",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "HBase",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Sqoop = \"SQL to Hadoop\" - outil ETL bidirectionnel entre SGBD relationnels (MySQL, Oracle, etc.) et Hadoop (HDFS, Hive, HBase)."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Quel outil est utilisé pour le provisionnement, la gestion et le monitoring des clusters Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Zookeeper",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oozie",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Ambari",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Mahout",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Ambari = interface web pour administrer et monitorer les clusters Hadoop. Zookeeper = coordination des services distribués (pas de GUI)."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Zookeeper est un service centralisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le stockage des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le traitement MapReduce",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "La maintenance des informations de configuration et la synchronisation distribuée",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "La collecte de logs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Zookeeper = \"gardien du zoo\" qui coordonne les services distribués : configuration, nommage, synchronisation, élection de leader. Essentiel pour Kafka, HBase, etc."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Mahout est une bibliothèque utilisée pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La visualisation de données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le Machine Learning et les mathématiques",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La gestion des workflows",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le stockage NoSQL",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Mahout = bibliothèque ML pour Hadoop (clustering, classification, recommandations). Aujourd'hui souvent remplacé par Spark MLlib."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Impala permet de requêter les données directement depuis :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MongoDB uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "HDFS et HBase avec HiveSQL",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Des bases de données relationnelles",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Apache Kafka",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Impala (Cloudera) = moteur SQL massively parallel qui interroge HDFS/HBase directement, sans passer par MapReduce. Plus rapide pour les requêtes interactives."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Quelle capacité de stockage HDFS peut-il gérer ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gigaoctets",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Téraoctets",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Pétaoctets",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Mégaoctets",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "HDFS est conçu pour des pétaoctets de données (1 Po = 1000 To). Les grands clusters (Yahoo, Facebook) stockent des centaines de pétaoctets."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Combien de machines un cluster Hadoop peut-il potentiellement gérer ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dizaines de nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Centaines de nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Milliers de nœuds",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Une seule machine",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hadoop peut scaler jusqu'à des milliers de nœuds. Les plus grands clusters dépassent 10,000 nœuds. C'est la scalabilité horizontale."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Hadoop est un projet :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Propriétaire Microsoft",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Propriétaire Google",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Open source",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Propriétaire Amazon",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hadoop est un projet Apache Software Foundation, libre et open source. Il est inspiré des papiers de Google (GFS, MapReduce) mais n'est pas un produit Google."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Qu'est-ce qu'un cluster Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un seul serveur puissant",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une collection de machines sur lesquelles les données sont sauvegardées et traitées",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un logiciel de visualisation",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Une base de données relationnelle",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Un cluster = ensemble de machines (nœuds) travaillant ensemble. Dans Hadoop, les données sont distribuées ET le traitement est parallélisé sur ces machines."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Laquelle des caractéristiques suivantes N'EST PAS une caractéristique de Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Haute disponibilité",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Traitement temps réel uniquement",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Tolérance aux pannes",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Scalabilité",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hadoop (MapReduce) est conçu pour le traitement par lots (batch), pas le temps réel. Pour le temps réel, on utilise Storm, Flink, Spark Streaming."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Les connecteurs R dans l'écosystème Hadoop permettent :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le stockage des données uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "L'accès à HDFS et l'exécution de requêtes Map/Reduce via le langage R",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La gestion des clusters",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le monitoring des applications",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les R Connectors permettent aux data scientists d'utiliser R pour analyser des données Hadoop sans apprendre Java ou Pig Latin."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Quel est le rôle principal de YARN dans Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Stockage des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Gestion des ressources du cluster",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Traitement des requêtes SQL",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Collecte des logs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "YARN = Resource Manager global du cluster. Il alloue CPU et mémoire aux applications (MapReduce ou autres) de manière dynamique."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Quel est le rôle principal de MapReduce dans Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Stockage distribué des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Gestion des ressources",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Traitement distribué des données",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Monitoring du cluster",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "MapReduce = modèle de programmation pour le traitement parallèle. Map (transformation) + Reduce (agrégation) sur les données distribuées."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Parmi les outils suivants, lequel fonctionne directement au-dessus de HDFS (pas via YARN/MapReduce) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pig",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "HBase",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Mahout",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "HBase et Impala fonctionnent directement sur HDFS. Pig, Hive, Mahout génèrent des jobs MapReduce qui passent par YARN."
+    },
+    {
+      "question_number": 26,
+      "question_text": "L'écosystème Hadoop permet toutes ces fonctions SAUF :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L'extraction et le stockage des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La simplification des opérations de traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "La gestion et coordination de la plateforme",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le remplacement complet des bases de données relationnelles pour tous les cas d'usage",
+          "is_correct": true
+        }
+      ],
+      "correct_answer": "D",
+      "conseil": "Hadoop complète mais ne remplace pas totalement les SGBD relationnels. Les SGBD sont toujours meilleurs pour les transactions ACID et les requêtes à faible latence."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Quelle caractéristique permet à Hadoop de continuer à fonctionner même en cas de défaillance matérielle ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Scalabilité",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Tolérance aux pannes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "HPC",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Sécurité",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Tolérance aux pannes = réplication des données (facteur 3 par défaut) + redémarrage automatique des tâches en cas de panne d'un nœud."
+    },
+    {
+      "question_number": 28,
+      "question_text": "HPC dans le contexte Hadoop signifie :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hadoop Processing Center",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "High Performance Computing",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Hadoop Protocol Configuration",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "High Priority Cluster",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HPC = High Performance Computing. Hadoop permet le calcul haute performance en parallélisant le traitement sur des milliers de nœuds."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Quel outil de l'écosystème Hadoop est développé par Cloudera pour les requêtes SQL ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Phoenix",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Impala",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Pig",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Impala = projet Cloudera pour requêtes SQL interactives sur HDFS/HBase. Phoenix = projet Apache pour SQL sur HBase."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Les données dans Hadoop sont d'abord divisées puis :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compressées et envoyées à un serveur central",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Sauvegardées sur un cluster et traitées localement",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Converties en format propriétaire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Archivées et supprimées",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Principe Hadoop : Diviser → Distribuer → Traiter localement → Agréger. Pas de centralisation des données pour le traitement."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Quel est l'avantage principal de traiter les données là où elles sont stockées ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Meilleure compression",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Réduction du coût de transfert de données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Meilleure sécurité",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Format de données uniforme",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Transférer 20 To sur le réseau = heures/jours. Envoyer du code (quelques Ko) vers les données = secondes. C'est l'essence de \"data locality\"."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Combien de catégories d'outils composent l'écosystème Hadoop selon le cours ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "3",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "4",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "5",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "4 catégories : 1) Outils au-dessus de YARN/MR (Pig, Hive...) 2) Outils sur HDFS (HBase, Impala) 3) Connexion externe (Sqoop, Flume) 4) Administration (Ambari, Zookeeper)."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Apache Phoenix est un moteur de base de données relationnelle construit sur :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MongoDB",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Cassandra",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "HBase",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "HDFS directement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Phoenix ajoute une couche SQL sur HBase, permettant d'utiliser des requêtes SQL standards sur une base NoSQL orientée colonnes."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Quel outil permet de définir des workflows de jobs dans Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ambari",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Zookeeper",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Oozie",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Oozie = scheduler de workflows. Il permet de définir des DAG (graphes orientés acycliques) de jobs avec dépendances et conditions."
+    },
+    {
+      "question_number": 35,
+      "question_text": "La scalabilité horizontale dans Hadoop signifie :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ajouter plus de RAM à un serveur existant",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Ajouter plus de disques à un serveur existant",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Ajouter plus de machines au cluster",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Augmenter la vitesse du processeur",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Horizontale = ajouter des machines (scale out). Verticale = améliorer une machine existante (scale up). Hadoop privilégie l'horizontal."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quel composant permet la reprise après échec dans Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Les mécanismes de tolérance aux pannes intégrés",
+          "is_correct": true
+        },
+        {
+          "letter": "B",
+          "text": "Les sauvegardes manuelles uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Le redémarrage manuel du cluster",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un serveur de secours externe",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "A",
+      "conseil": "Hadoop gère automatiquement les pannes : réplication des blocs HDFS, redémarrage des tâches MapReduce échouées, basculement NameNode (HA)."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Le monitoring du cluster Hadoop peut être fait avec :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Pig",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Ambari",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Sqoop",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Ambari = interface web pour l'administration et le monitoring. Il affiche les métriques, alertes, et permet de gérer les services du cluster."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Flume est principalement utilisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Les requêtes SQL",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La collecte de logs",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le Machine Learning",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La gestion des workflows",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Flume = collecteur de données en streaming (logs, événements) vers HDFS ou HBase. Sources : fichiers logs, syslog, HTTP, etc."
+    },
+    {
+      "question_number": 39,
+      "question_text": "Quelle affirmation est correcte concernant Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Il nécessite du matériel très coûteux",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Il peut fonctionner sur du matériel standard (commodity hardware)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Il ne supporte que les données structurées",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Il est limité à un seul nœud",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hadoop est conçu pour fonctionner sur du matériel standard (commodity hardware), pas des serveurs haut de gamme. Cela réduit considérablement les coûts."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Parmi les outils suivants, lequel N'EST PAS un outil de connexion aux sources externes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sqoop",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Flume",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Mahout",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Kafka (dans certaines configurations)",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Mahout = bibliothèque de Machine Learning, pas un connecteur de données. Sqoop (SGBD), Flume (logs), Kafka (streaming) sont des outils d'ingestion de données. ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Architecture Hadoop (HDFS, YARN, MR) | 10 | | Écosystème et outils | 15 | | Caractéristiques (scalabilité, tolérance...) | 8 | | Concepts fondamentaux | 7 | ## Conseils pour l'Examen 1. Mémorisez les 3 composants de base : HDFS + YARN + MapReduce 2. Connaissez le rôle de chaque outil : - Stockage : HDFS, HBase - Traitement : MapReduce, Pig, Hive - Ingestion : Sqoop (SGBD), Flume (logs) - Administration : Ambari, Zookeeper, Oozie 3. Comprenez le principe clé : \"Déplacer le calcul vers les données\" 4. Retenez les caractéristiques : Scalabilité, Tolérance aux pannes, Haute disponibilité 5. Distinguez les outils : - Pig = Pig Latin (procédural) - Hive = HiveQL (SQL-like) - Impala = SQL direct sur HDFS (Cloudera) Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}
