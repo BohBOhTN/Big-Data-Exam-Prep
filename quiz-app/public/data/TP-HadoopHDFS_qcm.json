@@ -1,0 +1,1128 @@
+{
+  "topic_name": "TP Hadoop HDFS",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Quelle commande permet de démarrer un cluster Hadoop avec Docker Compose ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "docker start hadoop",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "docker-compose up -d",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "docker run hadoop",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hadoop start cluster",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker-compose up -d` lit le fichier docker-compose.yml et démarre tous les services définis. L'option `-d` lance en arrière-plan."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Que signifie l'option -d dans docker-compose up -d ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Debug mode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Detached mode (arrière-plan)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Delete mode",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Direct mode",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Detached = les conteneurs s'exécutent en arrière-plan et vous récupérez le contrôle du terminal. Sans -d, les logs s'affichent en temps réel."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Quelle commande permet de vérifier les conteneurs Docker en cours d'exécution ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "docker list",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "docker ps",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "docker show",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "docker status",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker ps` = process status. Affiche les conteneurs en cours. `docker ps -a` affiche tous les conteneurs (y compris arrêtés)."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Quelle commande permet d'accéder au shell d'un conteneur Docker ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "docker shell container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "docker exec -it container_name bash",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "docker enter container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "docker connect container_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker exec -it` = exécute une commande interactive. `-i` = interactive, `-t` = terminal. `bash` ouvre un shell dans le conteneur."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Quelle commande affiche les processus Java dans un conteneur ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "java -list",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "jps",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "ps java",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "java --processes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "jps = Java Process Status. Affiche les processus JVM (NameNode, DataNode, etc.). Outil du JDK, très utile pour le débogage Hadoop."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Quelle commande permet de vérifier l'état d'un NameNode dans un cluster HA ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs check nn1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs haadmin -getServiceState nn1",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs status nn1",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs namenode status",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs haadmin` = outil d'administration HA. `-getServiceState nn1` retourne \"active\" ou \"standby\". nn1/nn2 sont les identifiants des NameNodes."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Quels sont les deux états possibles d'un NameNode dans un cluster HA ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Running / Stopped",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Active / Standby",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Master / Slave",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Primary / Secondary",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Active = gère les requêtes clients. Standby = synchronisé et prêt à prendre le relais. Un seul NameNode est actif à la fois."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Quelle commande affiche l'état de tous les services NameNode ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs haadmin -status all",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs haadmin -getAllServiceState",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs haadmin -list",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs status all",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-getAllServiceState` affiche l'état de tous les NameNodes configurés. Plus rapide que d'interroger chaque NN individuellement."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quelle commande Docker permet d'arrêter un conteneur ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "docker kill container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "docker stop container_name",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "docker end container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "docker terminate container_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker stop` envoie SIGTERM puis SIGKILL après un délai. `docker kill` envoie SIGKILL immédiatement (arrêt brutal)."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Que se passe-t-il automatiquement quand le NameNode actif est arrêté dans un cluster HA ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le cluster s'arrête",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le Standby NameNode devient actif (failover)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les données sont perdues",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un nouveau NameNode est créé",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Failover automatique : Zookeeper détecte la panne, le Standby acquiert le lock et devient Active. HDFS reste accessible sans intervention."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Quelle commande crée un répertoire dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -create /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -mkdir /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -newdir /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -md /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -mkdir /path` = make directory. Similaire à la commande Unix. Échoue si le répertoire parent n'existe pas (sauf avec -p)."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Que fait l'option -p dans hdfs dfs -mkdir -p /path/to/dir ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Permission spéciale",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Crée les répertoires parents si nécessaires",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Chemin permanent",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Chemin prioritaire",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-p` = parents. Crée `/path`, `/path/to`, `/path/to/dir` si nécessaire. Sans -p, échec si `/path/to` n'existe pas."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Quelle commande liste le contenu d'un répertoire HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -dir /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -ls /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -list /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -show /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -ls` = list. Affiche permissions, propriétaire, taille, date, nom. Format similaire à `ls -l` sous Unix."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Quelle option permet de lister récursivement le contenu d'un répertoire ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -ls -a /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -ls -R /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -ls -all /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -ls -recursive /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-R` = recursive. Liste le contenu du répertoire et de tous ses sous-répertoires. Utile pour voir toute l'arborescence."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Quelle commande copie un fichier local vers HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -copy local hdfs",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -put local_file /hdfs_path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -upload local_file /hdfs_path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -send local_file /hdfs_path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -put` = copie Local → HDFS. Le fichier local est conservé. Alias : `-copyFromLocal`."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Quelle est la différence entre -put et -moveFromLocal ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucune différence",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "-put copie, -moveFromLocal déplace (supprime le fichier local)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "-put est plus rapide",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "-moveFromLocal compresse le fichier",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "-put/-copyFromLocal = copie (original conservé). -moveFromLocal = déplace (original supprimé après copie vers HDFS)."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Quelle commande copie un fichier de HDFS vers le système local ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -download /hdfs_path local",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -get /hdfs_path local_path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -fetch /hdfs_path local_path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -retrieve /hdfs_path local_path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -get` = copie HDFS → Local. Alias : `-copyToLocal`. Le fichier HDFS est conservé."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Quelle commande affiche le contenu d'un fichier HDFS sans le télécharger ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -show /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -cat /path/file",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -read /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -display /path/file",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -cat` affiche le contenu sur stdout. Pour les gros fichiers, utilisez `-tail` ou redirigez vers `head`."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Quelle commande permet de lire un fichier compressé dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -cat /path/file.gz",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -text /path/file.gz",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -unzip /path/file.gz",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -decompress /path/file.gz",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -text` décompresse automatiquement et affiche le contenu. Fonctionne avec gzip, bzip2, et les formats SequenceFile."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Quelle commande affiche les dernières lignes d'un fichier HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -end /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -tail /path/file",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -last /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -bottom /path/file",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -tail` affiche les derniers ~1 Ko du fichier. Utile pour vérifier la fin des logs ou des fichiers de données."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Quelle commande vérifie l'espace utilisé par des fichiers/répertoires dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -size /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -du -h /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -space /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -usage /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -du` = disk usage. Affiche la taille de chaque fichier/sous-répertoire. `-h` = human-readable (Ko, Mo, Go)."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Que signifie l'option -h dans hdfs dfs -du -h ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Help",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Human-readable (format lisible: KB, MB, GB)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Hidden files",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Headers",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "-h = human-readable. Au lieu de \"1073741824 bytes\", affiche \"1G\". Plus facile à lire pour les humains."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Quelle commande supprime un fichier dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -delete /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -rm /path/file",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -del /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -remove /path/file",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -rm` = remove. Par défaut, va dans la corbeille (.Trash). Pour suppression définitive immédiate : `-skipTrash`."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Quelle option permet de supprimer un répertoire et son contenu ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -rm -f /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -rm -r /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -rm -all /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -rm -d /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-r` = recursive. Sans cette option, -rm ne peut pas supprimer un répertoire non vide. `-rf` = recursive + force (pas de confirmation)."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Quelle commande déplace ou renomme un fichier dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -rename /old /new",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -mv /old /new",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -move /old /new",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -rn /old /new",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -mv` = move. Déplace ou renomme. Opération rapide car seules les métadonnées changent (pas de copie de données)."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Quelle commande copie un fichier dans HDFS (d'un emplacement HDFS à un autre) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -copy /src /dest",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -cp /src /dest",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -duplicate /src /dest",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -clone /src /dest",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -cp` = copy. Crée une copie complète des données. Plus lent que -mv car les blocs sont dupliqués."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Quelle commande affiche des statistiques sur un fichier (comme le facteur de réplication) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -info /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -stat %r /path/file",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -status /path/file",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -details /path/file",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -stat` avec formats : %r (réplication), %o (taille bloc), %n (nom), %b (taille). Ex: `-stat \"%r %o\" /file`."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Quelle commande compte les répertoires, fichiers et la taille totale ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -size /path",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -count /path",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -total /path",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -summary /path",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -count` retourne : nombre de répertoires, nombre de fichiers, taille totale, chemin. Utile pour les statistiques."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Combien de NameNodes y a-t-il dans le cluster HA du TP ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Cluster HA = 2 NameNodes (1 actif + 1 standby). Plus économique que 3+, suffisant pour la haute disponibilité."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Combien de DataNodes y a-t-il dans le cluster du TP ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le TP utilise 2 DataNodes pour démontrer la distribution. En production, des dizaines voire des milliers de DataNodes."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Combien de JournalNodes y a-t-il dans le cluster HA du TP ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le TP a 2 JournalNodes (minimum recommandé = 3 pour le quorum en production). Le QJM synchronise l'EditLog entre les NameNodes."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Quelle commande permet de voir les logs d'un conteneur Docker ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "docker show logs container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "docker logs container_name",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "docker view container_name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "docker output container_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker logs container_name` affiche stdout/stderr du conteneur. Options utiles : `-f` (follow), `--tail 100` (dernières lignes)."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Que fait la commande docker start container_name ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Crée un nouveau conteneur",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Redémarre un conteneur arrêté",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Supprime un conteneur",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Liste les conteneurs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`docker start` redémarre un conteneur existant (arrêté). `docker run` crée ET démarre un nouveau conteneur à partir d'une image."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Quelle commande permet de créer un fichier local avant de l'envoyer vers HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "create file.txt",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "echo \"contenu\" > file.txt",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "new file.txt",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "touch --content file.txt",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`echo \"texte\" > fichier` crée/écrase le fichier avec le texte. `echo \"texte\" >> fichier` ajoute à la fin. Commandes shell standard."
+    },
+    {
+      "question_number": 35,
+      "question_text": "Quelle commande est un alias de hdfs dfs -put ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -upload",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -copyFromLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -send",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -transfer",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "-put = -copyFromLocal : copie Local → HDFS. Mnémotechnique : \"put (mettre) dans HDFS\" ou \"copy from local\"."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quelle commande est un alias de hdfs dfs -get ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -download",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -copyToLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -fetch",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -retrieve",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "-get = -copyToLocal : copie HDFS → Local. Mnémotechnique : \"get (obtenir) depuis HDFS\" ou \"copy to local\"."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Combien de ResourceManagers y a-t-il dans le cluster HA du TP ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "2 ResourceManagers pour la HA de YARN (1 actif + 1 standby). Gèrent l'allocation des ressources pour les applications MapReduce, Spark, etc."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Que vérifie-t-on en exécutant hdfs dfs -ls / depuis un DataNode après l'arrêt du NameNode actif ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L'état du DataNode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Que le failover HA fonctionne et que HDFS est toujours accessible",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La taille des fichiers",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les permissions",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Si `hdfs dfs -ls /` fonctionne après l'arrêt du NameNode actif, cela prouve que le failover HA s'est bien déclenché et que le Standby a pris le relais."
+    },
+    {
+      "question_number": 39,
+      "question_text": "Que fait la commande hdfs dfs -df ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Supprime des fichiers",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Affiche l'espace disque disponible dans HDFS",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Crée un répertoire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Affiche les formats de fichiers",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -df` = disk free. Affiche l'espace total, utilisé et disponible du système de fichiers HDFS. `-h` pour format lisible."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Quelle commande déplace un fichier de HDFS vers le système local (supprime de HDFS) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -get",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -moveToLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -cut",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -export",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-moveToLocal` = copie vers local + suppression de HDFS. Note : cette commande peut ne pas être implémentée dans toutes les versions (vérifiez avec `hdfs dfs -help`). ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Docker et conteneurs | 8 | | Commandes HDFS (manipulation fichiers) | 18 | | Haute Disponibilité (HA) | 8 | | Architecture du cluster | 6 | ## Conseils pour l'Examen 1. Commandes Docker essentielles : - `docker-compose up -d` : démarrer - `docker ps` : lister - `docker exec -it container bash` : entrer - `docker logs container` : voir les logs - `docker stop/start container` : arrêter/démarrer 2. Commandes HDFS à mémoriser : - Navigation : `-ls`, `-ls -R`, `-mkdir -p` - Transfert Local↔HDFS : `-put`/`-get`, `-moveFromLocal`/`-moveToLocal` - Lecture : `-cat`, `-text`, `-tail` - Gestion : `-rm -r`, `-mv`, `-cp` - Stats : `-du -h`, `-df`, `-count`, `-stat` 3. Haute Disponibilité : - 2 NameNodes (actif/standby) - `hdfs haadmin -getServiceState nn1` - Failover automatique via Zookeeper 4. Architecture du TP : - 2 NameNodes, 2 DataNodes, 2 ResourceManagers, 2 JournalNodes 5. Alias à retenir : - `-put` = `-copyFromLocal` - `-get` = `-copyToLocal` Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}

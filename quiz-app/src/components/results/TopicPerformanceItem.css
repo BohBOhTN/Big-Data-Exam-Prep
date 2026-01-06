@@ -1,0 +1,133 @@
+.topic-item {
+  background: var(--bg-card);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.topic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.topic-header:hover {
+  background: var(--bg-dark);
+}
+
+.topic-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.topic-stats {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.topic-score {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topic-progress-bar {
+  width: 120px;
+  height: 8px;
+  background: var(--bg-dark);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.topic-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.topic-percentage {
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 50px;
+  text-align: right;
+}
+
+.topic-percentage.good {
+  color: #22c55e;
+}
+
+.topic-percentage.medium {
+  color: #f59e0b;
+}
+
+.topic-percentage.poor {
+  color: #ef4444;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.expand-btn:hover {
+  color: var(--text-primary);
+}
+
+.topic-questions {
+  padding: 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .topic-header {
+    padding: 1rem;
+  }
+
+  .topic-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .topic-score {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .topic-progress-bar {
+    width: 100px;
+  }
+
+  .topic-questions {
+    padding: 0 1rem 1rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .topic-score {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

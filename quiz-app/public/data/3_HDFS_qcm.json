@@ -1,0 +1,1128 @@
+{
+  "topic_name": "HDFS (Hadoop Distributed File System)",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Quelle est la taille par défaut d'un bloc dans HDFS version 2 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "64 MB",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "128 MB",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "256 MB",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "512 MB",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HDFS v1 = 64 MB, HDFS v2 = 128 MB par défaut. Les gros blocs réduisent les métadonnées et optimisent les lectures séquentielles de gros fichiers."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Quel est le facteur de réplication par défaut dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "4",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Le REPLICATION_FACTOR = 3 par défaut (1 original + 2 copies). Cela garantit la disponibilité même si 2 nœuds tombent en panne simultanément."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Quel composant HDFS est responsable de la gestion de l'espace de noms du système de fichiers ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DataNode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "NameNode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Secondary NameNode",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Zookeeper",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "NameNode = Master qui gère les métadonnées (namespace, arborescence, localisation des blocs). Il ne stocke pas les données elles-mêmes."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Quel composant HDFS stocke physiquement les blocs de données ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "NameNode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "DataNode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Journal Node",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Resource Manager",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "DataNode = Esclave qui stocke les blocs de données. Un cluster a 1 NameNode mais plusieurs DataNodes (des dizaines à des milliers)."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Qu'est-ce que FSImage dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier de configuration",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un fichier en mémoire contenant la table d'adresses des blocs",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un fichier de logs",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un fichier de sauvegarde",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "FSImage = snapshot du système de fichiers en mémoire (structure des répertoires, métadonnées, localisation des blocs). Volatile, perdu au redémarrage."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Qu'est-ce que EditLog dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier image du système",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un journal de toutes les modifications du système de fichiers",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un fichier de configuration",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un fichier de monitoring",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "EditLog = journal de transactions persistant. Chaque opération (création, suppression, etc.) est d'abord écrite dans l'EditLog. Permet de reconstruire FSImage."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Qu'est-ce qu'un Heartbeat dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un signal de synchronisation des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une pulsation envoyée par les DataNodes au NameNode pour signaler qu'ils sont actifs",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un mécanisme de compression",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un protocole de transfert de données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les DataNodes envoient des Heartbeats réguliers (toutes les 3 sec par défaut). Si le NameNode ne reçoit plus de heartbeat, il considère le DataNode comme mort."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Quelle commande permet de lister les fichiers d'un répertoire HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -dir",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -ls",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -list",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -show",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -ls` = list (comme `ls` sous Linux). Ajoutez `-R` pour lister récursivement : `hdfs dfs -ls -R /path`"
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quelle commande permet de copier un fichier local vers HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -copy",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -put",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -upload",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -send",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -put local.txt /hdfs/path` ou son alias `-copyFromLocal`. Le fichier local est conservé après la copie."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Quelle commande permet de copier un fichier HDFS vers le système local ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -copy",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -download",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -get",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -fetch",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`hdfs dfs -get /hdfs/file.txt local/` ou son alias `-copyToLocal`. Télécharge de HDFS vers le système local."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Quel est le nombre minimum de machines nécessaires pour le Quorum Journal Manager (QJM) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "3",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "5",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "QJM nécessite minimum 3 JournalNodes pour le quorum (majorité). Avec 3 nœuds, le système tolère 1 panne. Formule : 2N+1 nœuds tolèrent N pannes."
+    },
+    {
+      "question_number": 12,
+      "question_text": "À quelle fréquence le Secondary NameNode effectue-t-il un checkpoint par défaut ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Toutes les 15 minutes",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Toutes les 30 minutes",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Toutes les heures",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Toutes les 24 heures",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Le Secondary NameNode fait un checkpoint toutes les heures (ou après un certain nombre de transactions). Il fusionne FSImage + EditLog pour créer un nouveau FSImage."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Dans une architecture HDFS, combien de NameNode(s) actif(s) y a-t-il normalement ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucun",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un seul",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Deux",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Plusieurs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Un seul NameNode actif à la fois. En mode HA, il y a un Standby NameNode prêt à prendre le relais, mais un seul est actif."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Qu'est-ce qu'un Rack dans un cluster Hadoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un type de fichier",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un regroupement physique de serveurs",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un protocole réseau",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un outil de monitoring",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Un Rack = armoire contenant plusieurs serveurs partageant le même switch réseau. HDFS utilise le \"rack awareness\" pour placer les réplicas intelligemment."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Que signifie SPOF (Single Point of Failure) concernant le NameNode ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le NameNode est très rapide",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le NameNode est un point de défaillance unique pouvant causer l'arrêt du système",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le NameNode peut être dupliqué facilement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le NameNode stocke une seule copie des données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Sans HA, le NameNode est un SPOF : s'il tombe, tout le cluster est inaccessible. C'est pourquoi la Haute Disponibilité (HA) a été introduite."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Quel composant permet la haute disponibilité en cas de panne du NameNode actif ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DataNode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Standby NameNode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Secondary NameNode",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Task Tracker",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Standby NameNode ≠ Secondary NameNode. Le Standby peut prendre le relais instantanément. Le Secondary ne fait que des checkpoints."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Quelle est la différence entre Secondary NameNode et Standby NameNode ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ils sont identiques",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Secondary fait des checkpoints, Standby peut prendre le relais en cas de panne",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Standby fait des checkpoints, Secondary peut prendre le relais",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les deux peuvent prendre le relais",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Secondary = assistant qui fait des checkpoints (fusion FSImage + EditLog). Standby = NameNode de secours en mode HA, synchronisé en temps réel via QJM."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Quel service est utilisé pour la coordination et l'élection de leader dans HDFS HA ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ambari",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oozie",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Zookeeper",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Zookeeper gère l'élection de leader et le basculement (failover) automatique. Il maintient un \"lock\" que seul le NameNode actif détient."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Que fait la commande `hdfs dfs -mkdir -p /chemin/complet` ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Crée uniquement le dernier répertoire",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Crée tous les répertoires parents si nécessaire",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Supprime le répertoire existant",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Liste les répertoires",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-p` = \"parents\", crée toute l'arborescence si elle n'existe pas. Sans `-p`, la commande échoue si le parent n'existe pas."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Quelle commande affiche le contenu d'un fichier HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -show",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -cat",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -read",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -display",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -cat /path/file` = affiche le contenu (comme `cat` Linux). Pour les fichiers compressés, utilisez `-text`."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Quelle commande permet de vérifier l'espace disponible dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -space",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -size",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -df",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -free",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`hdfs dfs -df` = disk free (espace libre). `hdfs dfs -du` = disk usage (espace utilisé par fichier/répertoire)."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Qu'est-ce que le \"Rack Awareness Mode\" dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un mode de compression",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un mode où les copies sont stockées dans des racks différents pour la tolérance aux pannes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un mode de monitoring",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un mode de sécurité",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Avec Rack Awareness, HDFS place les réplicas sur des racks différents. Si un rack entier tombe (panne de switch), les données restent accessibles."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Quel type d'architecture utilise HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Peer-to-Peer",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Master/Slave",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Client/Serveur traditionnel",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Mesh",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HDFS = architecture Master/Slave. NameNode = Master (1 seul). DataNodes = Slaves (plusieurs). Le Master coordonne, les Slaves stockent."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Quelle commande permet de supprimer un répertoire et son contenu dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -del",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -rm -r",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -delete",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -remove",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -rm -r /path` = remove récursif. Sans `-r`, seuls les fichiers peuvent être supprimés, pas les répertoires."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Que contient un Block Report envoyé par un DataNode ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Les erreurs système",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La liste des blocs stockés sur ce DataNode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les configurations réseau",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les utilisateurs connectés",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le Block Report = liste complète des blocs sur un DataNode. Envoyé périodiquement, il permet au NameNode de savoir où sont les données."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Quelle commande permet de déplacer un fichier du local vers HDFS en supprimant l'original ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -put",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -mv",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -moveFromLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -cut",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`-moveFromLocal` = copie + suppression du fichier local. `-put` ou `-copyFromLocal` conservent l'original."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Le FSImage est-il volatile ou persistant ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Persistant sur disque",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Volatile (en mémoire, perdu au redémarrage)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Partiellement persistant",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Stocké sur les DataNodes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "FSImage en mémoire = volatile. C'est pourquoi l'EditLog (persistant) et les checkpoints du Secondary NameNode sont essentiels pour la récupération."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Comment le FSImage peut-il être reconstruit après un redémarrage ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Il ne peut pas être reconstruit",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "À partir du EditLog",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "À partir des DataNodes",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "À partir de Zookeeper",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Au redémarrage : charge le dernier checkpoint FSImage du disque + rejoue les transactions de l'EditLog = FSImage reconstruit en mémoire."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Quelle est la caractéristique principale de la scalabilité HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Scalabilité verticale uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Scalabilité horizontale (ajout de machines)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Scalabilité limitée à 10 nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Pas de scalabilité",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HDFS = scalabilité horizontale : on ajoute des DataNodes pour augmenter la capacité. Pas besoin d'acheter des serveurs plus puissants (scalabilité verticale)."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Que fait HDFS automatiquement quand un DataNode tombe en panne ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Arrête le cluster",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Recrée les copies des blocs pour maintenir le facteur de réplication",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Supprime les données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Envoie une alerte et attend une intervention manuelle",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Auto-réplication : le NameNode détecte la panne (heartbeat manquant), identifie les blocs sous-répliqués, et lance la copie vers d'autres DataNodes."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Quelle commande est un alias de `hdfs dfs -put` ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -upload",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -copyFromLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -send",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -transfer",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-put` = `-copyFromLocal` = copie Local → HDFS. Utilisez celui que vous préférez, le comportement est identique."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Quelle commande est un alias de `hdfs dfs -get` ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -download",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -copyToLocal",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -fetch",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -retrieve",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`-get` = `-copyToLocal` = copie HDFS → Local. Mnémotechnique : \"get from HDFS\" ou \"copy to local\"."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Dans HDFS 3.0, quelle alternative à la réplication a été introduite pour économiser l'espace ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compression automatique",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Erasure Coding",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Déduplication",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Archivage",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Erasure Coding utilise des codes de correction d'erreur (comme RAID) au lieu de copies complètes. Économise ~50% d'espace tout en gardant la tolérance aux pannes."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Lors d'une opération d'écriture, avec qui le client interagit-il en premier ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DataNode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "NameNode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Secondary NameNode",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Zookeeper",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Écriture : Client → NameNode (demande de création + allocation de blocs) → puis Client → DataNodes (écriture des données). Le NameNode ne touche jamais les données."
+    },
+    {
+      "question_number": 35,
+      "question_text": "Que vérifie le NameNode avant de créer un fichier ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "L'espace disque uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "L'existence du fichier et les droits d'accès",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La connexion réseau",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La charge CPU",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le NameNode vérifie : 1) Le fichier n'existe pas déjà 2) L'utilisateur a les droits d'écriture dans le répertoire. Ensuite il crée l'entrée dans FSImage."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quelle commande affiche la fin d'un fichier HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -end",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -tail",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -last",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -bottom",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -tail /path/file` = affiche les derniers 1 Ko du fichier (comme `tail` Linux). Utile pour vérifier les logs."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Que signifie HA dans le contexte HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Hadoop Architecture",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "High Availability",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Hardware Allocation",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Hadoop Administration",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HA = High Availability (Haute Disponibilité). HDFS HA = configuration avec NameNode actif + Standby pour éliminer le SPOF."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Quel est le rôle du Quorum Journal Manager ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gérer les requêtes des utilisateurs",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Stocker le EditLog de manière distribuée pour la haute disponibilité",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Compresser les données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Monitorer le cluster",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "QJM = JournalNodes (minimum 3) qui stockent l'EditLog de manière distribuée. Le Standby NameNode lit l'EditLog depuis le QJM pour rester synchronisé."
+    },
+    {
+      "question_number": 39,
+      "question_text": "Lors du failover, comment le Standby NameNode devient-il actif ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Par intervention manuelle uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "En acquérant le lock dans Zookeeper quand le NameNode actif échoue",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Par redémarrage du cluster",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "En copiant les données du NameNode actif",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Failover automatique : le NameNode actif détient un lock Zookeeper. S'il tombe, le lock expire, et le Standby l'acquiert pour devenir actif."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Quelle commande permet de compter les répertoires, fichiers et la taille dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hdfs dfs -size",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hdfs dfs -count",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hdfs dfs -stat",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hdfs dfs -info",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`hdfs dfs -count /path` retourne : nombre de répertoires, nombre de fichiers, taille totale. `-stat` donne d'autres infos (permissions, facteur de réplication). ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Architecture HDFS (NameNode, DataNode) | 10 | | Commandes HDFS | 12 | | Haute Disponibilité (HA) | 8 | | Tolérance aux pannes et réplication | 6 | | Concepts clés (FSImage, EditLog, etc.) | 4 | ## Conseils pour l'Examen 1. Mémorisez les chiffres clés : - Bloc = 128 MB (v2) - Réplication = 3 - QJM minimum = 3 nœuds - Checkpoint = toutes les heures 2. Connaissez les commandes essentielles : - `-ls`, `-mkdir`, `-put`, `-get`, `-cat`, `-rm` - Aliases : `-copyFromLocal` = `-put`, `-copyToLocal` = `-get` 3. Distinguez les composants HA : - Secondary NameNode ≠ Standby NameNode - QJM = stockage distribué de l'EditLog - Zookeeper = élection de leader 4. Comprenez le flux de données : - Écriture : Client → NameNode (métadonnées) → DataNodes (données) - Lecture : Client → NameNode (localisation) → DataNodes (données) 5. Retenez les mécanismes de tolérance : - Réplication des blocs - Rack Awareness - Auto-récupération après panne Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}

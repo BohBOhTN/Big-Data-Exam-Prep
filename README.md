@@ -4,22 +4,73 @@
 
 This repository contains **QCM (Multiple Choice Questions)** exam preparation materials for Big Data courses. It includes **280 questions** covering various Big Data topics including Hadoop, HDFS, MapReduce, and Hive.
 
+**🆕 Now includes an interactive Quiz Web Application!**
+
 ## ⚠️ Disclaimer
 
 **This repository is NOT created by Mohamed KOUBAA.**
 
 This is an independent study resource created by **Baha Eddine Hamdi** to help students prepare for their Big Data exams.
 
+## 🚀 Quick Start - Quiz App
+
+The easiest way to study is using our interactive quiz application!
+
+### Running the Quiz App
+
+```bash
+# Navigate to the quiz app directory
+cd quiz-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+Then open your browser to `http://localhost:5173`
+
+### Quiz App Features
+
+- 🎯 **Topic Selection** - Choose from 7 Big Data topics
+- 📊 **Custom Quiz Length** - Select 5 to 40+ questions
+- ⏱️ **Timed Quizzes** - Track your completion time
+- 🎨 **Beautiful UI** - Modern, animated dark theme
+- 📈 **Detailed Results** - Per-topic performance analysis
+- 💡 **Study Tips** - Helpful conseils for each question
+- 📚 **PDF Recommendations** - Suggested study materials based on weak areas
+
+### Screenshots
+
+The app includes:
+1. **Home Page** - Select topics and configure your quiz
+2. **Quiz Page** - Answer questions with an intuitive interface
+3. **Results Page** - View detailed performance breakdown and recommendations
+
 ## 🛠️ How This Was Created
 
 1. **Source Material**: The original course content was created by **Mohamed KOUBAA**
 2. **Image Extraction**: Used the `extract_pdf_images.py` script to extract images from the course PDF files
 3. **QCM Generation**: Generated prompts based on the extracted images to create comprehensive QCM exams in Markdown format
+4. **JSON Conversion**: Converted markdown QCMs to structured JSON for the web app
+5. **Quiz App**: Built with React + Vite for an interactive study experience
 
 ## 📂 Repository Structure
 
 ```
 Big Data/
+├── quiz-app/                      # 🆕 Interactive Quiz Web Application
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Home.jsx          # Topic selection page
+│   │   │   ├── Quiz.jsx          # Quiz/exam interface
+│   │   │   └── Results.jsx       # Results and recommendations
+│   │   ├── App.jsx
+│   │   └── App.css
+│   ├── public/
+│   │   └── data/                 # QCM JSON files
+│   └── package.json
 ├── pdfs/                          # Original course PDFs
 ├── extracted_images/              # Images extracted from PDFs
 │   ├── 1_IntroductionGenerale/
@@ -115,7 +166,18 @@ python extract_qcm_to_json.py
 - Extracts all questions with options, correct answers, and conseils
 - Generates index file with summary metadata
 
-## �👤 Author
+## 🖥️ Quiz App Tech Stack
+
+The interactive quiz application is built with modern web technologies:
+
+- **React 18** - UI library
+- **Vite** - Build tool and dev server
+- **React Router** - Navigation
+- **Framer Motion** - Smooth animations
+- **Lucide React** - Beautiful icons
+- **React Confetti** - Celebration effects
+
+## 👤 Author
 
 **Baha Eddine Hamdi**
 
