@@ -1,0 +1,41 @@
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 12px;
+  margin: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.disclaimer svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimer p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.disclaimer strong {
+  color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+  .disclaimer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .disclaimer p {
+    font-size: 0.8rem;
+  }
+}

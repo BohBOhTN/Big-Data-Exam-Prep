@@ -1,0 +1,173 @@
+.results-page {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.results-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+/* Score Hero */
+.score-hero {
+  text-align: center;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.score-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.score-summary {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.score-summary strong {
+  color: var(--text-primary);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Topic Performance */
+.topic-performance {
+  margin-bottom: 2.5rem;
+}
+
+.topic-performance h2,
+.recommendations h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Recommendations */
+.recommendations {
+  margin-bottom: 2.5rem;
+}
+
+.recommendations-intro {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.moodle-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.moodle-notice svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.moodle-notice strong {
+  color: var(--primary-light);
+}
+
+.recommendation-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .score-hero {
+    padding: 2rem 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .score-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .score-summary {
+    font-size: 0.95rem;
+  }
+
+  .topic-performance h2,
+  .recommendations h2 {
+    font-size: 1.25rem;
+  }
+
+  .recommendation-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .moodle-notice {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .actions .btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

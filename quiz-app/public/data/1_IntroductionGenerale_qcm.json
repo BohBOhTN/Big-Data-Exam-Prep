@@ -1,0 +1,1128 @@
+{
+  "topic_name": "Introduction au Big Data",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Selon le concept du Big Data, à quelle fréquence les données mondiales doublent-elles ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Tous les 6 mois",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Tous les ans",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Tous les 2 ans",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Tous les 5 ans",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "C'est une statistique clé à retenir. Le doublement des données tous les 2 ans est un indicateur fondamental de la croissance exponentielle des données qui a conduit à l'émergence du Big Data."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Quel pourcentage des données mondiales est considéré comme non structuré ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "50%",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "70%",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "80%",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "90%",
+          "is_correct": true
+        }
+      ],
+      "correct_answer": "D",
+      "conseil": "Retenez que la grande majorité (90%) des données sont non structurées (emails, vidéos, réseaux sociaux, etc.). C'est l'une des raisons pour lesquelles les bases de données relationnelles traditionnelles ne suffisent plus."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Quels sont les 3V originaux du Big Data ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Volume, Vitesse, Visualisation",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Volume, Vélocité, Variété",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Valeur, Véracité, Volume",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Variété, Valeur, Vitesse",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les 3V sont le modèle fondamental du Big Data : Volume (quantité), Vélocité (vitesse d'arrivée), Variété (formats différents). Ce modèle a ensuite été étendu aux 5V."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Que représente la \"Véracité\" dans le modèle des 5V du Big Data ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La vitesse de traitement des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La quantité de données",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "La fiabilité et la crédibilité des données collectées",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Le format des données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Les 5V = 3V + Véracité (fiabilité des sources) + Valeur (profit extrait). La Véracité concerne la qualité et la fiabilité des données : peut-on faire confiance aux sources ?"
+    },
+    {
+      "question_number": 5,
+      "question_text": "Combien de tweets sont publiés par seconde sur Twitter (approximativement) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1,000 tweets/seconde",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "3,500 tweets/seconde",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "5,900 tweets/seconde",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "10,000 tweets/seconde",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Cette statistique illustre le concept de Vélocité - la vitesse à laquelle les données arrivent. ~5,900 tweets/sec = ~504 millions/jour = ~184 milliards/an."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Quelle est l'unité de stockage équivalente à 1,024 Téraoctets ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gigaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Exaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Pétaoctet",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Zettaoctet",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "L'ordre des unités : Ko → Mo → Go → To → Po → Eo → Zo → Yo. Chaque unité = 1,024 × l'unité précédente. 1 Po = 1,024 To."
+    },
+    {
+      "question_number": 7,
+      "question_text": "En quelle année Google a-t-il publié le papier sur MapReduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2001",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2003",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "2004",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "2006",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Chronologie importante : GFS (2003) → MapReduce (2004) → Hadoop (~2006). Ces publications de Google ont révolutionné le traitement des données massives."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Quel framework est utilisé pour le traitement distribué en temps réel (stream processing) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MapReduce",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Sqoop",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Apache Storm",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Apache Pig",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Pour le Stream Processing, pensez à : Storm, Flink, Kafka Streams, Samza, Spark Streaming. MapReduce et Pig sont pour le traitement par lots (batch)."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quelle technologie est décrite comme un système de fichiers distribués ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apache Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "HDFS (Hadoop Distributed File System)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "MongoDB",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Apache Kafka",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "HDFS = Hadoop Distributed File System. C'est la couche de stockage de l'écosystème Hadoop, inspiré du Google File System (GFS)."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Quel est le rôle principal d'Apache Sqoop ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Traitement de flux en temps réel",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Transfert de données entre bases relationnelles et Hadoop",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Stockage de données NoSQL",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Orchestration de workflows",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Sqoop = \"SQL to Hadoop\" - c'est un outil ETL pour importer/exporter des données entre les SGBD relationnels et Hadoop (HDFS, Hive, HBase)."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Le traitement par lots (Batch Processing) se caractérise par :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le traitement des données en temps réel et continu",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le traitement de blocs de données déjà stockées sur une période définie",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le traitement instantané de chaque enregistrement dès son arrivée",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le traitement uniquement des données structurées",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Batch = traitement par lots de données déjà stockées (historiques). Stream = traitement en temps réel continu. Exemple batch : analyser toutes les transactions d'une semaine."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Quelle base de données NoSQL stocke les données sous forme de documents JSON distribués ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apache HBase",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Cassandra",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "MongoDB",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "ElasticSearch",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "MongoDB = base de données orientée documents (JSON/BSON). HBase = orientée colonnes. Cassandra = orientée colonnes/clé-valeur. ElasticSearch = moteur de recherche."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Qu'est-ce que le \"Micro-batch Processing\" ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Traitement d'un seul enregistrement à la fois",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Regroupement des enregistrements toutes les quelques secondes puis traitement en mini-lot",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Traitement uniquement des petits fichiers",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compression des données avant traitement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Native Streaming = traitement immédiat de chaque enregistrement (Storm, Flink). Micro-batch = mini-lots de quelques secondes (Spark Streaming). Le micro-batch introduit une légère latence."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Quelle quantité de données représente environ 6 millions de livres ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 Gigaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "1 Téraoctet",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "1 Pétaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "1 Exaoctet",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Exemples à retenir : 1 To ≈ 6 millions de livres, 1 Po ≈ 2 milliards de photos, 5 Eo ≈ toute l'info produite jusqu'en 2003."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Apache Hive est principalement utilisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le traitement de flux en temps réel",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "L'infrastructure d'entrepôt de données avec langage SQL-like",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La messagerie entre applications",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le machine learning",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hive = Data Warehouse sur Hadoop avec HiveQL (SQL-like). Pig = utilise Pig Latin. Les deux permettent d'éviter d'écrire du code MapReduce en Java."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Quel facteur a augmenté de 10x entre 2000 et 2006 concernant le stockage ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le nombre d'utilisateurs",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La capacité des disques",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La vitesse des réseaux",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le nombre de serveurs",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Entre 2000-2006 : capacité disque ×10, prix/Go ÷10 → amélioration effective de ×100 à prix constant. C'est un facteur clé de l'émergence du Big Data."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Apache Zookeeper est utilisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le stockage de fichiers distribués",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La coordination et gestion de configuration des systèmes distribués",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le traitement de données en temps réel",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "L'analyse de données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Zookeeper = \"gardien du zoo\" - il coordonne les services distribués, gère la configuration, la synchronisation et le naming. Essentiel pour Kafka, HBase, etc."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Quel pourcentage des données mondiales est structuré ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "10%",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "20%",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "40%",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "50%",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Structuré (20%) vs Non-structuré (80% ou 90% selon les sources). Les données structurées sont celles des bases relationnelles avec schéma fixe."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Parmi les technologies suivantes, laquelle est un broker de messages ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apache HBase",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Kafka",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Apache Pig",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Apache Hive",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Brokers de messages : Kafka, RabbitMQ, ActiveMQ. Ils permettent la transmission de données entre applications distribuées de manière asynchrone et fiable."
+    },
+    {
+      "question_number": 20,
+      "question_text": "En quelle année Google a-t-il publié le papier sur Google File System (GFS) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "2001",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2003",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "2005",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "2007",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Chronologie Google : GFS (2003) → MapReduce (2004). Ces publications ont inspiré Apache Hadoop (HDFS + MapReduce) vers 2006."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Quelle est la définition correcte du \"Stream Processing\" ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Traitement de données historiques stockées",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Traitement de flux de données en temps réel de façon continue",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Traitement uniquement des données structurées",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compression des données avant stockage",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Stream Processing = traitement continu (jours, mois, années, indéfiniment) vs Batch = données avec début et fin définis."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Quelle technologie utilise le langage Pig Latin ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apache Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Pig",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Apache Spark",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Apache Storm",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Pig → Pig Latin (langage procédural). Hive → HiveQL (SQL-like déclaratif). Les deux simplifient l'écriture de jobs MapReduce."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Combien de tweets sont publiés par jour sur Twitter (approximativement) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "50 millions",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "200 millions",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "504 millions",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "1 milliard",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Calcul : ~5,900 tweets/sec × 60 sec × 60 min × 24h ≈ 509 millions/jour (arrondi à 504 millions dans le cours)."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Apache Flume est utilisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le traitement MapReduce",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La collecte et l'analyse de fichiers logs",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le stockage NoSQL",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La visualisation de données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Flume = collecte de logs/événements vers HDFS. Sqoop = transfert depuis/vers SGBD relationnels. Kafka = streaming de messages entre applications."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Quelle est la caractéristique principale de Cassandra ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Traitement en temps réel uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Base de données NoSQL à haute disponibilité sans point de défaillance unique",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Stockage de fichiers uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Langage SQL standard",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Cassandra = NoSQL distribué avec haute disponibilité et tolérance aux pannes (pas de SPOF - Single Point of Failure). Développé par Facebook, utilisé par Netflix."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Le \"Native Streaming\" se caractérise par :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le traitement par mini-lots",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le traitement de chaque enregistrement dès son arrivée sans attendre les autres",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le stockage des données avant traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "L'utilisation uniquement de Spark",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Native Streaming (Storm, Flink, Kafka Streams) = latence minimale. Micro-batch (Spark Streaming) = légère latence mais meilleur débit."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Quelle unité de stockage équivaut à 1,024 Zettaoctets ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Exaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Pétaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Yottaoctet",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Téraoctet",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Hiérarchie : Ko → Mo → Go → To → Po → Eo → Zo → Yo. Le Yottaoctet est la plus grande unité standard (10²⁴ octets)."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Parmi les frameworks suivants, lequel utilise l'approche Micro-batch ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Apache Storm",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Flink",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Spark Streaming",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Kafka Streams",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Micro-batch : Spark Streaming, Storm-Trident. Native Streaming : Storm, Flink, Kafka Streams, Samza. Spark Streaming groupe les données en mini-lots."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Que représente la \"Valeur\" dans le modèle des 5V du Big Data ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le coût du stockage",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le profit et les connaissances extraites des données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La vitesse de traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le volume des données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Valeur = transformer les données en connaissances utiles et en profit. C'est l'objectif final du Big Data : créer de la valeur business à partir des données."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Apache Oozie est utilisé pour :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le stockage de données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "L'ordonnancement de workflows Hadoop",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le traitement en temps réel",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La messagerie",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Oozie = orchestrateur/scheduler de workflows Hadoop. Il permet de chaîner des jobs MapReduce, Pig, Hive, etc. en séquence ou en parallèle."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Quelle quantité de données a été produite en 2011 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "500 Pétaoctets",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "1 Exaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "1.8 Zettaoctets",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "5 Yottaoctets",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "2011 = 1.8 Zo de données produites. Comparaison : toute l'info jusqu'en 2003 = 5 Eo. Cela illustre la croissance exponentielle des données."
+    },
+    {
+      "question_number": 32,
+      "question_text": "ElasticSearch est décrit comme :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une base de données relationnelle",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un moteur de recherche distribué via interface REST",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un système de fichiers",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un broker de messages",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "ElasticSearch = moteur de recherche full-text distribué basé sur Lucene. Utilisé pour la recherche, l'analyse de logs (stack ELK : ElasticSearch, Logstash, Kibana)."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Parmi les domaines suivants, lequel N'EST PAS mentionné comme application du Big Data ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Santé",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Commerce de détail",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Architecture des bâtiments",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Éducation (MOOCs)",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Applications du Big Data mentionnées : Santé, Éducation (MOOCs), Commerce (Amazon, Walmart), Biologie, Science, ML/DL, Recommandations (Netflix), Urbanisme, Gouvernement, Médias, Fraude."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Quelle technologie est à la fois utilisable pour le batch et le stream processing ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MapReduce",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Storm",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Apache Spark",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Apache Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Spark est polyvalent : batch (Spark Core), stream (Spark Streaming), ML (MLlib), graphes (GraphX), SQL (Spark SQL). C'est son avantage majeur sur MapReduce."
+    },
+    {
+      "question_number": 35,
+      "question_text": "La loi de Moore a été appliquée pendant combien d'années selon le cours ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "20 ans",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "25 ans",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "35 ans",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "50 ans",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Loi de Moore (1965) : le nombre de transistors double tous les ~2 ans. Elle s'est appliquée pendant 35 ans, permettant l'augmentation de la puissance de calcul nécessaire au Big Data."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quelle est la source principale des données non structurées ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Bases de données relationnelles",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Fichiers Excel",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Emails, réseaux sociaux, vidéos, photos",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Systèmes ERP",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Données non structurées : emails, chats, blogs, web, musique, photos, vidéos, réseaux sociaux, GPS mobile, capteurs IoT. Elles n'ont pas de schéma fixe prédéfini."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Apache Phoenix est construit sur quelle technologie ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MongoDB",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Cassandra",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "HBase",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "HDFS",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Phoenix = couche SQL sur HBase. Impala (Cloudera) = SQL sur HDFS/HBase. Ces outils permettent d'interroger les données Hadoop avec du SQL standard."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Quelle quantité de données représente toute l'information produite jusqu'en 2003 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 Pétaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "5 Exaoctets",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "1 Zettaoctet",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "10 Téraoctets",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Jusqu'en 2003 = 5 Eo. En 2011 = 1.8 Zo. En quelques années, on produit des centaines de fois plus de données que toute l'histoire humaine précédente !"
+    },
+    {
+      "question_number": 39,
+      "question_text": "Hazelcast est décrit comme :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un système de fichiers distribués",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un cache mémoire distribué et base de données NoSQL en mémoire",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un framework de machine learning",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un outil de visualisation",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hazelcast = in-memory data grid (IMDG). Il offre : cache distribué, NoSQL en mémoire, messaging. Similaire à Redis, utilisé pour les performances temps réel."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Pourquoi le Big Data a-t-il émergé ? (Choisir la réponse la plus complète)",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Uniquement à cause de l'augmentation du volume de données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "L'augmentation exponentielle des données non structurées, l'augmentation des capacités de stockage/analyse, et l'inadéquation des technologies existantes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La baisse des prix des ordinateurs",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "L'invention d'Internet",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "3 facteurs clés de l'émergence du Big Data : 1. Explosion des données non structurées 2. Capacités de stockage/traitement accrues et accessibles 3. Inadéquation des technologies traditionnelles (SGBD relationnels, mainframes, Excel) ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Définitions et concepts (3V, 5V) | 8 | | Statistiques et chiffres clés | 7 | | Technologies et frameworks | 15 | | Unités de stockage | 4 | | Types de traitement (Batch/Stream) | 6 | ## Conseils pour l'Examen 1. Mémorisez les chiffres clés : doublement tous les 2 ans, 80-90% non structuré, statistiques Twitter 2. Connaissez la chronologie : GFS (2003) → MapReduce (2004) → Hadoop (~2006) 3. Distinguez les technologies par leur rôle : - Stockage : HDFS, HBase, MongoDB, Cassandra - Batch : MapReduce, Spark - Stream : Storm, Flink, Kafka Streams - ETL : Sqoop (SGBD), Flume (logs) - Orchestration : Oozie, Zookeeper - SQL-like : Hive (HiveQL), Pig (Pig Latin) 4. Comprenez les nuances : Native Streaming vs Micro-batch 5. Retenez les 5V : Volume, Vélocité, Variété, Véracité, Valeur Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}

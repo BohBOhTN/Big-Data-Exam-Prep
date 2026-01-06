@@ -1,0 +1,75 @@
+.score-circle {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.score-percentage {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.score-grade {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--score-color);
+}
+
+.score-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--bg-card);
+  stroke-width: 8;
+}
+
+.ring-progress {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+}
+
+@media (max-width: 768px) {
+  .score-circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .score-percentage {
+    font-size: 2.5rem;
+  }
+
+  .score-grade {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-circle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .score-percentage {
+    font-size: 2rem;
+  }
+}

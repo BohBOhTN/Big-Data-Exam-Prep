@@ -1,0 +1,1128 @@
+{
+  "topic_name": "Apache Hive",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Hive a été initialement développé par quelle entreprise ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Google",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Yahoo",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Facebook",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Amazon",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Facebook a développé Hive pour analyser leurs données massives. Ensuite, il a été donné à l'Apache Software Foundation comme projet open source."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Qu'est-ce que Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une base de données relationnelle temps réel",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un outil d'entrepôt de données (Data Warehouse) pour Hadoop",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un système de fichiers distribué",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un broker de messages",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hive = Data Warehouse sur Hadoop. Il permet d'analyser de grands volumes de données avec un langage SQL-like, mais ce n'est PAS une base de données temps réel."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Quel langage de requête utilise Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "SQL standard",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Pig Latin",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "HiveQL (SQL-like)",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Python",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "HiveQL ressemble à SQL mais avec quelques différences. Il est compilé en jobs MapReduce (ou Tez/Spark) pour l'exécution sur Hadoop."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Hive est-il adapté pour les requêtes temps réel ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oui, c'est son usage principal",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Non, il n'est pas conçu pour le temps réel",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Seulement avec des plugins",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Uniquement pour les petites requêtes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hive est pour l'analyse batch (ETL, reporting). Pour le temps réel, utilisez Impala, Presto, ou des bases temps réel comme HBase."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Quel composant Hive stocke les métadonnées des tables ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Driver",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Metastore",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Compiler",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Execution Engine",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le Metastore contient : schémas des tables, emplacements HDFS, partitions, etc. Il utilise généralement une base relationnelle (MySQL, PostgreSQL)."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Par défaut, où sont stockées les tables internes Hive dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "/data/hive/",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "/user/hive/warehouse/",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "/tmp/hive/",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "/hive/tables/",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Chemin par défaut : `/user/hive/warehouse/database_name.db/table_name/`. Les tables externes peuvent être n'importe où via LOCATION."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Quelle est la différence principale entre une table INTERNE et une table EXTERNE ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucune différence",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La table externe garde les données lors du DROP, la table interne les supprime",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La table interne est plus rapide",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La table externe ne supporte pas les partitions",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "DROP TABLE INTERNE = supprime métadonnées ET données. DROP TABLE EXTERNE = supprime métadonnées SEULEMENT, les fichiers restent dans HDFS."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Quel mot-clé permet de créer une table externe ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "OUTER",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "EXTERNAL",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "OUTSIDE",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "REMOTE",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`CREATE EXTERNAL TABLE ... LOCATION '/path/'`. Le mot-clé EXTERNAL indique que Hive ne gère pas le cycle de vie des données."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quel est le format de stockage par défaut dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PARQUET",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "ORC",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "TEXTFILE",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "AVRO",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "TEXTFILE = format par défaut (lisible, mais peu performant). En production, préférez ORC ou PARQUET pour de meilleures performances."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Quel format de stockage est orienté colonnes et offre une meilleure compression ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TEXTFILE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "PARQUET ou ORC",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "CSV",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "JSON",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "ORC et PARQUET = formats orientés colonnes. Avantages : compression efficace, lecture sélective de colonnes, meilleure performance pour l'analytique."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Qu'est-ce qu'un SerDe dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un type de données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un Serializer/Deserializer pour lire/écrire les données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un format de compression",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un type de table",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "SerDe = Serializer/Deserializer. Il définit comment lire les lignes du fichier en colonnes et inversement. Ex: OpenCSVSerde, RegexSerde."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Quelle commande permet de charger un fichier local dans une table Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "INSERT DATA LOCAL",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "LOAD DATA LOCAL INPATH",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "COPY DATA FROM",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "IMPORT DATA LOCAL",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`LOAD DATA LOCAL INPATH '/local/path' INTO TABLE table_name`. LOCAL = fichier local, sans LOCAL = fichier HDFS."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Que fait le mot-clé OVERWRITE dans la commande LOAD DATA ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ajoute les données à la suite",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Remplace le contenu existant de la table",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Crée une nouvelle table",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Supprime la table",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`LOAD DATA ... OVERWRITE INTO TABLE` supprime les données existantes avant de charger. Sans OVERWRITE, les données sont ajoutées."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Qu'est-ce que le partitionnement dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La compression des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La division des données en répertoires basés sur les valeurs d'une colonne",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le tri des données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La suppression des doublons",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Partitionnement = 1 répertoire par valeur. Ex: PARTITIONED BY (year INT) crée /year=2023/, /year=2024/. Accélère les requêtes avec filtres."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Dans le partitionnement, que crée Hive pour chaque valeur de partition ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un répertoire",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Une table",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Une base de données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Partition = répertoire dans HDFS. Structure : `.../table/partition_col=value/data_files`. Hive ne lit que les répertoires pertinents."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Qu'est-ce que le Bucketing dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La création de sauvegardes",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La division des données en fichiers basée sur le hash d'une colonne",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le tri alphabétique",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La compression des données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Bucketing = hash(colonne) % n_buckets détermine le fichier. Utile pour : jointures optimisées, sampling. Complémentaire au partitionnement."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Dans le Bucketing, que crée Hive pour chaque bucket ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un répertoire",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un fichier",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Une partition",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Une table",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Bucket = fichier. `INTO 8 BUCKETS` crée 8 fichiers (000000_0, 000001_0, ...). Différent du partitionnement qui crée des répertoires."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Quelle clause permet de définir le nombre de buckets ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PARTITIONED BY",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "CLUSTERED BY ... INTO n BUCKETS",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "GROUPED BY",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "DIVIDED INTO",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`CLUSTERED BY (col) INTO n BUCKETS`. Optionnel : `SORTED BY (col)` pour trier dans chaque bucket. Améliore les jointures et le sampling."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Quel type de données Hive représente un entier sur 4 bytes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TINYINT",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "SMALLINT",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "INT",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "BIGINT",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Types entiers : TINYINT (1 byte), SMALLINT (2 bytes), INT (4 bytes), BIGINT (8 bytes). Choisissez selon la plage de valeurs."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Quel type de données Hive permet de stocker une chaîne jusqu'à 2G ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CHAR",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "VARCHAR",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "STRING",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "TEXT",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "STRING = longueur max 2 Go, pas de limite fixe. CHAR = fixe (255 max), VARCHAR = variable (65535 max). STRING est le plus flexible."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Que fait la commande DESCRIBE FORMATTED table_name ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Supprime la table",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Affiche les métadonnées détaillées de la table",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Crée une nouvelle table",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Modifie la structure de la table",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`DESCRIBE FORMATTED` montre : colonnes, types, partitions, emplacement HDFS, format, SerDe, propriétés. Plus complet que `DESCRIBE` simple."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Qu'est-ce que CTAS dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Create Table As Select",
+          "is_correct": true
+        },
+        {
+          "letter": "B",
+          "text": "Copy Table And Save",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Create Temporary Archive Storage",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compile Table And Sort",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "A",
+      "conseil": "CTAS = `CREATE TABLE new_table AS SELECT ...`. Crée une table et la remplit en une seule commande. Utile pour les transformations ETL."
+    },
+    {
+      "question_number": 23,
+      "question_text": "La commande CTAS crée quel type de table par défaut ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Table externe",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Table interne",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Table temporaire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Vue",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "CTAS crée toujours une table interne (managed). Pour créer une table externe, utilisez CREATE EXTERNAL TABLE puis INSERT."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Que fait la commande CREATE TABLE new_table LIKE existing_table ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Copie les données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Clone la structure sans les données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Crée une vue",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Fusionne les tables",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "LIKE copie le schéma (colonnes, types, partitions, format) mais pas les données. Utile pour créer des tables avec la même structure."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Quelle propriété permet d'ignorer la première ligne (en-têtes) d'un fichier ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "skip.first.line",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "skip.header.line.count",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "ignore.header",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "header.skip",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`TBLPROPERTIES('skip.header.line.count'='1')`. Ignore les N premières lignes (headers) lors du chargement. Essentiel pour les CSV avec en-têtes."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Quelle est la syntaxe pour insérer des valeurs directement dans une table ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ADD VALUES",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "INSERT INTO TABLE ... VALUES",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "PUT VALUES",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "LOAD VALUES",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`INSERT INTO TABLE t VALUES (v1, v2, ...)`. Possible depuis Hive 0.14. Pour les insertions massives, préférez LOAD DATA ou INSERT...SELECT."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Que signifie le partitionnement dynamique dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Les partitions sont créées automatiquement selon les données",
+          "is_correct": true
+        },
+        {
+          "letter": "B",
+          "text": "Les partitions sont créées manuellement",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Les partitions sont supprimées automatiquement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les partitions sont compressées",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "A",
+      "conseil": "Dynamique : Hive crée les partitions selon les valeurs trouvées dans les données. Statique : vous spécifiez la valeur de partition explicitement."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Quelle variable doit être configurée pour activer le partitionnement dynamique ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hive.partition.mode",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "hive.exec.dynamic.partition.mode",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "hive.dynamic.partition",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "hive.auto.partition",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`SET hive.exec.dynamic.partition.mode=nonstrict`. Par défaut = strict (requiert au moins une partition statique). nonstrict = tout dynamique."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Quelle fonction retourne la valeur par défaut si la première est NULL ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ifnull()",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "nvl()",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "coalesce()",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "default()",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`nvl(value, default)` = retourne default si value est NULL. `coalesce(v1, v2, ...)` retourne la première valeur non-NULL parmi plusieurs."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Quelle fonction permet de convertir un type de données en un autre ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "convert()",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "cast()",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "transform()",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "change()",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`CAST(expr AS type)`. Ex: `CAST('123' AS INT)`, `CAST(date_col AS STRING)`. Essentiel pour les conversions de types."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Quelle clause permet de filtrer les résultats d'agrégation ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "WHERE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "HAVING",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "FILTER",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "LIMIT",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "WHERE filtre avant l'agrégation, HAVING filtre après. `GROUP BY col HAVING COUNT(*) > 10` filtre les groupes."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Les fonctions d'agrégation peuvent-elles être utilisées dans la clause WHERE ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oui, toujours",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Non, jamais",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Seulement avec GROUP BY",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Seulement avec DISTINCT",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "WHERE ne peut pas contenir d'agrégations car elle s'exécute AVANT le GROUP BY. Utilisez HAVING pour filtrer sur des agrégats."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Quelle jointure retourne toutes les lignes des deux tables ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "INNER JOIN",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "LEFT JOIN",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "FULL OUTER JOIN",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "RIGHT JOIN",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "FULL OUTER JOIN = toutes les lignes des deux tables, avec NULL pour les non-correspondances. LEFT/RIGHT = toutes d'un côté seulement."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Par défaut, que fait Hive avec les doublons lors d'un UNION ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Les conserve tous",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Les élimine",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Génère une erreur",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les compte",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`UNION` = `UNION DISTINCT` par défaut, élimine les doublons. Pour tout garder, utilisez `UNION ALL`."
+    },
+    {
+      "question_number": 35,
+      "question_text": "Quelle option UNION conserve tous les doublons ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "UNION DISTINCT",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "UNION ALL",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "UNION KEEP",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "UNION FULL",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "UNION ALL = conserve TOUS les enregistrements, y compris les doublons. Plus performant car pas de déduplication."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quel format de fichier est recommandé pour les schémas évolutifs ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TEXTFILE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "ORC",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "AVRO",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "PARQUET",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "AVRO = excellent pour l'évolution de schéma (ajout/suppression de colonnes). Le schéma est stocké avec les données. ORC/PARQUET sont plus performants mais moins flexibles."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Quelle fonction permet de masquer les données sensibles ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "hide()",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "mask()",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "encrypt()",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "protect()",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`mask(string)` : majuscules→X, minuscules→x, chiffres→n. Ex: \"Allen\" → \"Xxxxx\", \"123\" → \"nnn\". Utile pour anonymiser."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Quelle commande permet de supprimer une base de données avec toutes ses tables ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "DROP DATABASE name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "DROP DATABASE name CASCADE",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "DELETE DATABASE name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "REMOVE DATABASE name ALL",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`DROP DATABASE name` échoue si la BD contient des tables. `DROP DATABASE name CASCADE` supprime d'abord toutes les tables puis la BD."
+    },
+    {
+      "question_number": 39,
+      "question_text": "Quel moteur d'exécution moderne peut remplacer MapReduce pour Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Storm",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Apache Tez ou Spark",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Kafka",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Flume",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Tez (optimisé pour les DAG) et Spark (in-memory) sont bien plus rapides que MapReduce pour Hive. Configuration : `SET hive.execution.engine=tez`."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Quel avantage offre le Bucketing pour les jointures ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compression des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Optimisation des JOIN entre tables avec même bucketing",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Accélération des INSERT",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Réduction de la taille des tables",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Deux tables avec même clé de bucket et même nombre de buckets = jointure optimisée. Hive peut joindre bucket par bucket sans shuffle global. ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Concepts Hive (architecture, métastore) | 6 | | Types de tables (interne, externe) | 4 | | Formats de stockage et SerDe | 5 | | DDL (CREATE, DROP, ALTER) | 6 | | DML (LOAD, INSERT) | 4 | | Partitionnement et Bucketing | 6 | | DQL (SELECT, JOIN, fonctions) | 9 | ## Conseils pour l'Examen 1. Distinguez les types de tables : - INTERNE : Hive gère les données (supprimées au DROP) - EXTERNE : Données indépendantes (conservées au DROP) 2. Connaissez les formats de stockage : - TEXTFILE : défaut, lisible, peu performant - ORC/PARQUET : colonnes, compression, performant - AVRO : évolution de schéma 3. Comprenez Partitionnement vs Bucketing : - Partition = répertoire (valeurs de colonne) - Bucket = fichier (hash de colonne) 4. Maîtrisez les commandes clés : - LOAD DATA [LOCAL] INPATH - INSERT INTO/OVERWRITE - CREATE TABLE ... AS SELECT (CTAS) - DESCRIBE FORMATTED 5. Retenez les fonctions importantes : - nvl(), cast(), mask() - Agrégations : count, sum, avg, min, max Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}

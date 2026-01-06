@@ -1,0 +1,113 @@
+.topic-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--topic-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.topic-card:hover {
+  border-color: var(--topic-color);
+}
+
+.topic-card.selected {
+  border-color: var(--topic-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.topic-card.selected::before {
+  opacity: 1;
+}
+
+.topic-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topic-info {
+  flex: 1;
+}
+
+.topic-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.topic-info .question-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.topic-checkbox {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.topic-checkbox.checked {
+  border-color: var(--topic-color);
+  background: var(--topic-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .topic-card {
+    padding: 1rem;
+    gap: 0.875rem;
+  }
+
+  .topic-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .topic-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .topic-info .question-count {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic-card {
+    gap: 0.75rem;
+  }
+
+  .topic-icon {
+    width: 42px;
+    height: 42px;
+  }
+}

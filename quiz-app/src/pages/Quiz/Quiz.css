@@ -1,0 +1,49 @@
+.quiz-page {
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Button Variants */
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .quiz-page {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-page {
+    padding: 0.5rem;
+    padding-bottom: 80px;
+  }
+}

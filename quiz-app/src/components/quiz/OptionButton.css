@@ -1,0 +1,90 @@
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.option-btn:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.option-btn.selected {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.option-letter {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.option-btn.selected .option-letter {
+  background: var(--primary);
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.selected-indicator {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .option-btn {
+    padding: 0.75rem;
+    border-radius: 12px;
+    gap: 0.75rem;
+  }
+
+  .option-letter {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .option-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .option-btn {
+    padding: 0.625rem;
+  }
+
+  .option-letter {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .option-text {
+    font-size: 0.85rem;
+  }
+}

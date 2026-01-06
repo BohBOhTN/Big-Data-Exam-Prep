@@ -1,0 +1,143 @@
+.question-count-selector {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.question-count-selector h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.selector-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.count-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.count-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.count-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.count-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.count-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.quick-select {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.quick-btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-btn:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+}
+
+.quick-btn.active {
+  background: var(--gradient-1);
+  border-color: transparent;
+  color: white;
+}
+
+.max-info {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .question-count-selector {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .question-count-selector h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .selector-controls {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .count-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .count-number {
+    font-size: 2.25rem;
+  }
+
+  .quick-select {
+    gap: 0.5rem;
+  }
+
+  .quick-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .count-number {
+    font-size: 2rem;
+  }
+}

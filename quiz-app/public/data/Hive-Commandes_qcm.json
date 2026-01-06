@@ -1,0 +1,1128 @@
+{
+  "topic_name": "Hive Commandes",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Quelle commande permet de créer une base de données si elle n'existe pas déjà ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CREATE DATABASE database_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "CREATE DATABASE IF NOT EXISTS database_name",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "NEW DATABASE database_name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "MAKE DATABASE database_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`IF NOT EXISTS` évite les erreurs si la base existe déjà. Bonne pratique dans les scripts pour l'idempotence."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Quelle commande affiche la liste de toutes les bases de données ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "LIST DATABASES",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "DISPLAY DATABASES",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "SHOW DATABASES",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "VIEW DATABASES",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`SHOW DATABASES` (ou `SHOW SCHEMAS`). Commandes similaires : `SHOW TABLES`, `SHOW PARTITIONS`, `SHOW FUNCTIONS`."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Quelle commande permet de sélectionner une base de données pour l'utiliser ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "SELECT database_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "OPEN database_name",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "USE database_name",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "SWITCH database_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`USE db_name` change le contexte de la session. Après cela, les tables sont référencées sans préfixe (table au lieu de db.table)."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Par défaut, peut-on supprimer une base de données contenant des tables ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oui, sans problème",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Non, il faut utiliser CASCADE",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Oui, mais avec un avertissement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Non, il faut d'abord la renommer",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`DROP DATABASE db_name` échoue si elle contient des tables. Utilisez `DROP DATABASE db_name CASCADE` pour tout supprimer."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Quel est le suffixe ajouté au nom de la base de données dans HDFS ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": ".database",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": ".db",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": ".hive",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Aucun suffixe",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Structure HDFS : `/user/hive/warehouse/mabase.db/matable/`. Le suffixe .db identifie les répertoires de bases de données."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Où se trouve le répertoire d'une table dans HDFS par rapport à sa base de données ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Au même niveau",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Dans un sous-répertoire de la base de données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Dans un répertoire parent",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "À la racine de HDFS",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Hiérarchie : warehouse/ → database.db/ → table/ → [partition/] → fichiers. La table est un sous-répertoire de la BD."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Quel mot-clé permet de créer une table visible uniquement dans la session courante ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "SESSION",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "LOCAL",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "TEMPORARY",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "PRIVATE",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`CREATE TEMPORARY TABLE ...` crée une table éphémère. Utile pour les transformations intermédiaires (ex: conversion texte→parquet)."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Le mot-clé EXTERNAL dans CREATE TABLE signifie que :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La table est stockée sur un serveur externe",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Hive ne gère pas physiquement les données",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La table est cryptée",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La table est en lecture seule",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Table EXTERNE : DROP supprime les métadonnées mais conserve les fichiers. Idéal quand les données sont partagées avec d'autres systèmes."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quelle clause permet de spécifier un chemin HDFS personnalisé pour une table externe ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PATH",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "DIRECTORY",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "LOCATION",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "HDFS_PATH",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`CREATE EXTERNAL TABLE ... LOCATION '/custom/path/'`. Sans LOCATION, même les tables externes vont dans warehouse."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Quel est le format de stockage par défaut si non spécifié ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "PARQUET",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "ORC",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "TEXTFILE",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "AVRO",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "TEXTFILE = défaut (lisible, peu performant). Spécifiez toujours `STORED AS PARQUET` ou `ORC` en production pour de meilleures performances."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Quel SerDe est utilisé par défaut pour le format TEXTFILE ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "OpenCSVSerde",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "RegexSerDe",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "LazySimpleSerDe",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "JsonSerDe",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "LazySimpleSerDe = SerDe par défaut. \"Lazy\" car les champs sont désérialisés uniquement à l'accès (optimisation)."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Quel est le séparateur de colonnes par défaut avec LazySimpleSerDe ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Virgule (,)",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Point-virgule (;)",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Tabulation (\\t)",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "Espace",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "Défaut : colonnes séparées par TAB, lignes par \\n, NULL représenté par \\N. Modifiable via `ROW FORMAT DELIMITED`."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Comment sont représentées les valeurs NULL par défaut dans Hive ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "NULL",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "empty",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "\\N",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "(null)",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "\\N = représentation par défaut de NULL. Modifiable via `TBLPROPERTIES('serialization.null.format'='')` pour chaîne vide."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Quel SerDe utiliser pour parser des fichiers logs avec des expressions régulières ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "OpenCSVSerde",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "RegexSerDe",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "LogSerDe",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "PatternSerDe",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe' WITH SERDEPROPERTIES (\"input.regex\" = \"...\")`. Puissant pour les logs Apache, etc."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Quelle propriété permet d'ignorer la ligne d'en-tête d'un fichier CSV ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ignore.header=true",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "skip.header.line.count",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "header.skip.count",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "no.header",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`TBLPROPERTIES('skip.header.line.count'='1')` ignore la première ligne. Essentiel pour les CSV avec en-têtes de colonnes."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Quelle commande permet de voir la structure détaillée d'une table ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "SHOW TABLE table_name",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "DESCRIBE FORMATTED table_name",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "VIEW STRUCTURE table_name",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "TABLE INFO table_name",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`DESCRIBE FORMATTED` montre tout : colonnes, types, partitions, SerDe, location HDFS, propriétés. Plus complet que `DESCRIBE` simple."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Le mot-clé LOCAL dans LOAD DATA indique que le fichier se trouve :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Dans HDFS",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Dans le système de fichiers local",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Sur un serveur distant",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Dans le Metastore",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`LOAD DATA LOCAL INPATH '/home/user/file.csv'` = fichier local. Sans LOCAL = fichier déjà dans HDFS."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Que fait LOAD DATA INPATH (sans LOCAL) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Copie le fichier local vers HDFS",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Déplace le fichier HDFS vers la table",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Crée un lien symbolique",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compresse le fichier",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Sans LOCAL : le fichier HDFS est déplacé (pas copié) vers le répertoire de la table. Avec LOCAL : le fichier est copié de local vers HDFS."
+    },
+    {
+      "question_number": 19,
+      "question_text": "Quelle option permet de remplacer les données existantes lors du chargement ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "REPLACE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "OVERWRITE",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "UPDATE",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "REFRESH",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`LOAD DATA ... OVERWRITE INTO TABLE` efface d'abord le contenu. Sans OVERWRITE, les nouvelles données sont ajoutées aux existantes."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Pour convertir un fichier texte en Parquet, quelle est la méthode recommandée ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Utiliser une commande de conversion directe",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Créer une table temporaire texte puis INSERT INTO une table Parquet",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Renommer le fichier",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Modifier le format dans le Metastore",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "1) CREATE TEMPORARY TABLE tmp STORED AS TEXTFILE, 2) LOAD DATA, 3) CREATE TABLE final STORED AS PARQUET, 4) INSERT INTO final SELECT * FROM tmp."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Quelle commande permet d'activer le partitionnement dynamique non strict ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "SET hive.partition.dynamic=true",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "SET hive.exec.dynamic.partition.mode=nonstrict",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "SET hive.dynamic.mode=all",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "SET partition.mode=dynamic",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Mode strict (défaut) : au moins une partition statique requise. Mode nonstrict : toutes les partitions peuvent être dynamiques."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Dans une insertion avec partition dynamique, où doit se trouver la colonne de partition dans le SELECT ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "En première position",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "En dernière position",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "N'importe où",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Elle ne doit pas être dans le SELECT",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`INSERT INTO table PARTITION(year, month) SELECT col1, col2, year, month FROM src`. Les colonnes de partition sont à la fin du SELECT."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Quelle commande ajoute manuellement une partition à une table ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "CREATE PARTITION",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "ADD PARTITION",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "ALTER TABLE ... ADD PARTITION",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "INSERT PARTITION",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`ALTER TABLE t ADD PARTITION (year=2024, month=1)`. Crée le répertoire et enregistre la partition dans le Metastore."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Que fait la commande SET hive.enforce.bucketing=true ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Active le partitionnement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Force le respect du bucketing lors des insertions",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Désactive le bucketing",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Crée des buckets automatiquement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Avec `enforce.bucketing=true`, Hive garantit que les données sont correctement distribuées dans les buckets lors de l'insertion."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Pourquoi le bucketing optimise-t-il les jointures ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Il compresse les données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Les données avec même clé sont dans le même bucket, évitant le shuffle",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Il trie les données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Il réduit la taille des tables",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Même clé = même hash = même bucket. Jointure : bucket 0 de A avec bucket 0 de B, etc. Pas besoin de redistribuer les données sur le réseau (shuffle)."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Pour optimiser une jointure entre deux tables bucketées, elles doivent avoir :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le même nom",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La même clé de bucket et le même nombre de buckets",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le même format de stockage",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les mêmes colonnes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Même clé + même nombre de buckets = jointure optimisée (bucket-map join). Sinon, shuffle nécessaire."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Quelle clause définit le délimiteur de champs dans un fichier ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "FIELDS DELIMITED BY",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "FIELDS TERMINATED BY",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "COLUMN SEPARATOR",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "FIELD DELIMITER",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`ROW FORMAT DELIMITED FIELDS TERMINATED BY ','`. Syntaxe standard pour les fichiers CSV ou délimités."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Quelle clause définit le délimiteur de lignes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "ROWS TERMINATED BY",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "LINES TERMINATED BY",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "LINE SEPARATOR",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "ROW DELIMITER",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`LINES TERMINATED BY '\\n'` (défaut). Rarement modifié sauf pour des formats spéciaux."
+    },
+    {
+      "question_number": 29,
+      "question_text": "Le SerDe OpenCSVSerde est recommandé pour quel type de fichiers ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "JSON",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "CSV avec guillemets et échappements",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Fichiers binaires",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Fichiers XML",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "OpenCSVSerde gère correctement les guillemets (\"valeur, avec virgule\"), les échappements, etc. Meilleur que LazySimpleSerDe pour les vrais CSV."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Quel format de stockage offre la meilleure compression selon le cours ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TEXTFILE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "PARQUET",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "ORC",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "AVRO",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "ORC offre généralement la meilleure compression (optimisé pour Hive). PARQUET est plus portable (Spark, Impala). Les deux sont bien meilleurs que TEXTFILE."
+    },
+    {
+      "question_number": 31,
+      "question_text": "Quelle commande INSERT ajoute des données sans supprimer les existantes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "INSERT OVERWRITE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "INSERT INTO",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "INSERT APPEND",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "INSERT ADD",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`INSERT INTO TABLE t SELECT ...` ajoute aux données existantes. `INSERT OVERWRITE` remplace tout."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Quelle commande INSERT remplace les données existantes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "INSERT INTO",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "INSERT OVERWRITE",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "INSERT REPLACE",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "INSERT UPDATE",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`INSERT OVERWRITE TABLE t SELECT ...` supprime les données actuelles avant d'insérer. Utile pour les rechargements complets."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Dans CREATE TABLE AS SELECT, peut-on créer une table externe ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oui, avec EXTERNAL",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Non, uniquement des tables internes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Seulement avec LOCATION",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Seulement pour les tables partitionnées",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "CTAS crée toujours une table interne. Pour une table externe, créez d'abord la structure avec CREATE EXTERNAL TABLE puis INSERT INTO."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Quelle est la syntaxe pour insérer plusieurs valeurs en une commande ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "INSERT INTO TABLE t VALUES (v1), (v2), (v3)",
+          "is_correct": true
+        },
+        {
+          "letter": "B",
+          "text": "INSERT INTO TABLE t VALUES (v1); VALUES (v2)",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "INSERT MULTI INTO TABLE t",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "BULK INSERT INTO TABLE t",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "A",
+      "conseil": "`INSERT INTO TABLE t VALUES (1,'a'), (2,'b'), (3,'c')`. Chaque tuple entre parenthèses, séparés par des virgules."
+    },
+    {
+      "question_number": 35,
+      "question_text": "Quel est l'avantage des tables TEMPORARY ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Elles sont plus rapides",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Elles sont visibles uniquement dans la session courante",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Elles sont compressées automatiquement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Elles sont répliquées",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Tables TEMPORARY = disparaissent à la fin de la session. Parfait pour les tables intermédiaires de transformation sans polluer le schéma."
+    },
+    {
+      "question_number": 36,
+      "question_text": "Quelle commande permet de modifier les propriétés d'une table existante ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "MODIFY TABLE",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "UPDATE TABLE",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "ALTER TABLE",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "CHANGE TABLE",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`ALTER TABLE` pour : renommer, ajouter colonnes, modifier propriétés, ajouter partitions. Commande très polyvalente."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Comment ajouter un commentaire à une colonne lors de la création de table ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "-- commentaire",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "/* commentaire */",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "COMMENT 'description'",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "DESC 'description'",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "`col_name TYPE COMMENT 'description'`. Les commentaires sont stockés dans le Metastore et visibles avec DESCRIBE."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Quelle clause permet de définir la propriété de format null personnalisé ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "NULLFORMAT",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "TBLPROPERTIES('serialization.null.format'='...')",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "NULL AS",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "NULLVALUE",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`TBLPROPERTIES('serialization.null.format'='')` pour représenter NULL par une chaîne vide au lieu de \\N."
+    },
+    {
+      "question_number": 39,
+      "question_text": "Quel SerDe est automatiquement utilisé pour le format ORC ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "LazySimpleSerDe",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "OrcSerde",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "BinarySerDe",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "ColumnSerDe",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "`STORED AS ORC` implique automatiquement OrcSerde. De même : PARQUET → ParquetHiveSerDe, AVRO → AvroSerDe."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Que signifie \"Lazy reading\" dans le contexte du SerDe par défaut ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "La lecture est lente",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Les champs sont convertis uniquement lorsqu'ils sont utilisés",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "La lecture est différée",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les données sont chargées en mémoire",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Lazy = paresseux. Les colonnes sont désérialisées à la demande. Si une requête n'utilise que 2 colonnes sur 10, les 8 autres ne sont pas traitées. ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Gestion des bases de données | 5 | | Création de tables (syntaxe, options) | 8 | | SerDe et formats de stockage | 8 | | Chargement de données (LOAD, INSERT) | 8 | | Partitionnement et Bucketing | 6 | | Commandes utilitaires | 5 | ## Conseils pour l'Examen 1. Maîtrisez la syntaxe de base : ```sql CREATE DATABASE IF NOT EXISTS db; USE db; SHOW TABLES; DESCRIBE FORMATTED table; ``` 2. Connaissez les différences clés : - LOCAL vs non-LOCAL dans LOAD DATA - INTO vs OVERWRITE - Table INTERNE vs EXTERNE - Partition STATIQUE vs DYNAMIQUE 3. Retenez les SerDe courants : - LazySimpleSerDe (défaut TEXTFILE) - OpenCSVSerde (CSV propres) - RegexSerDe (logs) - OrcSerde, ParquetHiveSerDe (automatiques) 4. Comprenez le bucketing : - Même clé + même nombre de buckets = jointure optimisée - `SET hive.enforce.bucketing=true` 5. N'oubliez pas les propriétés importantes : - `skip.header.line.count` - `serialization.null.format` - `hive.exec.dynamic.partition.mode` Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}
