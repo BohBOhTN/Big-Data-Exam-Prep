@@ -45,6 +45,7 @@ This is an **unofficial study tool** created from Big Data course content. It ma
 
 - Node.js 18+ 
 - npm or yarn
+- Docker & Docker Compose (for containerized deployment)
 
 ### Installation
 
@@ -73,6 +74,48 @@ npm run build
 # Preview the build
 npm run preview
 ```
+
+### Docker Deployment
+
+#### Local Testing with Docker Compose
+
+```bash
+# Build and run the Docker container locally on port 777
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f quiz-app
+
+# Stop the container
+docker-compose down
+```
+
+Visit: `http://localhost:777`
+
+#### Manual Docker Build
+
+```bash
+# Build the image
+docker build -t bigdata-quiz-app:latest .
+
+# Run the container
+docker run -d -p 777:80 --name quiz-app bigdata-quiz-app:latest
+
+# Stop the container
+docker stop quiz-app
+docker rm quiz-app
+```
+
+#### VPS Deployment
+
+The application is automatically deployed to the VPS via GitHub Actions when changes are pushed to the main branch.
+
+**Requirements:**
+- VPS with Docker installed
+- SSH access configured
+- GitHub Secrets configured (VPS_HOST, VPS_USERNAME, VPS_SSH_KEY, VPS_SSH_PORT)
+
+**Access your deployed app:** `http://72.62.176.16:777`
 
 ## 🏗️ Project Structure
 
@@ -129,6 +172,44 @@ quiz-app/
 - **[Framer Motion](https://www.framer.com/motion/)** - Animations
 - **[Lucide React](https://lucide.dev/)** - Beautiful icons
 - **[React Confetti](https://www.npmjs.com/package/react-confetti)** - Celebration effects
+- **[Docker](https://www.docker.com/)** - Containerization
+- **[Nginx](https://nginx.org/)** - Web server for production
+
+## 🐳 Docker & Deployment
+
+### Architecture
+
+```
+Multi-stage Docker Build:
+1. Build Stage: Node.js 20 Alpine - Builds React app
+2. Production Stage: Nginx Alpine - Serves compiled assets
+3. Nginx Configuration: SPA routing, gzip, strategic caching
+4. Deployment: GitHub Actions → VPS with auto-scaling
+```
+
+### Docker Files
+
+- **`Dockerfile`** - Multi-stage build optimized for production
+- **`nginx.conf`** - Nginx server configuration with SPA routing
+- **`docker-compose.yml`** - Local development environment
+- **`.dockerignore`** - Excludes unnecessary files from image
+
+### Deployment Flow
+
+```
+Push to main → GitHub Actions → Build Docker image 
+  → Transfer to VPS → Deploy container on port 777
+```
+
+### Features
+
+✅ Automated CI/CD pipeline  
+✅ Multi-stage Docker build for minimal image size  
+✅ Health checks for container monitoring  
+✅ Automatic rollback on failure    
+✅ Gzip compression enabled  
+✅ Strategic caching for assets  
+✅ React Router SPA support
 
 ## 🎨 Customization
 
