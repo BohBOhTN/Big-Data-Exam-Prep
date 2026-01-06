@@ -29,7 +29,7 @@ Big Data/
 │   ├── Hive/
 │   ├── Hive-Commandes/
 │   └── TP-HadoopHDFS/
-├── exams with correction/         # QCM Exam Files
+├── exams with correction/         # QCM Exam Files (Markdown)
 │   ├── 1_IntroductionGenerale_exam/
 │   ├── 2_HadoopIntro_exam/
 │   ├── 3_HDFS_exam/
@@ -37,7 +37,17 @@ Big Data/
 │   ├── Hive_exam/
 │   ├── Hive-Commandes_exam/
 │   └── TP-HadoopHDFS_exam/
-└── extract_pdf_images.py          # Script to extract images from PDFs
+├── qcm_json/                      # Structured QCM data (JSON)
+│   ├── 1_IntroductionGenerale_qcm.json
+│   ├── 2_HadoopIntro_qcm.json
+│   ├── 3_HDFS_qcm.json
+│   ├── 4_MapReduce_qcm.json
+│   ├── Hive_qcm.json
+│   ├── Hive-Commandes_qcm.json
+│   ├── TP-HadoopHDFS_qcm.json
+│   └── _index.json                # Summary/index file
+├── extract_pdf_images.py          # Script to extract images from PDFs
+└── extract_qcm_to_json.py         # Script to convert QCM markdown to JSON
 ```
 
 ## 📝 Exam Content
@@ -65,7 +75,47 @@ Each exam folder contains two files:
 2. Check your answers in `qcm_questions_avec_corrections.md`
 3. Review the 💡 tips for deeper understanding
 
-## 👤 Author
+## � Scripts
+
+### `extract_pdf_images.py`
+Extracts images from course PDF files for reference.
+
+### `extract_qcm_to_json.py`
+Converts QCM markdown files to structured JSON format.
+
+**Usage:**
+```bash
+python extract_qcm_to_json.py
+```
+
+**JSON Output Structure:**
+```json
+{
+  "topic_name": "Apache Hive",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Question text here",
+      "options": [
+        {"letter": "A", "text": "Option A", "is_correct": false},
+        {"letter": "B", "text": "Option B", "is_correct": true}
+      ],
+      "correct_answer": "B",
+      "conseil": "Study tip here"
+    }
+  ]
+}
+```
+
+**Features:**
+- Cleans markdown formatting (**, ✓, ✅, 💡, 🎯)
+- Extracts all questions with options, correct answers, and conseils
+- Generates index file with summary metadata
+
+## �👤 Author
 
 **Baha Eddine Hamdi**
 

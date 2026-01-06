@@ -1,0 +1,1128 @@
+{
+  "topic_name": "MapReduce",
+  "topic_description": "Questions avec Corrections et Conseils",
+  "author": "Mohamed KOUBAA",
+  "num_questions": 40,
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "MapReduce est composé de combien de parties principales ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une seule partie",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Deux parties (Framework et Technique de programmation)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Trois parties",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Quatre parties",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "MapReduce = 1) Framework (APIs Java + moteur d'exécution) + 2) Technique de programmation (méthode de raisonnement pour résoudre les problèmes Big Data)."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Quel est le principe fondamental de MapReduce concernant les données ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Copier toutes les données vers un serveur central",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Déplacer le calcul vers les données, pas l'inverse",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Compresser les données avant traitement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Utiliser uniquement la mémoire RAM",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Principe clé : \"Move computation to data\". Transférer du code (Ko) est bien plus rapide que transférer des données (To/Po)."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Qu'est-ce qu'un Input Split dans MapReduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une fonction de division des résultats",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une division logique créée par le moteur d'exécution pour chaque bloc",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un type de données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un format de fichier",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Input Split = division logique créée par le moteur. Généralement 1 Input Split = 1 bloc HDFS (128 MB), mais peut être différent selon l'InputFormat."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Qu'est-ce qu'un Record dans le contexte MapReduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier complet",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une unité de données passée à la fonction Map (ex: une ligne de texte)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un bloc HDFS",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un résultat final",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Un Record = plus petite unité traitée par un Mapper. Par défaut (TextInputFormat), 1 record = 1 ligne. La fonction Map est appelée une fois par record."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Quelle est la sortie de la fonction Map ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier texte",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Des couples (clé, valeur) intermédiaires",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un nombre unique",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Une base de données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Map produit des paires (key, value). Exemple WordCount : mot=\"hello\" → (\"hello\", 1). Ces paires sont ensuite triées et groupées pour le Reduce."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Que fait la phase Shuffle & Sort ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compresse les données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Mélange et trie les données intermédiaires par clé",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Supprime les doublons",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Crée des sauvegardes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Shuffle = transfert des sorties Map vers les Reducers. Sort = tri par clé. Résultat : chaque Reducer reçoit toutes les valeurs d'une même clé."
+    },
+    {
+      "question_number": 7,
+      "question_text": "Combien de processus Reduce sont créés par défaut ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucun",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un seul",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Autant que de Mappers",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Dix",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Par défaut 1 seul Reducer, mais configurable. Plusieurs Reducers = meilleure parallélisation mais résultats dans des fichiers séparés (pas de tri global automatique)."
+    },
+    {
+      "question_number": 8,
+      "question_text": "Dans MapReduce v1, quel démon divise le travail sur les Mappers et Reducers ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TaskTracker",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "JobTracker",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "NameNode",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "DataNode",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "JobTracker (v1) = Master qui planifie les tâches et les distribue aux TaskTrackers. Remplacé par ResourceManager + ApplicationMaster dans YARN."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Quel démon s'exécute sur chaque nœud pour exécuter les tâches Map-Reduce dans la v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "JobTracker",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "TaskTracker",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "ResourceManager",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "NodeManager",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "TaskTracker (v1) = démon sur chaque nœud esclave qui exécute les tâches assignées par le JobTracker. Remplacé par NodeManager dans YARN."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Qu'est-ce qu'un Slot dans MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un espace de stockage",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une unité d'exécution représentant la capacité à exécuter une tâche",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un type de données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un protocole réseau",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les Slots étaient des unités fixes : Map Slots et Reduce Slots séparés. Problème : si tous les Map slots sont utilisés, les Reduce slots restent inutilisés même si disponibles."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Quelle était la limite de nœuds par cluster dans MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1000 nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "2000 nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "4000 nœuds",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "10000 nœuds",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "4000 nœuds max dans v1 car le JobTracker centralisé ne pouvait pas gérer plus. YARN a éliminé cette limite grâce à son architecture distribuée."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Quel problème majeur avait MapReduce v1 concernant le JobTracker ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Il était trop rapide",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Il était un Single Point of Failure (SPoF)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Il utilisait trop de mémoire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Il ne supportait pas Java",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le JobTracker = SPoF : s'il tombe, tous les jobs en cours doivent redémarrer. YARN résout cela avec un ResourceManager en HA."
+    },
+    {
+      "question_number": 13,
+      "question_text": "Que signifie YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Yet Another Resource Navigator",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Yet Another Resource Negotiator",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Yarn Application Resource Node",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Yield And Resource Network",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Yet Another Resource Negotiator. YARN sépare la gestion des ressources (ResourceManager) de la gestion des tâches (ApplicationMaster)."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Dans YARN (MapReduce v2), quel composant remplace le JobTracker pour la gestion des ressources ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "TaskTracker",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Resource Manager",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Application Master",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Container",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Resource Manager = ordonnanceur global des ressources du cluster. L'ApplicationMaster gère les tâches spécifiques à chaque application."
+    },
+    {
+      "question_number": 15,
+      "question_text": "Où s'exécute le Resource Manager dans YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Sur tous les nœuds",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Sur le nœud Master uniquement",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Sur les DataNodes",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Dans le cloud",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le RM s'exécute sur le nœud Master. Les NodeManagers s'exécutent sur chaque nœud esclave. Séparation claire Master/Slave."
+    },
+    {
+      "question_number": 16,
+      "question_text": "Qu'est-ce qu'un Container dans YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Un fichier de données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une unité d'exécution avec des ressources allouées (CPU, mémoire)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un protocole réseau",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un type de compression",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Container = unité d'exécution dynamique avec CPU + mémoire alloués. Remplace les slots fixes de v1. Plus flexible et efficace."
+    },
+    {
+      "question_number": 17,
+      "question_text": "Combien d'Application Master y a-t-il par application dans YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucun",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Un seul",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Plusieurs",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Autant que de nœuds",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "1 Application Master par application. Il négocie les ressources avec le RM et coordonne l'exécution des tâches de son application."
+    },
+    {
+      "question_number": 18,
+      "question_text": "Quel est le rôle de l'Application Master ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Gérer les ressources globales du cluster",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Demander des containers et gérer les tâches de son application",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Stocker les données",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Monitorer le cluster",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "L'ApplicationMaster : 1) Demande des containers au RM, 2) Lance les tâches dans ces containers, 3) Gère les échecs et relances. Un par application."
+    },
+    {
+      "question_number": 19,
+      "question_text": "YARN permet-il d'exécuter des applications non-MapReduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Non, uniquement MapReduce",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oui, il supporte MR et non-MR",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Seulement avec des plugins",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Uniquement Spark",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "YARN = plateforme générique. Il peut exécuter MapReduce, Spark, Tez, Flink, etc. C'est un avantage majeur sur v1 qui ne supportait que MapReduce."
+    },
+    {
+      "question_number": 20,
+      "question_text": "Quelle est la différence principale entre les slots (v1) et les containers (v2) ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Aucune différence",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Les slots sont prédéfinis et fixes, les containers sont alloués dynamiquement",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les containers sont plus petits",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les slots sont plus modernes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Slots = nombre fixe, séparés Map/Reduce. Containers = alloués à la demande, flexibles. Les containers utilisent mieux les ressources disponibles."
+    },
+    {
+      "question_number": 21,
+      "question_text": "Dans l'exemple du comptage de lignes, que fait la fonction Map sur chaque bloc ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compte toutes les lignes du fichier",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Lit ligne par ligne et incrémente un compteur local",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Trie les lignes",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compresse les lignes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Chaque Mapper compte les lignes de son bloc local. Résultat : un compteur partiel par Mapper. Ces compteurs sont ensuite agrégés par le Reducer."
+    },
+    {
+      "question_number": 22,
+      "question_text": "Dans l'exemple du comptage de lignes, que fait la fonction Reduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Lit les lignes",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Fait la somme des compteurs de tous les Mappers",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Trie les résultats",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Sauvegarde les données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le Reducer agrège : somme de tous les compteurs partiels = nombre total de lignes. Le Reducer reçoit peu de données (des chiffres, pas les lignes)."
+    },
+    {
+      "question_number": 23,
+      "question_text": "Pourquoi est-il coûteux de copier 20 TB de données vers un serveur central ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le serveur est trop petit",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le temps de transfert peut prendre des heures voire des jours",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les données sont cryptées",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Le format n'est pas compatible",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Réseau 1 Gbps = ~100 MB/s = 20 TB en ~55 heures minimum. MapReduce évite ce transfert en traitant les données localement."
+    },
+    {
+      "question_number": 24,
+      "question_text": "Qu'est-ce que le Node Manager dans YARN ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Le gestionnaire global du cluster",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Le démon qui s'exécute sur chaque nœud esclave et communique avec le RM",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Un outil de monitoring",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un système de stockage",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "NodeManager = successeur du TaskTracker. Un par nœud esclave. Gère les containers locaux, rapporte les ressources au RM, surveille la santé du nœud."
+    },
+    {
+      "question_number": 25,
+      "question_text": "Quel problème de MapReduce v1 concernait l'utilisation des slots ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Trop de slots disponibles",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Si les map slots sont pleins, les reduce slots ne peuvent pas être utilisés et vice-versa",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les slots sont trop rapides",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Les slots ne fonctionnent pas avec HDFS",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les slots étaient cloisonnés : Map slots ≠ Reduce slots. Ressources gaspillées si une catégorie est pleine et l'autre vide. YARN unifie avec les containers."
+    },
+    {
+      "question_number": 26,
+      "question_text": "Quel problème d'interopérabilité avait MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Ne supportait pas Java",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Impossible d'exécuter des applications non-MapReduce sur HDFS",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Incompatible avec Linux",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Ne fonctionnait pas avec le réseau",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le JobTracker était couplé à MapReduce. Impossible d'utiliser d'autres frameworks (Spark, etc.) sur le même cluster. YARN découple et permet tout."
+    },
+    {
+      "question_number": 27,
+      "question_text": "Dans YARN, les ressources sont allouées :",
+      "options": [
+        {
+          "letter": "A",
+          "text": "De manière fixe et prédéfinie",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "À la demande, dynamiquement",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Uniquement au démarrage",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Par l'administrateur manuellement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "YARN alloue les ressources à la demande. L'ApplicationMaster demande des containers au RM qui les alloue si disponibles. Allocation dynamique et flexible."
+    },
+    {
+      "question_number": 28,
+      "question_text": "Combien de Mappers sont créés pour traiter un fichier de 20 TB avec des blocs de 128 MB ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "1 Mapper",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "20 Mappers",
+          "is_correct": false
+        },
+        {
+          "letter": "C",
+          "text": "Un Mapper par bloc (environ 156,250 Mappers)",
+          "is_correct": true
+        },
+        {
+          "letter": "D",
+          "text": "100 Mappers",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "C",
+      "conseil": "20 TB = 20 × 1024 × 1024 MB = 20,971,520 MB. Divisé par 128 MB = ~163,840 blocs = ~163,840 Mappers. C'est la puissance du parallélisme MapReduce !"
+    },
+    {
+      "question_number": 29,
+      "question_text": "Quelle phase intervient entre Map et Reduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Compress",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Shuffle & Sort",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Filter",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Join",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Flux MapReduce : Map → Shuffle & Sort → Reduce. Le Shuffle transfère les données, le Sort les trie par clé avant envoi aux Reducers."
+    },
+    {
+      "question_number": 30,
+      "question_text": "Qu'est-ce que le Framework MapReduce fournit ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Des données",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Des APIs Java et gère les tâches internes à l'exécution",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Du stockage uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "De la visualisation",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le Framework fournit : APIs (Mapper, Reducer, Job...), moteur d'exécution (création des splits, scheduling, shuffle/sort, tolérance aux pannes)."
+    },
+    {
+      "question_number": 31,
+      "question_text": "La technique MapReduce est-elle universelle pour tous les problèmes ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Oui, elle résout tous les problèmes",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Non, ce n'est pas une approche universelle pour tous les types de problèmes",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Seulement pour les problèmes mathématiques",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Uniquement pour le tri",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "MapReduce est adapté aux problèmes parallelisables (agrégations, comptages, ETL). Mal adapté aux : algorithmes itératifs, graphes, ML avec beaucoup d'itérations."
+    },
+    {
+      "question_number": 32,
+      "question_text": "Pour avoir un résultat trié par ordre avec plusieurs Reducers, que faut-il faire ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Rien, c'est automatique",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Avoir un seul Reducer ou ajouter une étape de tri supplémentaire",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Utiliser Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Compresser les données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Avec plusieurs Reducers, chaque fichier de sortie est trié localement mais pas globalement. Solutions : 1 Reducer (ne scale pas) ou job de tri additionnel."
+    },
+    {
+      "question_number": 33,
+      "question_text": "Le TaskTracker choisit généralement de traiter un bloc sur quelle machine ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une machine aléatoire",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "La même machine que lui (data locality)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Le serveur central",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "La machine la plus puissante",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Data Locality = traiter les données localement. Le scheduler essaie d'assigner les tâches aux nœuds qui stockent les données pour éviter le transfert réseau."
+    },
+    {
+      "question_number": 34,
+      "question_text": "Quels sont les 3 composants de l'architecture MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Map, Reduce, Sort",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "API, Framework, Resource Management",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "HDFS, YARN, Hive",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Input, Process, Output",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "3 composants v1 : 1) API (programmation), 2) Framework (exécution), 3) Resource Management (gestion cluster). Dans v2, le 3ème est séparé dans YARN."
+    },
+    {
+      "question_number": 35,
+      "question_text": "Dans YARN, qui arbitre les ressources entre plusieurs applications ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Application Master",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Resource Manager",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Node Manager",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Container",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Le Resource Manager est l'arbitre global. Il décide quelle application reçoit des ressources, selon les politiques de scheduling (FIFO, Fair, Capacity)."
+    },
+    {
+      "question_number": 36,
+      "question_text": "La scalabilité de YARN est-elle meilleure que celle de MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Non, elle est identique",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oui, bien meilleure grâce à l'architecture distribuée",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Non, elle est pire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Cela dépend des données",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "v1 = JobTracker centralisé = max 4000 nœuds. YARN = architecture distribuée avec AM par application = scalabilité quasi illimitée (testée à 10,000+ nœuds)."
+    },
+    {
+      "question_number": 37,
+      "question_text": "Où sont stockés les résultats finaux d'un job MapReduce ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "En mémoire uniquement",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Dans un fichier HDFS",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Dans le JobTracker",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Dans Zookeeper",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Les résultats sont écrits dans HDFS (OutputPath configuré). Chaque Reducer crée un fichier part-r-00000, part-r-00001, etc."
+    },
+    {
+      "question_number": 38,
+      "question_text": "Combien d'instances de la fonction Map sont créées pour un job ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Une seule",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Une par Input Split (généralement une par bloc)",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Dix",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Autant que de Reducers",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "1 Mapper = 1 Input Split. Par défaut, 1 Split ≈ 1 bloc HDFS. Fichier de 10 blocs = 10 Mappers en parallèle."
+    },
+    {
+      "question_number": 39,
+      "question_text": "La tolérance aux pannes dans YARN est-elle meilleure que dans MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Non, elle est identique",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Oui, grâce à la haute disponibilité du Resource Manager",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Non, elle est pire",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Il n'y a pas de tolérance aux pannes",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "YARN supporte le RM en HA (avec Zookeeper). De plus, si un AM échoue, YARN peut le relancer. Bien plus résilient que le JobTracker unique de v1."
+    },
+    {
+      "question_number": 40,
+      "question_text": "Que se passe-t-il si le JobTracker tombe en panne dans MapReduce v1 ?",
+      "options": [
+        {
+          "letter": "A",
+          "text": "Rien, le système continue",
+          "is_correct": false
+        },
+        {
+          "letter": "B",
+          "text": "Tous les jobs doivent redémarrer",
+          "is_correct": true
+        },
+        {
+          "letter": "C",
+          "text": "Les données sont perdues",
+          "is_correct": false
+        },
+        {
+          "letter": "D",
+          "text": "Un nouveau JobTracker est élu automatiquement",
+          "is_correct": false
+        }
+      ],
+      "correct_answer": "B",
+      "conseil": "Sans HA dans v1, la panne du JobTracker = perte de tous les jobs en cours. Les données HDFS sont intactes, mais le travail de calcul est perdu. ## 📊 Résumé des Thèmes Abordés | Thème | Nombre de Questions | |-------|---------------------| | Concepts MapReduce (Map, Reduce, Shuffle) | 12 | | MapReduce v1 (JobTracker, TaskTracker, Slots) | 10 | | YARN (ResourceManager, NodeManager, Containers) | 12 | | Comparaison v1 vs v2 | 6 | ## Conseils pour l'Examen 1. Comprenez le flux MapReduce : - Input → Split → Map → Shuffle & Sort → Reduce → Output 2. Connaissez les composants v1 vs v2 : | v1 | v2 (YARN) | |----|----| | JobTracker | Resource Manager | | TaskTracker | Node Manager | | Slots (fixes) | Containers (dynamiques) | 3. Retenez les problèmes de v1 : - Scalabilité limitée (4000 nœuds) - SPoF (JobTracker) - Slots non flexibles - Uniquement MapReduce 4. Comprenez YARN : - RM = arbitre global des ressources - AM = gestionnaire par application - NM = agent sur chaque nœud - Container = unité d'exécution 5. Principe clé : \"Move computation to data\" Bonne chance pour votre examen ! 🍀"
+    }
+  ]
+}
