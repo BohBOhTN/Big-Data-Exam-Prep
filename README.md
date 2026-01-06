@@ -18,6 +18,8 @@ The easiest way to study is using our interactive quiz application!
 
 ### Running the Quiz App
 
+#### Option 1: Development Mode
+
 ```bash
 # Navigate to the quiz app directory
 cd quiz-app
@@ -31,6 +33,21 @@ npm run dev
 
 Then open your browser to `http://localhost:5173`
 
+#### Option 2: Docker (Local Testing)
+
+```bash
+cd quiz-app
+
+# Build and run with Docker Compose on port 777
+docker-compose up -d --build
+
+# Access at http://localhost:777
+```
+
+#### Option 3: Live on VPS
+
+The app is automatically deployed to: **http://72.62.176.16:777** Running on 777 for good luck!🍀🍀
+
 ### Quiz App Features
 
 - 🎯 **Topic Selection** - Choose from 7 Big Data topics
@@ -40,13 +57,8 @@ Then open your browser to `http://localhost:5173`
 - 📈 **Detailed Results** - Per-topic performance analysis
 - 💡 **Study Tips** - Helpful conseils for each question
 - 📚 **PDF Recommendations** - Suggested study materials based on weak areas
+- 🐳 **Docker Deployment** - Containerized with automated CI/CD
 
-### Screenshots
-
-The app includes:
-1. **Home Page** - Select topics and configure your quiz
-2. **Quiz Page** - Answer questions with an intuitive interface
-3. **Results Page** - View detailed performance breakdown and recommendations
 
 ## 🛠️ How This Was Created
 
@@ -63,14 +75,31 @@ Big Data/
 ├── quiz-app/                      # 🆕 Interactive Quiz Web Application
 │   ├── src/
 │   │   ├── pages/
-│   │   │   ├── Home.jsx          # Topic selection page
-│   │   │   ├── Quiz.jsx          # Quiz/exam interface
-│   │   │   └── Results.jsx       # Results and recommendations
+│   │   │   ├── Home/             # Topic selection page
+│   │   │   ├── Quiz/             # Quiz/exam interface
+│   │   │   └── Results/          # Results and recommendations
+│   │   ├── components/
+│   │   │   ├── common/           # Reusable components
+│   │   │   ├── home/             # Home page components
+│   │   │   ├── quiz/             # Quiz interface components
+│   │   │   └── results/          # Results page components
+│   │   ├── utils/
+│   │   │   ├── constants.js      # App constants & mappings
+│   │   │   └── helpers.js        # Utility functions
 │   │   ├── App.jsx
 │   │   └── App.css
 │   ├── public/
-│   │   └── data/                 # QCM JSON files
+│   │   ├── data/                 # QCM JSON files
+│   │   └── pdfs/                 # Study material PDFs
+│   ├── Dockerfile                # Multi-stage Docker build
+│   ├── nginx.conf                # Nginx configuration for SPA
+│   ├── docker-compose.yml        # Local Docker setup
+│   ├── .dockerignore             # Docker ignore patterns
+│   ├── README.md                 # Quiz app documentation
 │   └── package.json
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions CI/CD pipeline
 ├── pdfs/                          # Original course PDFs
 ├── extracted_images/              # Images extracted from PDFs
 │   ├── 1_IntroductionGenerale/
@@ -98,7 +127,8 @@ Big Data/
 │   ├── TP-HadoopHDFS_qcm.json
 │   └── _index.json                # Summary/index file
 ├── extract_pdf_images.py          # Script to extract images from PDFs
-└── extract_qcm_to_json.py         # Script to convert QCM markdown to JSON
+├── extract_qcm_to_json.py         # Script to convert QCM markdown to JSON
+└── README.md
 ```
 
 ## 📝 Exam Content
@@ -176,6 +206,40 @@ The interactive quiz application is built with modern web technologies:
 - **Framer Motion** - Smooth animations
 - **Lucide React** - Beautiful icons
 - **React Confetti** - Celebration effects
+- **Docker** - Containerization
+- **Nginx** - Production web server
+
+## 🐳 Deployment & CI/CD
+
+The quiz application includes:
+
+- **Automated Deployment**: GitHub Actions pipeline triggers on push to `main`
+- **Docker Containerization**: Multi-stage builds for optimized image size
+- **VPS Deployment**: Automatically deployed to port 777 on your VPS
+- **Health Checks**: Container monitoring and auto-recovery
+- **Zero-Downtime**: Seamless updates without service interruption
+
+### Deployment Architecture
+
+```
+GitHub Repository
+    ↓
+Push to main (quiz-app/* changes)
+    ↓
+GitHub Actions Workflow
+    ├─ Build Docker image
+    ├─ Run tests
+    └─ Transfer to VPS
+    ↓
+VPS (72.62.176.16:777)
+    └─ Deploy Docker container
+```
+
+### Accessing the Deployed App
+
+- **Development**: `http://localhost:5173` (after `npm run dev`)
+- **Local Docker**: `http://localhost:777` (after `docker-compose up`)
+- **Live VPS**: `http://72.62.176.16:777` 🚀
 
 ## 👤 Author
 

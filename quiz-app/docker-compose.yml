@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  quiz-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bigdata-quiz-app
+    ports:
+      - "777:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

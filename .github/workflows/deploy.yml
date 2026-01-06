@@ -1,0 +1,65 @@
+name: Deploy Quiz App to VPS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'quiz-app/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        working-directory: ./quiz-app
+        run: |
+          docker build -t bigdata-quiz-app:latest .
+          docker save bigdata-quiz-app:latest | gzip > quiz-app-image.tar.gz
+
+      - name: Copy image to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_SSH_PORT }}
+          source: "quiz-app/quiz-app-image.tar.gz"
+          target: "/tmp"
+          strip_components: 1
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_SSH_PORT }}
+          script: |
+            # Load the Docker image
+            docker load < /tmp/quiz-app-image.tar.gz
+            
+            # Stop and remove existing container if it exists
+            docker stop bigdata-quiz-app 2>/dev/null || true
+            docker rm bigdata-quiz-app 2>/dev/null || true
+            
+            # Run the new container
+            docker run -d \
+              --name bigdata-quiz-app \
+              --restart unless-stopped \
+              -p 777:80 \
+              bigdata-quiz-app:latest
+            
+            # Clean up
+            rm /tmp/quiz-app-image.tar.gz
+            docker image prune -f
+            
+            echo "✅ Deployed successfully to port 777"
