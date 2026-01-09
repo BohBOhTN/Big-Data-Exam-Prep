@@ -1,0 +1,39 @@
+{
+  "module_id": "react",
+  "module_name": "React",
+  "module_description": "Principes de React, CSS, API, Interfaces et Hébergement",
+  "total_files": 5,
+  "total_questions": 200,
+  "topics": [
+    {
+      "id": "principes_de_react",
+      "filename": "principes_de_react.json",
+      "topic_name": "Principes de React",
+      "num_questions": 40
+    },
+    {
+      "id": "le_css_en_react",
+      "filename": "le_css_en_react.json",
+      "topic_name": "Le CSS en React",
+      "num_questions": 40
+    },
+    {
+      "id": "liaison_avec_les_api",
+      "filename": "liaison_avec_les_api.json",
+      "topic_name": "Liaison avec les API",
+      "num_questions": 40
+    },
+    {
+      "id": "gestion_des_interfaces",
+      "filename": "gestion_des_interfaces.json",
+      "topic_name": "Gestion des Interfaces",
+      "num_questions": 40
+    },
+    {
+      "id": "hebergement_react_workshop",
+      "filename": "hebergement_react_workshop.json",
+      "topic_name": "Hébergement React",
+      "num_questions": 40
+    }
+  ]
+}

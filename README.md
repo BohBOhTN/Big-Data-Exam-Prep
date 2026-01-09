@@ -1,16 +1,24 @@
-# Big Data - QCM Exam Preparation Resources
+# Big Data & React - QCM Exam Preparation Resources
 
 ## 📚 About This Repository
 
-This repository contains **QCM (Multiple Choice Questions)** exam preparation materials for Big Data courses. It includes **280 questions** covering various Big Data topics including Hadoop, HDFS, MapReduce, and Hive.
+This repository contains **QCM (Multiple Choice Questions)** exam preparation materials for **Big Data** and **React (Frontend Framework)** courses. It includes **480 questions** covering various topics.
 
-**🆕 Now includes an interactive Quiz Web Application!**
+**🆕 Now includes an interactive Quiz Web Application with multi-module support!**
 
 ## ⚠️ Disclaimer
 
-**This repository is NOT created by Mohamed KOUBAA.**
+**This repository is NOT created by the course instructors.**
 
-This is an independent study resource created by **Baha Eddine Hamdi** to help students prepare for their Big Data exams.
+This is an independent study resource created by **Baha Eddine Hamdi** to help students prepare for their exams.
+
+## 📖 Modules Available
+
+| Module | Topics | Questions | Course Source |
+|--------|--------|-----------|---------------|
+| **Big Data** | 7 | 280 | Moodle - "Framework et technologies Big Data" |
+| **React** | 5 | 200 | Google Classroom - "FRAMEWORK FRONTEND" |
+| **Total** | **12** | **480** | |
 
 ## 🚀 Quick Start - Quiz App
 
@@ -50,23 +58,30 @@ The app is automatically deployed to: **http://72.62.176.16:777** Running on 777
 
 ### Quiz App Features
 
-- 🎯 **Topic Selection** - Choose from 7 Big Data topics
+- 🎯 **Module Selection** - Choose between Big Data or React
+- 📚 **Topic Selection** - Choose from multiple topics per module
 - 📊 **Custom Quiz Length** - Select 5 to 40+ questions
 - ⏱️ **Timed Quizzes** - Track your completion time
 - 🎨 **Beautiful UI** - Modern, animated dark theme
 - 📈 **Detailed Results** - Per-topic performance analysis
-- 💡 **Study Tips** - Helpful conseils for each question
+- 💡 **Study Tips** - Helpful tips and explanations for each question
+- 🔍 **Hint System** - Get hints during quiz (React module)
 - 📚 **PDF Recommendations** - Suggested study materials based on weak areas
 - 🐳 **Docker Deployment** - Containerized with automated CI/CD
 
 
 ## 🛠️ How This Was Created
 
-1. **Source Material**: The original course content was created by **Mohamed KOUBAA**
-2. **Image Extraction**: Used the `extract_pdf_images.py` script to extract images from the course PDF files
-3. **QCM Generation**: Generated prompts based on the extracted images to create comprehensive QCM exams in Markdown format
-4. **JSON Conversion**: Converted markdown QCMs to structured JSON for the web app
-5. **Quiz App**: Built with React + Vite for an interactive study experience
+### Big Data Module
+1. **Source Material**: Course content by **Mohamed KOUBAA** (Moodle)
+2. **Image Extraction**: Used `extract_pdf_images.py` to extract images from course PDFs
+3. **QCM Generation**: Generated prompts based on extracted images to create QCMs
+4. **JSON Conversion**: Converted markdown QCMs to structured JSON
+
+### React Module
+1. **Source Material**: Course content by **Ahmed Fakhfakh** and **Mohamed Bouattour** (Google Classroom - FRAMEWORK FRONTEND)
+2. **QCM Generation**: Created comprehensive QCMs from course materials
+3. **JSON Format**: Structured JSON with tips and explanations for each question
 
 ## 📂 Repository Structure
 
@@ -75,6 +90,7 @@ Big Data/
 ├── quiz-app/                      # 🆕 Interactive Quiz Web Application
 │   ├── src/
 │   │   ├── pages/
+│   │   │   ├── ModuleSelector/   # Module selection (Big Data / React)
 │   │   │   ├── Home/             # Topic selection page
 │   │   │   ├── Quiz/             # Quiz/exam interface
 │   │   │   └── Results/          # Results and recommendations
@@ -89,7 +105,10 @@ Big Data/
 │   │   ├── App.jsx
 │   │   └── App.css
 │   ├── public/
-│   │   ├── data/                 # QCM JSON files
+│   │   ├── data/
+│   │   │   ├── modules/          # Module index files
+│   │   │   ├── *_qcm.json        # Big Data QCM files
+│   │   │   └── *.json            # React QCM files
 │   │   └── pdfs/                 # Study material PDFs
 │   ├── Dockerfile                # Multi-stage Docker build
 │   ├── nginx.conf                # Nginx configuration for SPA
@@ -137,7 +156,7 @@ Each exam folder contains two files:
 - **`qcm_questions.md`** - Questions only (for self-testing)
 - **`qcm_questions_avec_corrections.md`** - Questions with answers and study tips
 
-### Topics Covered
+### Big Data Topics
 
 | Chapter | Topic | Questions |
 |---------|-------|-----------|
@@ -149,6 +168,17 @@ Each exam folder contains two files:
 | 6 | Hive - Commandes | 40 |
 | 7 | TP Hadoop HDFS | 40 |
 | **Total** | | **280** |
+
+### React Topics
+
+| Chapter | Topic | Questions |
+|---------|-------|-----------|
+| 1 | Principes de React | 40 |
+| 2 | Le CSS en React | 40 |
+| 3 | Liaison avec les API | 40 |
+| 4 | Gestion des Interfaces | 40 |
+| 5 | Hébergement React | 40 |
+| **Total** | | **200** |
 
 ## 🎯 How to Use
 
@@ -247,12 +277,21 @@ VPS (72.62.176.16:777)
 
 ## 🙏 Acknowledgments
 
+### Big Data Course
 - Course content by **Mohamed KOUBAA**
+- Platform: **Moodle** - "Framework et technologies Big Data"
+
+### React Course
+- Course content by **Ahmed Fakhfakh** and **Mohamed Bouattour**
+- Platform: **Google Classroom** - "FRAMEWORK FRONTEND"
+
+### Development
 - QCM generation assisted by AI tools
+- Quiz App developed by **Baha Eddine Hamdi**
 
 ## 📄 License
 
-This repository is for educational purposes only. The original course content belongs to Mohamed KOUBAA.
+This repository is for educational purposes only. The original course content belongs to their respective authors.
 
 ---
 

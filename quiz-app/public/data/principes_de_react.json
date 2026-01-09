@@ -1,0 +1,572 @@
+{
+  "topic_name": "Principes de React",
+  "resource_name": "CHAPITRE 2 - PRINCIPES DE REACT.pdf",
+  "content_authors": [
+    "Ahmed Fakhfakh",
+    "Mohamed Bouattour"
+  ],
+  "qcm_author": "Baha Eddine Hamdi",
+  "num_questions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "section": "Props",
+      "question": "Que signifie l'abréviation \"Props\" dans le contexte de React, selon le document ?",
+      "options": {
+        "a": "Programmes",
+        "b": "Paramètres",
+        "c": "Propriétés",
+        "d": "Projets"
+      },
+      "correct_answer": "c",
+      "tip": "Le terme est une abréviation qui se réfère aux attributs d'un composant.",
+      "explanation": "Props est l'abréviation de 'Properties' (propriétés). Elles sont utilisées comme entrées passées à un composant React."
+    },
+    {
+      "id": 2,
+      "section": "Props",
+      "question": "Quelle est la différence majeure entre `props` et `state` selon le document ?",
+      "options": {
+        "a": "`props` est géré dans le composant, `state` est passé au composant.",
+        "b": "`props` est passé au composant, `state` est géré dans le composant.",
+        "c": "Les deux sont toujours des tableaux JavaScript.",
+        "d": "`props` n'influence pas le résultat produit, `state` oui."
+      },
+      "correct_answer": "b",
+      "tip": "Les `props` sont comparées aux arguments d'une fonction, tandis que le `state` est comparé aux variables internes.",
+      "explanation": "La différence majeure est que `props` est passé au composant (comme des arguments), tandis que `state` est géré à l'intérieur du composant (comme des variables internes)."
+    },
+    {
+      "id": 3,
+      "section": "Props",
+      "question": "Quelle propriété clé des props garantit qu'on ne peut pas les modifier dans le composant enfant ?",
+      "options": {
+        "a": "Immuabilité",
+        "b": "Réutilisabilité",
+        "c": "Unidirectionnelle",
+        "d": "Lecture seule (read-only)"
+      },
+      "correct_answer": "d",
+      "tip": "C'est un point clé qui interdit la modification dans le composant enfant.",
+      "explanation": "Un point clé des props est qu'elles sont 'Lecture seule (read-only)', ce qui signifie qu'on ne peut **pas modifier** une prop à l'intérieur du composant enfant."
+    },
+    {
+      "id": 4,
+      "section": "Props",
+      "question": "Comment la communication des props est-elle décrite dans le document ?",
+      "options": {
+        "a": "Bidirectionnelle (Parent ↔ Enfant)",
+        "b": "Multidirectionnelle (Enfant ↔ Parent, Parent ↔ Enfant)",
+        "c": "Unidirectionnelle (Parent → Enfant)",
+        "d": "Unidirectionnelle (Enfant → Parent)"
+      },
+      "correct_answer": "c",
+      "tip": "Elles sont transmises dans une seule direction.",
+      "explanation": "Les props sont transmises 'du parent → enfant', et la communication est **unidirectionnelle** (pas de retour direct)."
+    },
+    {
+      "id": 5,
+      "section": "Props",
+      "question": "Quel type de données est mentionné dans le document comme pouvant être passé en prop ?",
+      "options": {
+        "a": "Texte",
+        "b": "Objet",
+        "c": "Fonction",
+        "d": "Tous les types mentionnés (Texte, nombre, booléen, objet, fonction, tableau...)"
+      },
+      "correct_answer": "d",
+      "tip": "La liste des types possibles est très inclusive.",
+      "explanation": "Le document stipule que les props 'Peuvent être de tout type' : Texte, nombre, booléen, objet, fonction, tableau... tout peut être passé en prop."
+    },
+    {
+      "id": 6,
+      "section": "Objets",
+      "question": "En React (JSX), quel est l'un des usages possibles d'un objet selon le document ?",
+      "options": {
+        "a": "Stocker des données",
+        "b": "Passer des props",
+        "c": "Définir des styles en ligne",
+        "d": "Toutes ces réponses"
+      },
+      "correct_answer": "d",
+      "tip": "Les objets sont des structures JavaScript normales avec de multiples usages.",
+      "explanation": "Un objet est une structure JavaScript normale utilisée en React pour organiser/stocker des données, mais aussi pour passer des props, définir des styles en ligne, ou structurer l'état (state)."
+    },
+    {
+      "id": 7,
+      "section": "Props",
+      "question": "Quel terme est utilisé dans le document pour décrire la syntaxe moderne `function ProfileCard({ user })` ?",
+      "options": {
+        "a": "Le spread operator",
+        "b": "La déstructuration",
+        "c": "La liaison (binding)",
+        "d": "L'encapsulation"
+      },
+      "correct_answer": "b",
+      "tip": "Cette syntaxe est qualifiée de 'moderne'.",
+      "explanation": "L'exemple `function ProfileCard({ user })` est présenté comme la 'Déstructuration (syntaxe moderne)'."
+    },
+    {
+      "id": 8,
+      "section": "Objets",
+      "question": "Comment les styles en ligne (Inline Styles) sont-ils appliqués à un composant JSX selon l'exemple fourni ?",
+      "options": {
+        "a": "En important un fichier `.css`.",
+        "b": "En utilisant une chaîne de caractères.",
+        "c": "En utilisant un objet JavaScript passé à l'attribut `style`.",
+        "d": "En utilisant des classes utilitaires."
+      },
+      "correct_answer": "c",
+      "tip": "L'exemple utilise `style={styleTitre}`.",
+      "explanation": "Le document indique qu'on utilise un objet JavaScript (const `styleTitre = {...}`) pour appliquer des styles en ligne, passé via l'attribut `style={styleTitre}` à un composant JSX."
+    },
+    {
+      "id": 9,
+      "section": "Objets",
+      "question": "Quelle structure de données est souvent utilisée en React pour afficher une liste dynamique (comme une liste de produits) ?",
+      "options": {
+        "a": "Un objet simple.",
+        "b": "Un tableau (array) d'objets.",
+        "c": "Une chaîne de caractères formatée.",
+        "d": "Une fonction de rappel."
+      },
+      "correct_answer": "b",
+      "tip": "L'exemple des produits utilise cette structure.",
+      "explanation": "Le document montre l'utilisation d'un **tableau d'objets** (`const produits = [...]`) pour afficher une liste dynamique."
+    },
+    {
+      "id": 10,
+      "section": "Correction Exercice ProfileCard",
+      "question": "Dans l'exemple de correction `Correction App.jsx`, quelles sont les valeurs des propriétés `name` et `country` pour l'objet `user2` ?",
+      "options": {
+        "a": "`name`: 'Alice', `country`: 'Tunisia'",
+        "b": "`name`: 'Alice', `country`: 'Switzerland'",
+        "c": "`name`: 'Youssef', `country`: 'Tunisia'",
+        "d": "`name`: 'Youssef', `country`: 'Switzerland'"
+      },
+      "correct_answer": "d",
+      "tip": "Ces valeurs se trouvent dans la déclaration de `const user2`.",
+      "explanation": "L'objet `user2` est défini avec `name: \"Youssef\"` et `country: \"Switzerland\"`."
+    },
+    {
+      "id": 11,
+      "section": "Formulaires",
+      "question": "Selon le document, par quel élément un champ de formulaire (input, textarea, select, etc.) est-il souvent contrôlé en React ?",
+      "options": {
+        "a": "Le DOM direct.",
+        "b": "Le `state` du composant.",
+        "c": "La prop `name`.",
+        "d": "L'attribut `placeholder`."
+      },
+      "correct_answer": "b",
+      "tip": "Le formulaire est dit 'contrôlé' par cette variable interne.",
+      "explanation": "Le document indique qu'un champ de formulaire est souvent **contrôlé par le state du composant**. La valeur affichée vient du `state`."
+    },
+    {
+      "id": 12,
+      "section": "Formulaires",
+      "question": "Dans l'exemple simple de champ texte contrôlé, que fait l'attribut `onChange={handleChange}` ?",
+      "options": {
+        "a": "Il soumet le formulaire.",
+        "b": "Il définit la valeur initiale du champ.",
+        "c": "Il met à jour le `state` à chaque saisie.",
+        "d": "Il capture l'action du bouton de soumission."
+      },
+      "correct_answer": "c",
+      "tip": "L'événement est déclenché par chaque saisie.",
+      "explanation": "Le document explique que `onChange={handleChange}` signifie que chaque saisie met à jour le `state`."
+    },
+    {
+      "id": 13,
+      "section": "Formulaires",
+      "question": "À quoi sert la ligne `event.preventDefault()` dans la fonction `handleSubmit` d'un formulaire simple ?",
+      "options": {
+        "a": "À empêcher la soumission du formulaire.",
+        "b": "À afficher une alerte.",
+        "c": "À empêcher le rechargement de la page.",
+        "d": "À mettre à jour le `state`."
+      },
+      "correct_answer": "c",
+      "tip": "C'est une méthode standard pour gérer l'événement de soumission dans le DOM.",
+      "explanation": "Dans la correction du formulaire simple, `event.preventDefault()` est utilisé pour **empêcher le rechargement de la page**."
+    },
+    {
+      "id": 14,
+      "section": "Formulaires",
+      "question": "Dans un formulaire géré par un seul objet `formData` dans le `state`, quel attribut de l'input est utilisé pour faire correspondre le champ à une clé de l'objet `formData` ?",
+      "options": {
+        "a": "`id`.",
+        "b": "`placeholder`.",
+        "c": "`name`.",
+        "d": "`value`."
+      },
+      "correct_answer": "c",
+      "tip": "L'astuce fournie dans le document donne la réponse.",
+      "explanation": "L'astuce est que le `name` de chaque input correspond à la clé de l'objet `formData`."
+    },
+    {
+      "id": 15,
+      "section": "Formulaires",
+      "question": "Quel opérateur JavaScript est utilisé pour conserver les anciennes propriétés (`...formData`) lors de la mise à jour de l'objet dans le `state` (page 10) ?",
+      "options": {
+        "a": "L'opérateur de déstructuration (`{}`).",
+        "b": "L'opérateur de spread (`...`).",
+        "c": "L'opérateur ternaire (`? :`).",
+        "d": "L'opérateur d'affectation (`=`)."
+      },
+      "correct_answer": "b",
+      "tip": "Il est composé de trois points.",
+      "explanation": "La mise à jour du `state` utilise l'opérateur de spread `...formData` pour copier les propriétés existantes."
+    },
+    {
+      "id": 16,
+      "section": "Formulaires",
+      "question": "Quel est le délai (en millisecondes) utilisé pour réinitialiser le formulaire (dans la fonction `handleSubmit` de la correction) ?",
+      "options": {
+        "a": "1000 millisecondes.",
+        "b": "2000 millisecondes.",
+        "c": "3000 millisecondes.",
+        "d": "5000 millisecondes."
+      },
+      "correct_answer": "c",
+      "tip": "C'est la valeur du deuxième argument de `setTimeout`.",
+      "explanation": "La réinitialisation est effectuée après 3 secondes, en utilisant `setTimeout(..., 3000)`."
+    },
+    {
+      "id": 17,
+      "section": "Formulaires",
+      "question": "Selon la correction de la Question 2 de l'exercice CSS Modules, quelle est la condition de validation simple pour le champ `nom` (`nomValide`) ?",
+      "options": {
+        "a": "Le nom doit avoir exactement 3 caractères.",
+        "b": "Le nom doit contenir des chiffres.",
+        "c": "Le nom doit avoir une longueur supérieure ou égale à 3 (`nom.length >= 3`).",
+        "d": "Le nom doit être un email valide."
+      },
+      "correct_answer": "c",
+      "tip": "C'est une simple vérification de longueur.",
+      "explanation": "La validation simple pour le nom est définie par `const nomValide = nom.length >= 3`."
+    },
+    {
+      "id": 18,
+      "section": "Formulaires",
+      "question": "Dans l'exercice de validation visuelle (CSS Modules), quelle classe CSS est retournée par la fonction `getClassNom()` si le champ **n'a pas été touché** (`!nomTouched`) ?",
+      "options": {
+        "a": "`styles.inputValid`.",
+        "b": "`styles.inputInvalid`.",
+        "c": "`styles.input`.",
+        "d": "Aucune classe."
+      },
+      "correct_answer": "c",
+      "tip": "La condition `if (!nomTouched)` est vérifiée en premier.",
+      "explanation": "La fonction `getClassNom()` retourne `styles.input` si le champ n'a pas été touché (`if (!nomTouched) return styles.input;`)."
+    },
+    {
+      "id": 19,
+      "section": "Formulaires",
+      "question": "Quelle prop est utilisée sur le bouton d'inscription pour le désactiver si le formulaire n'est pas valide (`!formulaireValide`) ?",
+      "options": {
+        "a": "`name`",
+        "b": "`value`",
+        "c": "`className`",
+        "d": "`disabled`"
+      },
+      "correct_answer": "d",
+      "tip": "Le nom de la prop correspond à la fonctionnalité de désactivation.",
+      "explanation": "Le bouton utilise la prop `disabled={!formulaireValide}` pour être désactivé si le formulaire est invalide."
+    },
+    {
+      "id": 20,
+      "section": "Formulaires",
+      "question": "Quelle est la couleur d'arrière-plan (`background`) de la pseudo-classe `:disabled` du bouton de l'exercice (Correction Question 3) ?",
+      "options": {
+        "a": "`#007BFF` (Bleu)",
+        "b": "`#ccc` (Gris)",
+        "c": "`#5568d3` (Bleu-violet)",
+        "d": "`white` (Blanc)"
+      },
+      "correct_answer": "b",
+      "tip": "La couleur devient neutre/grise lorsque le bouton est désactivé.",
+      "explanation": "La correction indique pour `.button:disabled` : `background: #ccc` (Gris)."
+    },
+    {
+      "id": 21,
+      "section": "Le CSS en React",
+      "question": "Quelle méthode de style est qualifiée de 'la plus traditionnelle' et implique l'import de fichiers `.css` séparés ?",
+      "options": {
+        "a": "Styled Components",
+        "b": "CSS Modules",
+        "c": "CSS Classique (Feuilles de Style Externes)",
+        "d": "Inline Styles"
+      },
+      "correct_answer": "c",
+      "tip": "Elle est qualifiée de 'méthode la plus traditionnelle'.",
+      "explanation": "La méthode 'CSS Classique (Feuilles de Style Externes)' consiste à créer des fichiers `.css` séparés et à les importer."
+    },
+    {
+      "id": 22,
+      "section": "Le CSS en React",
+      "question": "Quel est le principal inconvénient du CSS Classique mentionné dans le document ?",
+      "options": {
+        "a": "Absence de pseudo-classes.",
+        "b": "Risque de conflits de noms de classes.",
+        "c": "Surcharge runtime pour l'injection des styles.",
+        "d": "Nécessite une configuration du bundler."
+      },
+      "correct_answer": "b",
+      "tip": "Les styles globaux peuvent causer des problèmes dans les grands projets.",
+      "explanation": "Le CSS Classique présente le 'Risque de conflits de noms de classes' et les 'styles globaux peuvent créer des effets secondaires'."
+    },
+    {
+      "id": 23,
+      "section": "Le CSS en React",
+      "question": "Quel est l'avantage clé des CSS Modules ?",
+      "options": {
+        "a": "Ils sont le meilleur choix pour les petits projets.",
+        "b": "Ils génèrent automatiquement des noms de classes uniques, évitant les conflits de styles.",
+        "c": "Ils n'ont pas besoin d'une syntaxe d'import.",
+        "d": "Ils ne supportent pas les préprocesseurs."
+      },
+      "correct_answer": "b",
+      "tip": "Ceci est mentionné comme leur principale caractéristique pour l'encapsulation.",
+      "explanation": "Les CSS Modules **génèrent automatiquement des noms de classes uniques**, évitant ainsi les conflits de styles."
+    },
+    {
+      "id": 24,
+      "section": "Le CSS en React",
+      "question": "Quel est le principal inconvénient des Inline Styles (Styles en Ligne) selon le document ?",
+      "options": {
+        "a": "Risque de conflits de noms de classes.",
+        "b": "Pas de styles dynamiques.",
+        "c": "Pas de pseudo-classes (:hover, :focus) ni de media queries.",
+        "d": "Taille du bundle légèrement plus grande."
+      },
+      "correct_answer": "c",
+      "tip": "C'est une limitation majeure des styles directement sur l'élément.",
+      "explanation": "Un inconvénient des Inline Styles est l'absence de pseudo-classes (:hover, :focus) et de media queries."
+    },
+    {
+      "id": 25,
+      "section": "Le CSS en React",
+      "question": "Quelle bibliothèque est décrite comme permettant d'écrire du CSS directement dans JavaScript avec des *template literals* (CSS-in-JS) ?",
+      "options": {
+        "a": "CSS Modules",
+        "b": "Tailwind CSS",
+        "c": "Styled Components",
+        "d": "SASS"
+      },
+      "correct_answer": "c",
+      "tip": "Le nom contient le mot 'Components'.",
+      "explanation": "Styled Components est une bibliothèque qui permet d'écrire du CSS directement dans JavaScript avec des *template literals*."
+    },
+    {
+      "id": 26,
+      "section": "Le CSS en React",
+      "question": "Selon le document, quel est l'un des avantages de Styled Components ?",
+      "options": {
+        "a": "Pas de surcharge runtime.",
+        "b": "Taille du bundle légèrement plus petite.",
+        "c": "Styles dynamiques basés sur les props.",
+        "d": "Courbe d'apprentissage très courte."
+      },
+      "correct_answer": "c",
+      "tip": "Ils permettent de modifier facilement l'apparence selon l'état du composant.",
+      "explanation": "Un avantage des Styled Components est la possibilité d'avoir des 'Styles dynamiques basés sur les props'."
+    },
+    {
+      "id": 27,
+      "section": "Le CSS en React",
+      "question": "Quelle méthode de style est qualifiée de **Utility-First** et utilise des classes utilitaires pour construire rapidement des interfaces ?",
+      "options": {
+        "a": "CSS Classique",
+        "b": "CSS Modules",
+        "c": "Styled Components",
+        "d": "Tailwind CSS"
+      },
+      "correct_answer": "d",
+      "tip": "Le nom de la méthode est dans le titre de la section 5.",
+      "explanation": "Tailwind CSS est classé comme 'Utility-First' et propose des classes utilitaires."
+    },
+    {
+      "id": 28,
+      "section": "Le CSS en React",
+      "question": "Selon le tableau de récapitulation, quelle méthode est idéale pour les **projets moyens à grands nécessitant l'encapsulation des styles** ?",
+      "options": {
+        "a": "CSS Classique",
+        "b": "CSS Modules",
+        "c": "Inline Styles",
+        "d": "Styled Components"
+      },
+      "correct_answer": "b",
+      "tip": "L'encapsulation est sa force principale.",
+      "explanation": "Le tableau indique que **CSS Modules** est idéal pour 'Projets moyens à grands nécessitant l'encapsulation des styles'."
+    },
+    {
+      "id": 29,
+      "section": "Le CSS en React",
+      "question": "Selon le tableau de récapitulation, quelle méthode est idéale pour le **développement rapide et les prototypes** ?",
+      "options": {
+        "a": "CSS Classique",
+        "b": "Inline Styles",
+        "c": "Styled Components",
+        "d": "Tailwind CSS"
+      },
+      "correct_answer": "d",
+      "tip": "Le terme 'rapide' est la clé.",
+      "explanation": "**Tailwind CSS** est considéré comme idéal pour le 'Développement rapide, prototypes, équipes voulant un design cohérent'."
+    },
+    {
+      "id": 30,
+      "section": "Génération de code",
+      "question": "Quel raccourci de l'extension ES7+ React/Redux/React-Native snippets est utilisé pour créer un **Functional Component avec export par défaut** ?",
+      "options": {
+        "a": "`rfce`",
+        "b": "`usf`",
+        "c": "`rafce`",
+        "d": "`clg`"
+      },
+      "correct_answer": "c",
+      "tip": "C'est le premier raccourci listé dans la table de description.",
+      "explanation": "Le raccourci `rafce` crée un **Functional Component avec export par défaut**."
+    },
+    {
+      "id": 31,
+      "section": "Le CSS en React",
+      "question": "En utilisant le CSS Classique, quel attribut est utilisé dans le JSX pour appliquer une classe CSS à un élément HTML ?",
+      "options": {
+        "a": "`class`",
+        "b": "`className`",
+        "c": "`cssClass`",
+        "d": "`styleClass`"
+      },
+      "correct_answer": "b",
+      "tip": "L'attribut est souvent différent de l'HTML standard pour éviter les conflits avec le mot-clé `class` en JavaScript.",
+      "explanation": "Dans le JSX, l'attribut `className` est utilisé pour spécifier une classe CSS, comme dans `<div className=\"container\">`."
+    },
+    {
+      "id": 32,
+      "section": "Formulaires",
+      "question": "Quelle est la condition de validation simple pour l'email (`emailValide`) dans la correction de la Question 2 de l'exercice CSS Modules ?",
+      "options": {
+        "a": "L'email doit commencer par une lettre.",
+        "b": "L'email doit contenir `@` ou un `.`",
+        "c": "L'email doit contenir à la fois un `@` et un `.`",
+        "d": "L'email ne doit pas être vide."
+      },
+      "correct_answer": "c",
+      "tip": "Les deux conditions sont liées par `&&`.",
+      "explanation": "La validation simple pour l'email est `const emailValide = email.includes('@') && email.includes('.');`."
+    },
+    {
+      "id": 33,
+      "section": "Formulaires",
+      "question": "Dans la correction de la Question 3 de l'exercice CSS Modules, quelle est la condition de validation simple pour le message (`messageValide`) ?",
+      "options": {
+        "a": "La longueur du message doit être supérieure ou égale à 10.",
+        "b": "La longueur du message doit être supérieure à 5.",
+        "c": "Le message doit contenir des lettres.",
+        "d": "Le message ne doit pas dépasser 50 caractères."
+      },
+      "correct_answer": "a",
+      "tip": "C'est une vérification de la longueur minimale.",
+      "explanation": "La validation simple est `const messageValide = message.length >= 10;`."
+    },
+    {
+      "id": 34,
+      "section": "Correction Exercice ProfileCard",
+      "question": "Quelle méthode JavaScript est utilisée pour afficher un message d'alerte lorsque le bouton 'Say Hello' est cliqué dans la correction `ProfileCard.jsx` ?",
+      "options": {
+        "a": "`console.log()`",
+        "b": "`document.write()`",
+        "c": "`alert()`",
+        "d": "`prompt()`"
+      },
+      "correct_answer": "c",
+      "tip": "Le bouton déclenche un événement simple d'interface utilisateur.",
+      "explanation": "Le gestionnaire d'événement `onClick` utilise `()=> alert(`Hello, my name is ${user.name}!`)`."
+    },
+    {
+      "id": 35,
+      "section": "Le CSS en React",
+      "question": "Parmi les classes Tailwind suivantes tirées de l'exemple, laquelle modifie la couleur de fond de la carte : `max-w-sm`, `shadow-lg`, `bg-white`, `rounded` ?",
+      "options": {
+        "a": "`max-w-sm`",
+        "b": "`shadow-lg`",
+        "c": "`bg-white`",
+        "d": "`rounded`"
+      },
+      "correct_answer": "c",
+      "tip": "La classe commence par `bg-` (pour background).",
+      "explanation": "La classe `bg-white` définit la couleur de fond (`background`) de la `div` dans l'exemple Tailwind."
+    },
+    {
+      "id": 36,
+      "section": "Le CSS en React",
+      "question": "Quel sélecteur est utilisé dans l'exemple Styled Components pour appliquer un style au survol de la souris (hover) ?",
+      "options": {
+        "a": "`button:hover`",
+        "b": "`&.hover`",
+        "c": "`&:hover`",
+        "d": "`::hover`"
+      },
+      "correct_answer": "c",
+      "tip": "C'est le sélecteur standard pour les pseudo-classes en Styled Components.",
+      "explanation": "Le sélecteur `&:hover` est utilisé pour cibler l'état de survol du composant."
+    },
+    {
+      "id": 37,
+      "section": "Props",
+      "question": "Dans l'exemple de composant `Welcome`, comment la valeur de la prop `name` est-elle affichée dans le JSX sans utiliser la déstructuration ?",
+      "options": {
+        "a": "`name`",
+        "b": "`this.props.name`",
+        "c": "`props.name`",
+        "d": "`{name}`"
+      },
+      "correct_answer": "c",
+      "tip": "C'est l'accès direct aux propriétés de l'objet `props`.",
+      "explanation": "Le composant est défini comme `function Welcome (props)` et utilise `{props.name}` pour afficher la valeur."
+    },
+    {
+      "id": 38,
+      "section": "Le CSS en React",
+      "question": "Selon le tableau de récapitulation, dans quel cas la méthode **Inline Styles** est-elle considérée comme idéale ?",
+      "options": {
+        "a": "Équipes habituées au CSS traditionnel.",
+        "b": "Projets avec théming dynamique.",
+        "c": "Styles dynamiques simples, prototypage rapide.",
+        "d": "Projets moyens à grands."
+      },
+      "correct_answer": "c",
+      "tip": "L'un des avantages est la facilité de créer des styles dynamiques de manière simple.",
+      "explanation": "Le tableau récapitulatif indique que les **Inline Styles** sont idéaux pour les 'Styles dynamiques simples, prototypage rapide'."
+    },
+    {
+      "id": 39,
+      "section": "Le CSS en React",
+      "question": "Quelle est la syntaxe d'import utilisée pour récupérer les styles dans un composant qui utilise **CSS Modules** ?",
+      "options": {
+        "a": "`import './Button.module.css';`",
+        "b": "`import { primary } from './Button.module.css';`",
+        "c": "`import styles from './Button.module.css';`",
+        "d": "`import css from 'css-modules';`"
+      },
+      "correct_answer": "c",
+      "tip": "Le résultat est importé dans un objet nommé, souvent `styles`.",
+      "explanation": "L'exemple montre `import styles from './Button.module.css';` pour les CSS Modules."
+    },
+    {
+      "id": 40,
+      "section": "EmailJS",
+      "question": "Selon les étapes de configuration d'EmailJS, dans quelle section du site web faut-il aller pour récupérer sa Public Key ?",
+      "options": {
+        "a": "Email Templates",
+        "b": "Email Services",
+        "c": "Account → General",
+        "d": "Custom SMTP Server"
+      },
+      "correct_answer": "c",
+      "tip": "C'est dans les informations générales du compte.",
+      "explanation": "Le document indique d'aller dans 'Account' → 'General' pour copier la Public Key."
+    }
+  ]
+}

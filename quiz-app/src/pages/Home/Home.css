@@ -94,6 +94,39 @@
   color: var(--text-muted);
 }
 
+/* Back to Modules Button */
+.back-to-modules-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.back-to-modules-btn:hover {
+  background: var(--module-accent, var(--primary));
+  border-color: var(--module-accent, var(--primary));
+  color: white;
+}
+
+.back-to-modules-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.back-to-modules-btn:hover svg {
+  transform: translateX(-3px);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .section-header {

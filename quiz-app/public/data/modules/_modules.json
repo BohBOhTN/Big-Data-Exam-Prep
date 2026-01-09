@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "id": "bigdata",
+      "name": "Big Data",
+      "description": "Hadoop, HDFS, MapReduce, Hive et plus encore",
+      "icon": "Database",
+      "color": "#f59e0b",
+      "indexFile": "modules/bigdata_index.json",
+      "totalTopics": 7,
+      "totalQuestions": 280
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "description": "Principes de React, CSS, API, Interfaces et Hébergement",
+      "icon": "Code",
+      "color": "#61dafb",
+      "indexFile": "modules/react_index.json",
+      "totalTopics": 5,
+      "totalQuestions": 200
+    }
+  ]
+}

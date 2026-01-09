@@ -1,0 +1,572 @@
+{
+  "topic_name": "Gestion des Interfaces",
+  "resource_name": "Chapitre 4 Gestion des interfaces et opérations CRUD.pdf",
+  "content_authors": [
+    "Ahmed Fakhfakh",
+    "Mohamed Bouattour"
+  ],
+  "qcm_author": "Baha Eddine Hamdi",
+  "num_questions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "section": "JSON Server",
+      "question": "Quel est l'outil mentionné dans le document pour créer une API REST locale ou sur un petit serveur à partir d'un fichier JSON ?",
+      "options": {
+        "a": "Axios",
+        "b": "JSON Server",
+        "c": "HTTPie",
+        "d": "ReactJs"
+      },
+      "correct_answer": "b",
+      "tip": "C'est l'outil qui permet d'obtenir un 'vrai CRUD complet'.",
+      "explanation": "Le document indique qu'on peut faire une API 'projects' en local ou sur un petit serveur avec **json-server**."
+    },
+    {
+      "id": 2,
+      "section": "JSON Server",
+      "question": "Quelle est la première étape pour mettre en place un JSON Server, selon l'Atelier 01 ?",
+      "options": {
+        "a": "Lancer le serveur avec `npm run api`",
+        "b": "Installer `json-server`",
+        "c": "Créer le fichier `package.json`",
+        "d": "Créer le fichier `db.json`"
+      },
+      "correct_answer": "b",
+      "tip": "Il s'agit d'une installation via npm.",
+      "explanation": "La première étape est '1. Préparer json-server et les données' avec la commande **`npm install -D json-server`**."
+    },
+    {
+      "id": 3,
+      "section": "JSON Server",
+      "question": "Quel est le rôle de la clé 'projects' dans le fichier `db.json` ?",
+      "options": {
+        "a": "Définir l'URL de base de l'API",
+        "b": "Stocker les dépendances du projet",
+        "c": "Représenter la ressource de l'API REST",
+        "d": "Spécifier le port du serveur"
+      },
+      "correct_answer": "c",
+      "tip": "C'est le nom de la route (endpoint) qui sera créée.",
+      "explanation": "Il faut créer un fichier `db.json` avec une clé **`projects`** et des objets projets, ce qui crée un REST API avec GET /projects, POST /projects, etc.."
+    },
+    {
+      "id": 4,
+      "section": "JSON Server",
+      "question": "Quelles opérations CRUD complètes sont fournies par JSON Server pour la ressource 'projects' ?",
+      "options": {
+        "a": "GET /projects, PUT /projects",
+        "b": "GET /projects/:id, POST /projects",
+        "c": "GET /projects, POST /projects, PUT /projects/:id, DELETE /projects/:id",
+        "d": "GET /projects, PATCH /projects/:id, DELETE /projects"
+      },
+      "correct_answer": "c",
+      "tip": "L'ensemble complet pour créer, lire, modifier et supprimer une ressource.",
+      "explanation": "JSON Server permet l'obtention d'un REST API avec **GET /projects, POST /projects, PUT /projects/:id, DELETE /projects/:id**."
+    },
+    {
+      "id": 5,
+      "section": "JSON Server",
+      "question": "Quel numéro de port est utilisé par le script 'api' défini dans `package.json` pour lancer JSON Server ?",
+      "options": {
+        "a": "3000",
+        "b": "8080",
+        "c": "4000",
+        "d": "5000"
+      },
+      "correct_answer": "c",
+      "tip": "Regardez le script défini à l'étape 3 de l'Atelier 01.",
+      "explanation": "Le script 'api' est défini comme `json-server --watch db.json --port **4000**`."
+    },
+    {
+      "id": 6,
+      "section": "JSON Server",
+      "question": "Quelle commande lance l'API JSON Server après avoir ajouté le script dans `package.json` ?",
+      "options": {
+        "a": "`json-server --watch db.json`",
+        "b": "`npm start api`",
+        "c": "`npm run api`",
+        "d": "`node api.js`"
+      },
+      "correct_answer": "c",
+      "tip": "C'est la commande standard pour exécuter un script npm personnalisé.",
+      "explanation": "La commande pour lancer l'API est **`npm run api`**."
+    },
+    {
+      "id": 7,
+      "section": "JSON Server",
+      "question": "Quel est le statut du projet 'Portfolio 3D Architecture' dans le fichier `db.json` d'exemple ?",
+      "options": {
+        "a": "online",
+        "b": "draft",
+        "c": "archived",
+        "d": "in-progress"
+      },
+      "correct_answer": "d",
+      "tip": "Le statut est un des champs de l'objet projet.",
+      "explanation": "Le projet 'Portfolio 3D Architecture' a un champ `status` défini à **`in-progress`**."
+    },
+    {
+      "id": 8,
+      "section": "JSON Server",
+      "question": "Quel est l'URL de test d'API pour **créer** un nouveau projet ?",
+      "options": {
+        "a": "GET http://localhost:4000/projects",
+        "b": "POST http://localhost:4000/projects",
+        "c": "PUT/PATCH/DELETE http://localhost:4000/projects/:id",
+        "d": "http://localhost:4000/projects"
+      },
+      "correct_answer": "b",
+      "tip": "L'opération CREATE en REST utilise la méthode POST.",
+      "explanation": "Pour la création (POST), l'URL est **`POST http://localhost:4000/projects`**."
+    },
+    {
+      "id": 9,
+      "section": "API Service (fetch)",
+      "question": "Dans l'implémentation de `getProjects()` utilisant `fetch`, que se passe-t-il si la propriété `res.ok` est fausse ?",
+      "options": {
+        "a": "La fonction retourne un tableau vide.",
+        "b": "La fonction continue et retourne `res.json()`.",
+        "c": "Une nouvelle tentative de requête est effectuée.",
+        "d": "Une erreur est levée avec un message spécifique."
+      },
+      "correct_answer": "d",
+      "tip": "La fonction gère les erreurs de la réponse HTTP.",
+      "explanation": "Si `!res.ok`, la fonction **`throw new Error('Erreur lors du chargement des projets')`**."
+    },
+    {
+      "id": 10,
+      "section": "API Service (fetch)",
+      "question": "Quel est le `method` HTTP utilisé dans l'implémentation de la fonction `createProject(project)` ?",
+      "options": {
+        "a": "GET",
+        "b": "PUT",
+        "c": "POST",
+        "d": "PATCH"
+      },
+      "correct_answer": "c",
+      "tip": "C'est l'opération CRUD pour la création.",
+      "explanation": "Le code pour `createProject` utilise la méthode **`method: 'POST'`**."
+    },
+    {
+      "id": 11,
+      "section": "API Service (fetch)",
+      "question": "Quel est le type de contenu (`Content-Type`) spécifié dans les `headers` pour la création d'un projet ?",
+      "options": {
+        "a": "text/plain",
+        "b": "application/x-www-form-urlencoded",
+        "c": "multipart/form-data",
+        "d": "application/json"
+      },
+      "correct_answer": "d",
+      "tip": "Le corps de la requête est converti en chaîne JSON.",
+      "explanation": "Le header spécifié est **`'Content-Type': 'application/json'`**."
+    },
+    {
+      "id": 12,
+      "section": "API Service (fetch)",
+      "question": "Quel est le rôle de la ligne `body: JSON.stringify(project)` dans la fonction `createProject` ?",
+      "options": {
+        "a": "Convertir l'objet `project` en chaîne JSON pour l'envoyer dans le corps de la requête.",
+        "b": "Convertir l'objet `project` en un objet JavaScript natif.",
+        "c": "Vérifier si l'objet `project` est vide.",
+        "d": "Récupérer le corps de la réponse JSON."
+      },
+      "correct_answer": "a",
+      "tip": "C'est une étape nécessaire avant d'envoyer un objet JavaScript dans une requête HTTP.",
+      "explanation": "L'objet `project` est transformé en chaîne JSON pour être transmis dans le corps de la requête : **`body: JSON.stringify(project)`**."
+    },
+    {
+      "id": 13,
+      "section": "API Service (fetch)",
+      "question": "Quel `method` HTTP est utilisé pour la fonction `updateProject(id, project)` ?",
+      "options": {
+        "a": "POST",
+        "b": "GET",
+        "c": "DELETE",
+        "d": "PUT"
+      },
+      "correct_answer": "d",
+      "tip": "C'est l'opération CRUD pour la modification.",
+      "explanation": "La fonction `updateProject` utilise la méthode **`method: 'PUT'`**."
+    },
+    {
+      "id": 14,
+      "section": "API Service (fetch)",
+      "question": "Quel est le `method` HTTP utilisé pour la fonction `deleteProject(id)` ?",
+      "options": {
+        "a": "GET",
+        "b": "DELETE",
+        "c": "POST",
+        "d": "PATCH"
+      },
+      "correct_answer": "b",
+      "tip": "C'est l'opération CRUD pour la suppression.",
+      "explanation": "La fonction `deleteProject` utilise la méthode **`method: 'DELETE'`**."
+    },
+    {
+      "id": 15,
+      "section": "API Service (fetch)",
+      "question": "Quelle est la valeur de retour de la fonction `deleteProject(id)` en cas de succès ?",
+      "options": {
+        "a": "Un objet JSON de confirmation",
+        "b": "La réponse HTTP complète",
+        "c": "Un booléen `true`",
+        "d": "Le projet supprimé"
+      },
+      "correct_answer": "c",
+      "tip": "C'est une valeur simple qui confirme le succès de l'opération.",
+      "explanation": "En cas de succès, la fonction retourne **`return true;`**."
+    },
+    {
+      "id": 16,
+      "section": "API Service (fetch)",
+      "question": "Quelle est la variable de base pour l'URL de l'API dans le fichier `src/api/projectsApi.js` (version fetch) ?",
+      "options": {
+        "a": "PROJECTS_URL",
+        "b": "API_BASE_URL",
+        "c": "API_URL",
+        "d": "LOCAL_URL"
+      },
+      "correct_answer": "c",
+      "tip": "C'est une constante qui contient l'URL complète de la ressource 'projects'.",
+      "explanation": "La variable utilisée est **`const API_URL = 'http://localhost:4000/projects';`**."
+    },
+    {
+      "id": 17,
+      "section": "API Service (Axios)",
+      "question": "Quel est le premier pas pour travailler avec AXIOS selon le document ?",
+      "options": {
+        "a": "Créer le fichier `axios.js`",
+        "b": "`npm install axios`",
+        "c": "Définir la `baseURL`",
+        "d": "Importer `axiosClient`"
+      },
+      "correct_answer": "b",
+      "tip": "Il s'agit d'installer la librairie.",
+      "explanation": "Le premier pas est **`1- npm install axios`**."
+    },
+    {
+      "id": 18,
+      "section": "API Service (Axios)",
+      "question": "Quelle est la `baseURL` définie pour `axiosClient` dans l'exemple ?",
+      "options": {
+        "a": "'http://localhost:4000/projects'",
+        "b": "'/projects'",
+        "c": "'http://localhost:4000'",
+        "d": "'/api/v1'"
+      },
+      "correct_answer": "c",
+      "tip": "La ressource 'projects' est ajoutée séparément.",
+      "explanation": "L'objet `axiosClient` est créé avec **`baseURL: 'http://localhost:4000'`**."
+    },
+    {
+      "id": 19,
+      "section": "API Service (Axios)",
+      "question": "Dans l'implémentation Axios de `getProjects()`, que fait Axios automatiquement avec la réponse HTTP ?",
+      "options": {
+        "a": "Il la met en cache.",
+        "b": "Il met la réponse JSON dans `res.data`.",
+        "c": "Il gère la navigation de l'utilisateur.",
+        "d": "Il convertit la réponse en XML."
+      },
+      "correct_answer": "b",
+      "tip": "C'est un avantage d'utiliser Axios par rapport à `fetch`.",
+      "explanation": "Le document précise : '**Axios met déjà la réponse JSON dans res.data**'."
+    },
+    {
+      "id": 20,
+      "section": "API Service (Axios)",
+      "question": "Quelle est la méthode de `axiosClient` utilisée pour créer un nouveau projet dans la fonction `createProject(project)` ?",
+      "options": {
+        "a": "`axiosClient.get`",
+        "b": "`axiosClient.put`",
+        "c": "`axiosClient.post`",
+        "d": "`axiosClient.delete`"
+      },
+      "correct_answer": "c",
+      "tip": "La méthode POST est utilisée pour la création.",
+      "explanation": "Le code utilise **`const res = await axiosClient.post(RESOURCE, project);`**."
+    },
+    {
+      "id": 21,
+      "section": "API Service (Axios)",
+      "question": "Quelle est la méthode de `axiosClient` utilisée pour mettre à jour un projet dans la fonction `updateProject(id, project)` ?",
+      "options": {
+        "a": "`axiosClient.patch`",
+        "b": "`axiosClient.put`",
+        "c": "`axiosClient.post`",
+        "d": "`axiosClient.update`"
+      },
+      "correct_answer": "b",
+      "tip": "La méthode PUT est utilisée pour la mise à jour complète.",
+      "explanation": "Le code utilise **`const res = await axiosClient.put(`${RESOURCE}/${id}`, project);`**."
+    },
+    {
+      "id": 22,
+      "section": "Form Submissions",
+      "question": "Quel nouveau point de terminaison (ressource) est ajouté au fichier `db.json` pour l'Atelier 02 ?",
+      "options": {
+        "a": "users",
+        "b": "projects",
+        "c": "adminForms",
+        "d": "formSubmissions"
+      },
+      "correct_answer": "d",
+      "tip": "C'est le nom qui stocke les retours du formulaire de contact.",
+      "explanation": "Il faut étendre `db.json` avec une nouvelle ressource : **`\"formSubmissions\":`**."
+    },
+    {
+      "id": 23,
+      "section": "Form Submissions",
+      "question": "Quelle est la valeur initiale du champ `status` lors de la sauvegarde du formulaire public ?",
+      "options": {
+        "a": "new",
+        "b": "in-progress",
+        "c": "done",
+        "d": "draft"
+      },
+      "correct_answer": "a",
+      "tip": "C'est le statut d'une demande qui vient d'arriver.",
+      "explanation": "Lors de la soumission, le champ `status` est initialisé à **`'new'`**."
+    },
+    {
+      "id": 24,
+      "section": "Form Submissions",
+      "question": "En plus des données du formulaire (`...formData`), quel autre champ horodaté est ajouté à la charge utile lors de la sauvegarde du formulaire public ?",
+      "options": {
+        "a": "updatedAt",
+        "b": "timestamp",
+        "c": "submissionDate",
+        "d": "createdAt"
+      },
+      "correct_answer": "d",
+      "tip": "Il est créé à partir de `new Date().toISOString()`.",
+      "explanation": "Le champ ajouté est **`createdAt: new Date().toISOString()`**."
+    },
+    {
+      "id": 25,
+      "section": "Form Submissions (Admin)",
+      "question": "Dans le composant `AdminFormSubmissions`, comment les soumissions sont-elles triées après leur chargement ?",
+      "options": {
+        "a": "Par date ascendante (`a.createdAt - b.createdAt`)",
+        "b": "Par statut (`status`)",
+        "c": "Par date descendante (`b.createdAt - a.createdAt`)",
+        "d": "Par nom (`fullName`)"
+      },
+      "correct_answer": "c",
+      "tip": "L'option est de trier par date descendante.",
+      "explanation": "Le code inclut une option pour **`trier par date descendante`** en utilisant **`new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()`**."
+    },
+    {
+      "id": 26,
+      "section": "Form Submissions (Admin)",
+      "question": "Quel hook React est utilisé dans `AdminFormSubmissions` pour charger les données lors du montage du composant ?",
+      "options": {
+        "a": "useState",
+        "b": "useContext",
+        "c": "useEffect",
+        "d": "useParams"
+      },
+      "correct_answer": "c",
+      "tip": "C'est le hook pour les effets secondaires et la logique de chargement au début.",
+      "explanation": "La fonction `load()` est appelée à l'intérieur d'un **`useEffect(() => { ... load(); }, [])`**."
+    },
+    {
+      "id": 27,
+      "section": "Form Submissions (Admin)",
+      "question": "Que fait la fonction `handleChangeStatus(id, newStatus)` après une mise à jour réussie du statut d'une soumission ?",
+      "options": {
+        "a": "Elle recharge toutes les soumissions.",
+        "b": "Elle navigue vers une autre page.",
+        "c": "Elle met à jour le tableau `submissions` dans le state en remplaçant l'élément modifié.",
+        "d": "Elle supprime la soumission de la liste."
+      },
+      "correct_answer": "c",
+      "tip": "Elle utilise `setSubmissions` pour mettre à jour l'UI de manière non-destructive.",
+      "explanation": "Elle utilise **`setSubmissions((prev) => prev.map((s) => (s.id === id ? updated: s)))`** pour mettre à jour la liste."
+    },
+    {
+      "id": 28,
+      "section": "Form Submissions (Admin)",
+      "question": "Que fait la fonction `handleDelete(id)` après la suppression réussie d'une soumission ?",
+      "options": {
+        "a": "Elle affiche un message d'erreur.",
+        "b": "Elle recharge les données depuis l'API.",
+        "c": "Elle met à jour le tableau `submissions` pour exclure l'élément supprimé.",
+        "d": "Elle modifie le statut à 'archived'."
+      },
+      "correct_answer": "c",
+      "tip": "Elle utilise la méthode `filter` sur le tableau d'état précédent.",
+      "explanation": "Elle utilise **`setSubmissions((prev) => prev.filter((s) => s.id !== id))`** pour retirer la soumission du state."
+    },
+    {
+      "id": 29,
+      "section": "Authentication (JSON)",
+      "question": "Quel est le rôle de la ressource 'users' dans le `db.json` pour l'Atelier 03 ?",
+      "options": {
+        "a": "Stocker les paramètres de connexion à une base de données externe.",
+        "b": "Fournir les données d'utilisateur pour simuler l'authentification (login).",
+        "c": "Gérer les permissions de la ressource 'projects'.",
+        "d": "Enregistrer les tentatives de connexion."
+      },
+      "correct_answer": "b",
+      "tip": "C'est pour changer l'authentification depuis le même fichier JSON.",
+      "explanation": "La ressource **`users`** est préparée pour simuler l'authentification : **`\"email\": \"admin@21c-digital.com\", \"password\": \"admin123\"`**, etc.."
+    },
+    {
+      "id": 30,
+      "section": "Authentication (JSON)",
+      "question": "Dans `loginWithJson`, comment les utilisateurs sont-ils authentifiés (simulés) avec Axios ?",
+      "options": {
+        "a": "Par une requête POST sur `/users/login`.",
+        "b": "Par un filtre sur `/users` en utilisant les `params` email et password.",
+        "c": "Par une fonction de hachage du mot de passe.",
+        "d": "Par la vérification d'un token en localStorage."
+      },
+      "correct_answer": "b",
+      "tip": "L'API de JSON Server permet de filtrer via les paramètres de requête.",
+      "explanation": "Le code utilise **`axiosClient.get('/users', { params: { email, password }})`** pour **`filtrer par email + password dans le JSON`**."
+    },
+    {
+      "id": 31,
+      "section": "Authentication (JSON)",
+      "question": "Que représente le 'fakeToken' simulé après une connexion réussie ?",
+      "options": {
+        "a": "Un jeton JWT valide et sécurisé.",
+        "b": "Un jeton simple composé de `user-` + `id` + `timestamp`.",
+        "c": "Le mot de passe de l'utilisateur crypté.",
+        "d": "Un identifiant de session stocké en base de données."
+      },
+      "correct_answer": "b",
+      "tip": "C'est une simulation très simple pour l'atelier.",
+      "explanation": "Le 'fakeToken' simule un 'token' simple (ici juste l'id + timestamp) : **`const fakeToken = `user-${user.id}-${Date.now()}`;`**."
+    },
+    {
+      "id": 32,
+      "section": "Projects Manager",
+      "question": "Quel est le rôle principal de la fonction `load` dans `ProjectsManager` (Atelier 04) ?",
+      "options": {
+        "a": "Gérer la soumission du formulaire (CREATE/UPDATE).",
+        "b": "Charger la liste initiale des projets depuis l'API (getProjects).",
+        "c": "Réinitialiser le formulaire après une action.",
+        "d": "Mettre le focus sur le champ 'Titre'."
+      },
+      "correct_answer": "b",
+      "tip": "Elle est appelée au montage du composant (`useEffect`).",
+      "explanation": "Le rôle de `load` est de 'charger les projets' en 'appelant l'API (**getProjects**) pour récupérer la liste initiale des projets'."
+    },
+    {
+      "id": 33,
+      "section": "Projects Manager",
+      "question": "Que fait la fonction `resetForm` sur le state `editingProject` ?",
+      "options": {
+        "a": "Elle le met à la valeur `true`.",
+        "b": "Elle le met à l'objet du dernier projet créé.",
+        "c": "Elle le met à la valeur `null`.",
+        "d": "Elle le met à un objet vide `{}`."
+      },
+      "correct_answer": "c",
+      "tip": "Ceci indique qu'on passe en mode 'nouveau projet'.",
+      "explanation": "La fonction `resetForm` utilise **`setEditingProject(null)`** pour indiquer qu'on 'n'édite plus un projet existant'."
+    },
+    {
+      "id": 34,
+      "section": "Projects Manager",
+      "question": "Dans `handleSubmit`, quelle action est entreprise si la variable `editingProject` contient une valeur (truthy) ?",
+      "options": {
+        "a": "Un appel à `createProject` est effectué.",
+        "b": "Un appel à `load` est effectué.",
+        "c": "Un appel à `updateProject` est effectué.",
+        "d": "Le formulaire est réinitialisé immédiatement."
+      },
+      "correct_answer": "c",
+      "tip": "Cela correspond au mode édition.",
+      "explanation": "Si **`editingProject`** existe, on est en mode édition et l'action est l'**`Appel updateProject(id, data) vers L'API`**."
+    },
+    {
+      "id": 35,
+      "section": "Projects Manager",
+      "question": "Quelle est l'action entreprise sur le tableau `projects` si un nouveau projet est **créé** via `handleSubmit` ?",
+      "options": {
+        "a": "Le nouveau projet remplace l'ancien.",
+        "b": "Le nouveau projet est ajouté au début du tableau.",
+        "c": "Le nouveau projet est ajouté à la fin du tableau.",
+        "d": "Le tableau `projects` n'est pas modifié."
+      },
+      "correct_answer": "c",
+      "tip": "Il est ajouté à l'état précédent pour mettre à jour la liste.",
+      "explanation": "En mode création, il y a 'Ajout du projet créé à la fin du tableau projects' avec **`setProjects ((prev) => [...prev, created])`**."
+    },
+    {
+      "id": 36,
+      "section": "Projects AdminPage (Container)",
+      "question": "Dans `ProjectsAdminPage`, quel prop est utilisé pour passer le projet à modifier au composant `ProjectForm` ?",
+      "options": {
+        "a": "currentProject",
+        "b": "projectToEdit",
+        "c": "initialProject",
+        "d": "selectedProject"
+      },
+      "correct_answer": "c",
+      "tip": "C'est la prop qui donne au formulaire sa valeur initiale.",
+      "explanation": "Le composant `ProjectForm` reçoit le prop **`initialProject={editingProject}`**."
+    },
+    {
+      "id": 37,
+      "section": "Projects Table",
+      "question": "Dans `ProjectsTable.jsx`, quel champ d'un projet est affiché en utilisant `?.join(', ')` pour gérer son affichage ?",
+      "options": {
+        "a": "title",
+        "b": "status",
+        "c": "githubUrl",
+        "d": "techStack"
+      },
+      "correct_answer": "d",
+      "tip": "Il est affiché dans la colonne 'Stack'.",
+      "explanation": "La colonne 'Stack' affiche **`{project.techStack?.join(', ')}`**."
+    },
+    {
+      "id": 38,
+      "section": "Public Interfaces",
+      "question": "Dans le composant `ProjectsList.jsx`, quel est le critère de filtrage appliqué aux données reçues de l'API ?",
+      "options": {
+        "a": "Ne montrer que les projets 'draft'.",
+        "b": "Ne montrer que les projets 'online'.",
+        "c": "Ne montrer que les projets dont le statut n'est pas 'archived'.",
+        "d": "Ne montrer que les projets avec un `liveUrl`."
+      },
+      "correct_answer": "c",
+      "tip": "L'option est de ne montrer que les projets 'online' ou 'in-progress'.",
+      "explanation": "Le commentaire 'Option: ne montrer que les projets \"online\"' est suivi du code **`setProjects(data.filter((p) => p.status !== 'archived'))`**."
+    },
+    {
+      "id": 39,
+      "section": "useRef",
+      "question": "Selon le document, que crée le hook `useRef` ?",
+      "options": {
+        "a": "Un composant fonctionnel.",
+        "b": "Un objet immuable qui déclenche un re-render.",
+        "c": "Un objet mutable `{ current: }` qui persiste entre les rendus sans déclencher de re-render.",
+        "d": "Un hook pour lire les paramètres d'URL."
+      },
+      "correct_answer": "c",
+      "tip": "Il est utilisé pour stocker une valeur 'mémoire' ou accéder au DOM.",
+      "explanation": "`useRef` 'Crée un **objet mutable { current: } qui persiste entre les rendus sans déclencher de re-render** quand on le modifie'."
+    },
+    {
+      "id": 40,
+      "section": "useParams / useContext",
+      "question": "Quel hook de React Router est utilisé pour lire les paramètres dynamiques de l'URL (comme l'id dans `/projects/:id`) ?",
+      "options": {
+        "a": "useLocation",
+        "b": "useHistory",
+        "c": "useNavigate",
+        "d": "useParams"
+      },
+      "correct_answer": "d",
+      "tip": "Il renvoie un objet avec les clés et valeurs des paramètres.",
+      "explanation": "**`useParams`** est un hook de React Router qui 'permet de lire les paramètres dynamiques dans l'URL, par exemple l'id dans une route /projects/:id'."
+    }
+  ]
+}

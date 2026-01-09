@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 import OptionButton from './OptionButton';
 import './QuestionCard.css';
 
@@ -9,6 +10,11 @@ function QuestionCard({
   selectedAnswer, 
   onSelectAnswer 
 }) {
+  const [showTip, setShowTip] = useState(false);
+
+  // Check if this is a React question (has tip field)
+  const hasTip = question.tip;
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -21,13 +27,44 @@ function QuestionCard({
       >
         <div className="question-header">
           <span className="question-number">Q{questionIndex + 1}</span>
-          {selectedAnswer && (
-            <span className="answered-badge">
-              <CheckCircle2 size={16} />
-              Répondu
-            </span>
-          )}
+          <div className="question-header-right">
+            {hasTip && (
+              <button 
+                className={`tip-btn ${showTip ? 'active' : ''}`}
+                onClick={() => setShowTip(!showTip)}
+                title="Afficher un indice"
+              >
+                <Lightbulb size={16} />
+                <span>Astuce</span>
+                {showTip ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+              </button>
+            )}
+            {selectedAnswer && (
+              <span className="answered-badge">
+                <CheckCircle2 size={16} />
+                Répondu
+              </span>
+            )}
+          </div>
         </div>
+
+        {/* Tip section - only for React questions */}
+        <AnimatePresence>
+          {showTip && hasTip && (
+            <motion.div 
+              className="tip-container"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="tip-content">
+                <Lightbulb size={16} />
+                <span>{question.tip}</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         
         <h2 className="question-text">{question.question_text}</h2>
 

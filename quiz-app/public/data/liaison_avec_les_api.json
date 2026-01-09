@@ -1,0 +1,572 @@
+﻿{
+  "topic_name": "Liaison avec les API",
+  "resource_name": "Chapitre 3  Liaison avec les API dans REACT (2).pdf",
+  "content_authors": [
+    "Ahmed Fakhfakh",
+    "Mohamed Bouattour"
+  ],
+  "qcm_author": "Baha Eddine Hamdi",
+  "num_questions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "section": "Introduction aux API",
+      "question": "Selon le document, que représente l'abréviation API ?",
+      "options": {
+        "a": "Application Protocol Interface",
+        "b": "Architecture Programming Initiative",
+        "c": "Application Programming Interface",
+        "d": "Advanced Process Integration"
+      },
+      "correct_answer": "c",
+      "tip": "C'est un pont entre le frontend (React) et le backend (serveur).",
+      "explanation": "L'API est l'acronyme de 'Application Programming Interface'. Elle sert de pont entre le frontend (React) et le backend (serveur)."
+    },
+    {
+      "id": 2,
+      "section": "Méthodes HTTP",
+      "question": "Quelle méthode HTTP est typiquement utilisée pour 'Créer des données', par exemple pour une action de 'S'inscrire' ou 'se connecter'?",
+      "options": {
+        "a": "GET",
+        "b": "PUT",
+        "c": "DELETE",
+        "d": "POST"
+      },
+      "correct_answer": "d",
+      "tip": "Cette méthode est utilisée pour soumettre de nouvelles entités au serveur.",
+      "explanation": "La méthode POST est utilisée pour 'Créer des données', avec l'exemple 'S'inscrire, se connecter'."
+    },
+    {
+      "id": 3,
+      "section": "Méthodes HTTP",
+      "question": "Quelle méthode HTTP est utilisée pour 'Modifier des données' sur le serveur ?",
+      "options": {
+        "a": "GET",
+        "b": "POST",
+        "c": "PUT",
+        "d": "PATCH"
+      },
+      "correct_answer": "c",
+      "tip": "La méthode est citée pour l'action de 'Mettre à jour un profil'.",
+      "explanation": "La méthode PUT est utilisée pour 'Modifier des données', avec l'exemple 'Mettre à jour un profil'."
+    },
+    {
+      "id": 4,
+      "section": "Outils de Test API",
+      "question": "Quel outil est mentionné dans l'atelier 01 comme une extension pour VS Code afin de tester l'API REST ?",
+      "options": {
+        "a": "Postman",
+        "b": "Thunder Client",
+        "c": "Insomnia",
+        "d": "Thunder Bolt"
+      },
+      "correct_answer": "b",
+      "tip": "C'est un client API REST léger pour VS Code.",
+      "explanation": "L'atelier 01 suggère d'installer 'l'extension Thunder dans VS code', et la section suivante présente 'Thunder Client' comme 'Lightweight Rest API Client pour VS Code'."
+    },
+    {
+      "id": 5,
+      "section": "Ressources API de Test",
+      "question": "Quel service est présenté comme une 'API REST gratuite pour tester' et 'Pas de backend à installer' ?",
+      "options": {
+        "a": "JSONPlaceholder",
+        "b": "The Dog API",
+        "c": "ReqRes.in",
+        "d": "Random User"
+      },
+      "correct_answer": "c",
+      "tip": "C'est l'API utilisée pour les exemples d'utilisateurs.",
+      "explanation": "Le document indique : 'Nous utiliserons ReqRes.in - Une API REST gratuite pour tester', et mentionne l'avantage 'Pas de backend à installer'."
+    },
+    {
+      "id": 6,
+      "section": "useEffect",
+      "question": "Quelle est la fonction principale du Hook React `useEffect` ?",
+      "options": {
+        "a": "Gérer l'état local du composant.",
+        "b": "Exécuter du code AVANT le rendu d'un composant.",
+        "c": "Exécuter du code APRÈS le rendu d'un composant pour gérer les effets de bord.",
+        "d": "Mémoriser le résultat d'un calcul coûteux."
+      },
+      "correct_answer": "c",
+      "tip": "Il est souvent utilisé pour la récupération de données.",
+      "explanation": "`useEffect` est un Hook React qui permet d'exécuter du code 'après le rendu d'un composant' et 'sert à gérer les effets de bord (side effects)'."
+    },
+    {
+      "id": 7,
+      "section": "useEffect",
+      "question": "Lequel de ces éléments n'est **PAS** un effet de bord typiquement géré par `useEffect` selon le document ?",
+      "options": {
+        "a": "Modifier le DOM directement",
+        "b": "Récupérer des données depuis une API",
+        "c": "Le calcul d'une valeur dérivée d'un state",
+        "d": "S'abonner à des événements"
+      },
+      "correct_answer": "c",
+      "tip": "Les calculs de valeurs dérivées sont typiquement faits dans le corps du composant, ou optimisés avec `useMemo`.",
+      "explanation": "Les exemples d'effets de bord donnés sont: 'Récupérer des données depuis une API', 'S'abonner à des événements', 'Modifier le DOM directement'. Le calcul d'une valeur dérivée n'est pas listé comme un effet de bord."
+    },
+    {
+      "id": 8,
+      "section": "useEffect",
+      "question": "À quel ancien cycle de vie de composant de classe `useEffect` avec un tableau de dépendances vide (`[]`) est-il équivalent ?",
+      "options": {
+        "a": "componentDidUpdate",
+        "b": "componentWillUnmount",
+        "c": "componentDidMount",
+        "d": "getDerivedStateFromProps"
+      },
+      "correct_answer": "c",
+      "tip": "Il s'exécute 'UNE SEULE FOIS au montage'.",
+      "explanation": "Avec un 'Tableau Vide []', `useEffect` 'S'exécute une seule fois au premier rendu' et est 'équivalent à componentDidMount'."
+    },
+    {
+      "id": 9,
+      "section": "useEffect",
+      "question": "Dans la syntaxe de base de `useEffect(callback, [dependencies])`, le tableau de dépendances est-il obligatoire ?",
+      "options": {
+        "a": "Oui, toujours.",
+        "b": "Non, il est optionnel.",
+        "c": "Uniquement pour le nettoyage (cleanup).",
+        "d": "Uniquement pour le chargement de données."
+      },
+      "correct_answer": "b",
+      "tip": "Il contrôle quand l'effet s'exécute, mais sa présence n'est pas requise.",
+      "explanation": "Le 'Tableau de dépendances' est le 'Deuxième paramètre' et est noté comme 'optionnel'."
+    },
+    {
+      "id": 10,
+      "section": "useEffect",
+      "question": "Quel est le comportement d'un `useEffect` sans tableau de dépendances ?",
+      "options": {
+        "a": "S'exécute une seule fois au montage.",
+        "b": "S'exécute uniquement si l'état change.",
+        "c": "S'exécute après CHAQUE rendu du composant.",
+        "d": "Ne s'exécute jamais."
+      },
+      "correct_answer": "c",
+      "tip": "C'est un cas rare en pratique.",
+      "explanation": "Le 'Cas 1: Sans Tableau de Dépendances' 'S'exécute après chaque rendu du composant'."
+    },
+    {
+      "id": 11,
+      "section": "useEffect (Cleanup)",
+      "question": "Que doit retourner la fonction passée à `useEffect` pour éviter les fuites de mémoire (memory leaks) ?",
+      "options": {
+        "a": "Une Promise",
+        "b": "Une fonction de nettoyage (cleanup function)",
+        "c": "Le nouveau state du composant",
+        "d": "La valeur `null`"
+      },
+      "correct_answer": "b",
+      "tip": "Elle est exécutée avant la prochaine exécution de l'effet ou au démontage.",
+      "explanation": "`useEffect` peut retourner 'une fonction qui sera exécutée' pour le 'Cleanup' et 'éviter les fuites de mémoire (memory leaks)'."
+    },
+    {
+      "id": 12,
+      "section": "useEffect (Cleanup)",
+      "question": "À quel moment la fonction de nettoyage (cleanup) d'`useEffect` est-elle exécutée ?",
+      "options": {
+        "a": "Uniquement au démontage du composant.",
+        "b": "Avant la prochaine exécution de l'effet OU quand le composant se démonte.",
+        "c": "Immédiatement après l'exécution de l'effet.",
+        "d": "Uniquement au montage du composant."
+      },
+      "correct_answer": "b",
+      "tip": "Elle permet de 'nettoyer l'interval' d'un timer, par exemple.",
+      "explanation": "La fonction de nettoyage est exécutée : 'Avant la prochaine exécution de l'effet' et 'Quand le composant se démonte'."
+    },
+    {
+      "id": 13,
+      "section": "useEffect (Erreurs)",
+      "question": "Dans le contexte de `useEffect`, quel type d'erreur le document identifie-t-il lorsque la fonction de nettoyage est omise sur un intervalle (timer) ?",
+      "options": {
+        "a": "Erreur de réseau",
+        "b": "Boucle infinie",
+        "c": "Fuite mémoire",
+        "d": "Erreur de syntaxe"
+      },
+      "correct_answer": "c",
+      "tip": "Le document la qualifie de '// MAUVAIS'.",
+      "explanation": "Le document avertit contre une '// MAUVAIS' utilisation sans cleanup : 'Fuite mémoire !'."
+    },
+    {
+      "id": 14,
+      "section": "useEffect (Erreurs)",
+      "question": "Qu'est-ce qui cause une 'Boucle infinie' dans l'exemple jugé '// X MAUVAIS' du document ?",
+      "options": {
+        "a": "L'oubli du tableau de dépendances.",
+        "b": "La dépendance à un state (`data`) qui est modifié dans l'effet.",
+        "c": "L'utilisation de la fonction `fetch`.",
+        "d": "L'absence de fonction de nettoyage."
+      },
+      "correct_answer": "b",
+      "tip": "L'effet se déclenche, change le state, ce qui déclenche un nouveau rendu, qui redécleche l'effet, et ainsi de suite.",
+      "explanation": "Le document indique que la boucle infinie est due à `setData(...)` qui 'Change data' et la dépendance `[data]` qui déclenche l'effet : 'useEffect → data change → ...'."
+    },
+    {
+      "id": 15,
+      "section": "Timers",
+      "question": "Quelle fonction est conseillée d'utiliser pour arrêter une répétition initiée par `setInterval` ?",
+      "options": {
+        "a": "clearTimeout",
+        "b": "stopInterval",
+        "c": "clearInterval",
+        "d": "pauseInterval"
+      },
+      "correct_answer": "c",
+      "tip": "Elle prend l'identifiant retourné par `setInterval`.",
+      "explanation": "`setInterval` retourne un identifiant qu'on peut donner à `clearInterval` pour stopper la répétition."
+    },
+    {
+      "id": 16,
+      "section": "useMemo",
+      "question": "Quel est le rôle principal du Hook React `useMemo` ?",
+      "options": {
+        "a": "Gérer les effets de bord après le rendu.",
+        "b": "Mémoriser le résultat d'un calcul pour éviter de le refaire inutilement.",
+        "c": "Gérer l'état de l'application de manière globale.",
+        "d": "Déclencher un nouveau rendu du composant."
+      },
+      "correct_answer": "b",
+      "tip": "Il est utile pour l'optimisation des calculs coûteux.",
+      "explanation": "`useMemo` est un Hook de React qui permet de 'mémoriser (mettre en cache) le résultat d'un calcul pour éviter de le refaire inutilement à chaque rendu du composant'."
+    },
+    {
+      "id": 17,
+      "section": "useMemo",
+      "question": "Dans le composant React, à quel moment la fonction passée à `useMemo` est-elle exécutée ?",
+      "options": {
+        "a": "Après le rendu du composant.",
+        "b": "Uniquement lors du montage.",
+        "c": "Pendant le rendu du composant.",
+        "d": "Avant le rendu du composant."
+      },
+      "correct_answer": "c",
+      "tip": "C'est une différence clé avec `useEffect`.",
+      "explanation": "Dans le tableau comparatif, le 'Moment d'exécution' de `useMemo` est 'Pendant le rendu'."
+    },
+    {
+      "id": 18,
+      "section": "useMemo",
+      "question": "Quelle est la condition pour que `useMemo` recalcule sa valeur ?",
+      "options": {
+        "a": "Chaque fois qu'un state change.",
+        "b": "Chaque fois qu'un prop change.",
+        "c": "Uniquement lorsque l'une des dépendances change.",
+        "d": "Uniquement lors du premier rendu."
+      },
+      "correct_answer": "c",
+      "tip": "S'il n'y a pas de changement dans le tableau de dépendances, React utilise la valeur mémorisée.",
+      "explanation": "La fonction passée à `useMemo` 'n'est exécutée que lorsque l'une des dépendances change'."
+    },
+    {
+      "id": 19,
+      "section": "useMemo vs useEffect",
+      "question": "Quelle est la différence de 'Retourne' entre `useEffect` et `useMemo` selon le tableau comparatif ?",
+      "options": {
+        "a": "`useEffect` retourne un cleanup, `useMemo` retourne un state.",
+        "b": "`useEffect` retourne une Promise, `useMemo` retourne une fonction.",
+        "c": "`useEffect` retourne Rien (void), `useMemo` retourne une valeur mémoïsée.",
+        "d": "Les deux retournent toujours une fonction."
+      },
+      "correct_answer": "c",
+      "tip": "L'un gère un effet, l'autre optimise une valeur.",
+      "explanation": "Le tableau comparatif indique que `useEffect` 'Retourne: Rien (void)' et `useMemo` 'Retourne une valeur mémoïsée'."
+    },
+    {
+      "id": 20,
+      "section": "Dérivation de State",
+      "question": "Pourquoi le document suggère-t-il de ne **PAS** stocker le résultat d'un filtre (comme `filteredUsers`) dans un state ?",
+      "options": {
+        "a": "Parce que c'est trop lent.",
+        "b": "Parce que cela crée deux sources de vérité, source d'erreurs.",
+        "c": "Parce que les states ne peuvent stocker que des chaînes de caractères.",
+        "d": "Parce que le filtre doit être appliqué avec `useMemo`."
+      },
+      "correct_answer": "b",
+      "tip": "Le filtre est directement dérivé des states `users` et `searchTerm`.",
+      "explanation": "Il n'y a pas besoin de stocker `filteredUsers` dans un state car il est dérivé directement des states `users` et `searchTerm`, ce qui 'évite d'avoir deux sources de vérité, ce qui est source d'erreurs'."
+    },
+    {
+      "id": 21,
+      "section": "Async/Await",
+      "question": "Selon le document, dans quel type de fonction l'opérateur `await` peut-il **UNIQUEMENT** être utilisé ?",
+      "options": {
+        "a": "Une fonction classique.",
+        "b": "Une fonction de nettoyage.",
+        "c": "Une fonction async.",
+        "d": "Une fonction anonyme."
+      },
+      "correct_answer": "c",
+      "tip": "L'instruction 'NB' le précise clairement.",
+      "explanation": "`await` ne fonctionne 'QUE dans une fonction async'. Le document met aussi en garde contre 'await dans une fonction normale (erreur de syntaxe)'."
+    },
+    {
+      "id": 22,
+      "section": "Async/Await",
+      "question": "Quel est le rôle de l'opérateur `await` ?",
+      "options": {
+        "a": "Il transforme une fonction normale en fonction asynchrone.",
+        "b": "Il attend le résultat d'une Promise.",
+        "c": "Il gère les erreurs de manière synchrone.",
+        "d": "Il déclenche une nouvelle requête HTTP."
+      },
+      "correct_answer": "b",
+      "tip": "Il 'met en pause l'exécution' de la fonction.",
+      "explanation": "`await = attend le résultat d'une Promise`."
+    },
+    {
+      "id": 23,
+      "section": "Promise",
+      "question": "Lequel de ces états n'est **PAS** un état possible d'une Promise en JavaScript, selon le document ?",
+      "options": {
+        "a": "Rejected (Rejetée)",
+        "b": "Pending (En attente)",
+        "c": "Resolved (Résolue)",
+        "d": "Fulfilled (Accomplie)"
+      },
+      "correct_answer": "c",
+      "tip": "L'état de succès est appelé Fulfilled.",
+      "explanation": "Les trois états sont : 1. Pending (En attente) ; 2. Fulfilled (Résolue) ; 3. Rejected (Rejetée). Resolved n'est pas l'un des trois états listés."
+    },
+    {
+      "id": 24,
+      "section": "Async/Await",
+      "question": "Quel bloc de code est fortement conseillé d'utiliser avec `async/await` pour gérer les erreurs ?",
+      "options": {
+        "a": "switch/case",
+        "b": "if/else",
+        "c": "try/catch",
+        "d": ".then/.catch"
+      },
+      "correct_answer": "c",
+      "tip": "Il permet de gérer les exceptions levées par les opérations asynchrones.",
+      "explanation": "Le document mentionne: 'try/catch = gère les erreurs', et 'Toujours utiliser try/catch pour gérer les erreurs'."
+    },
+    {
+      "id": 25,
+      "section": "Gestion des requêtes",
+      "question": "Quelle méthode est suggérée pour l'exécution de requêtes API **indépendantes** afin de ne pas les exécuter séquentiellement (lentement) ?",
+      "options": {
+        "a": "await séquentiel",
+        "b": "Promise.all",
+        "c": "fetch() chaîné",
+        "d": "Axios.get"
+      },
+      "correct_answer": "b",
+      "tip": "Elle permet de paralléliser les Promises.",
+      "explanation": "Pour éviter l'exécution lente et séquentielle, le document conseille d' 'Utiliser Promise.all pour les requêtes indépendantes'."
+    },
+    {
+      "id": 26,
+      "section": "fetch() API",
+      "question": "Dans une chaîne de `fetch()`, quel bloc gère spécifiquement les erreurs ou les rejets de la promesse ?",
+      "options": {
+        "a": ".then()",
+        "b": ".catch()",
+        "c": ".finally()",
+        "d": ".error()"
+      },
+      "correct_answer": "b",
+      "tip": "Cette méthode est utilisée quand on travaille sans `async/await`.",
+      "explanation": "`.catch`: gère les erreurs ou rejets de la promesse. `.catch()` traite les erreurs."
+    },
+    {
+      "id": 27,
+      "section": "Local Storage",
+      "question": "Quelle est la principale différence de persistance entre `localStorage` et `sessionStorage` ?",
+      "options": {
+        "a": "`localStorage` est effacé après un refresh, `sessionStorage` est persistant.",
+        "b": "`localStorage` est persistant après la fermeture du navigateur, `sessionStorage` est effacé à la fermeture de l'onglet/fenêtre.",
+        "c": "Les deux sont effacés après la fermeture du navigateur.",
+        "d": "`localStorage` est partagé entre origines, `sessionStorage` ne l'est pas."
+      },
+      "correct_answer": "b",
+      "tip": "Pensez aux jetons d'authentification qui doivent survivre à la réouverture de l'application.",
+      "explanation": "`localStorage` est persistant même après la fermeture et la réouverture du navigateur, tandis que `sessionStorage` est supprimé 'dès que l'onglet ou la fenêtre est fermée'."
+    },
+    {
+      "id": 28,
+      "section": "Local Storage",
+      "question": "Quelle méthode `localStorage` doit-on utiliser pour enregistrer une donnée ?",
+      "options": {
+        "a": "localStorage.putItem('cle', 'valeur')",
+        "b": "localStorage.store('cle', 'valeur')",
+        "c": "localStorage.getItem('cle')",
+        "d": "localStorage.setItem('cle', 'valeur')"
+      },
+      "correct_answer": "d",
+      "tip": "La méthode doit être utilisée avec un nom de clé et la valeur à stocker.",
+      "explanation": "On peut stocker des données avec `localStorage.setItem('cle', 'valeur')`."
+    },
+    {
+      "id": 29,
+      "section": "Local Storage",
+      "question": "Que faut-il faire pour stocker un objet JavaScript dans `localStorage` ?",
+      "options": {
+        "a": "Le stocker tel quel, `localStorage` le convertit automatiquement.",
+        "b": "Utiliser `JSON.stringify()` avant de le stocker.",
+        "c": "Utiliser `localStorage.storeObject()`.",
+        "d": "Le convertir en tableau avant le stockage."
+      },
+      "correct_answer": "b",
+      "tip": "Seules les chaînes de caractères peuvent être stockées.",
+      "explanation": "Seules les chaînes de caractères peuvent être stockées, 'donc il faut souvent utiliser JSON.stringify() pour stocker des objets'."
+    },
+    {
+      "id": 30,
+      "section": "Cookies vs Local Storage",
+      "question": "Selon le document, quelle est la capacité de stockage typique d'un cookie par rapport à `localStorage` ?",
+      "options": {
+        "a": "Les cookies ont une capacité similaire (~5-10 Mo).",
+        "b": "Les cookies ont une capacité bien supérieure (illimitée).",
+        "c": "Les cookies sont limités à ~4 Ko par cookie, contre ~5-10 Mo pour `localStorage`.",
+        "d": "La capacité est la même pour les deux (~4 Ko)."
+      },
+      "correct_answer": "c",
+      "tip": "Le stockage des cookies est très faible et ils sont transmis au serveur à chaque requête.",
+      "explanation": "Le tableau comparatif indique 'Capacité: ~5-10 Mo' pour `localStorage` et '~4 Ko par cookie' pour les 'Cookies'."
+    },
+    {
+      "id": 31,
+      "section": "Session Storage",
+      "question": "Dans `sessionStorage`, les données sont-elles partagées avec les autres onglets du même site ?",
+      "options": {
+        "a": "Oui, elles sont communes à tous les onglets.",
+        "b": "Non, chaque onglet a son propre `sessionStorage`.",
+        "c": "Uniquement si les onglets sont ouverts en même temps.",
+        "d": "Uniquement si elles sont stockées avec `sessionStorage.setItem()`."
+      },
+      "correct_answer": "b",
+      "tip": "Pensez à l'exemple des réservations multiples.",
+      "explanation": "Le `sessionStorage` 'n'est pas partagé avec les autres onglets, même si c'est le même site : chaque onglet a son propre sessionStorage'."
+    },
+    {
+      "id": 32,
+      "section": "Authentification (Front)",
+      "question": "Quelle est la source de vérité centrale ('auth state') pour l'état d'authentification dans une application React, selon le document ?",
+      "options": {
+        "a": "Uniquement `localStorage`.",
+        "b": "Uniquement l'état local du composant `Login`.",
+        "c": "Un `AuthContext` (Context API) ou Redux.",
+        "d": "L'URL de la page."
+      },
+      "correct_answer": "c",
+      "tip": "La centralisation permet de savoir si l'utilisateur est connecté dans toute l'application.",
+      "explanation": "Il faut 'centraliser l'état d'authentification' dans 'un AuthContext (Context API)' ou Redux."
+    },
+    {
+      "id": 33,
+      "section": "Authentification (Front)",
+      "question": "Après un login réussi, où le token doit-il être sauvegardé si l'on souhaite que l'utilisateur reste 'connecté' après avoir fermé et rouvert le navigateur ?",
+      "options": {
+        "a": "Uniquement dans le state React.",
+        "b": "Dans `sessionStorage`.",
+        "c": "Dans `localStorage`.",
+        "d": "Uniquement dans une variable globale."
+      },
+      "correct_answer": "c",
+      "tip": "C'est le stockage persistant qui survit à la fermeture du navigateur.",
+      "explanation": "Il faut sauvegarder les infos importantes 'éventuellement dans localStorage ou sessionStorage pour persister entre refresh/fermeture d'onglet'. Le `localStorage` étant persistant à la fermeture du navigateur (contrairement au `sessionStorage`), il est le plus approprié pour cette persistance."
+    },
+    {
+      "id": 34,
+      "section": "Logout",
+      "question": "Quelle est l'action clé effectuée par le composant `Logout.jsx` dans la correction de l'atelier 05 ?",
+      "options": {
+        "a": "Appeler un endpoint `/logout` sur le backend.",
+        "b": "Déclencher un nouveau rendu du composant.",
+        "c": "Supprimer l'authToken de `localStorage` et naviguer vers `/login`.",
+        "d": "Supprimer l'authToken de `sessionStorage`."
+      },
+      "correct_answer": "c",
+      "tip": "C'est une combinaison de nettoyage et de redirection.",
+      "explanation": "Le composant `Logout.jsx` contient le code `localStorage.removeItem('authToken');` et `navigate('/login', { replace: true });`."
+    },
+    {
+      "id": 35,
+      "section": "React Router",
+      "question": "Quel Hook de React Router donne des informations sur l'URL courante (chemin, query string, hash, state de navigation) ?",
+      "options": {
+        "a": "useHistory",
+        "b": "useParams",
+        "c": "useNavigate",
+        "d": "useLocation"
+      },
+      "correct_answer": "d",
+      "tip": "Ce hook retourne un objet `location`.",
+      "explanation": "`useLocation` est un hook fourni par React Router qui te donne 'toutes les infos sur l'URL courante' (chemin, query string, hash, state de navigation, etc.)."
+    },
+    {
+      "id": 36,
+      "section": "JWT",
+      "question": "De combien de parties un JWT (JSON Web Token) est-il composé ?",
+      "options": {
+        "a": "Deux (Header et Payload).",
+        "b": "Trois (Header, Payload et Signature).",
+        "c": "Quatre (Header, Payload, Signature et Expiration).",
+        "d": "Cinq (Header, Payload, Signature, UserID et Expiration)."
+      },
+      "correct_answer": "b",
+      "tip": "Les parties sont séparées par des points.",
+      "explanation": "C'est un JWT (JSON Web Token) composé de 3 parties encodées en Base64URL : 'Header', 'Payload' et 'Signature'."
+    },
+    {
+      "id": 37,
+      "section": "JWT",
+      "question": "Quel est le but de la partie 'Signature' d'un JWT ?",
+      "options": {
+        "a": "Chiffrer le token pour qu'il soit secret.",
+        "b": "Permettre au serveur de vérifier que le token n'a pas été modifié.",
+        "c": "Stocker le mot de passe de l'utilisateur.",
+        "d": "Indiquer le type d'algorithme utilisé pour le token."
+      },
+      "correct_answer": "b",
+      "tip": "La signature utilise une clé secrète connue uniquement du serveur.",
+      "explanation": "La Signature permet 'au serveur de vérifier que le token n'a pas été modifié'."
+    },
+    {
+      "id": 38,
+      "section": "Axios",
+      "question": "Quelle est la principale caractéristique d'Axios par rapport à `fetch()` mentionnée dans le document ?",
+      "options": {
+        "a": "Il est natif du navigateur.",
+        "b": "Il ne supporte pas `async/await`.",
+        "c": "Il parse automatiquement le JSON des réponses.",
+        "d": "Il ne fonctionne que côté Node.js."
+      },
+      "correct_answer": "c",
+      "tip": "C'est un des avantages qui rend le code plus simple.",
+      "explanation": "Axios 'Parse automatiquement JSON - Pas besoin de .json()', contrairement à `fetch()` qui nécessite un 'Parsing manuel du JSON'."
+    },
+    {
+      "id": 39,
+      "section": "Axios Interceptors",
+      "question": "Qu'est-ce qu'un 'Request interceptor' dans Axios ?",
+      "options": {
+        "a": "Une fonction qui modifie la réponse après qu'elle soit revenue.",
+        "b": "Une fonction qui se place entre l'appel à Axios et le composant.",
+        "c": "Une fonction appelée juste avant l'envoi d'une requête pour la modifier.",
+        "d": "Une fonction qui gère spécifiquement l'erreur 401."
+      },
+      "correct_answer": "c",
+      "tip": "Il est souvent utilisé pour ajouter des headers d'authentification.",
+      "explanation": "Le 'Request interceptor' est 'appelé juste avant l'envoi d'une requête'. Son rôle est, par exemple, d''ajouter le header Authorization: Bearer <token>'."
+    },
+    {
+      "id": 40,
+      "section": "Axios Interceptors",
+      "question": "Quel est l'un des usages typiques d'un 'Response interceptor' dans Axios, concernant l'authentification ?",
+      "options": {
+        "a": "Générer le token JWT côté client.",
+        "b": "Ajouter l'en-tête `Authorization` à la requête.",
+        "c": "Gérer les erreurs 401/403 globalement (logout automatique).",
+        "d": "Transformer le JSON en objet JavaScript."
+      },
+      "correct_answer": "c",
+      "tip": "Il est appelé dès qu'une réponse revient du serveur.",
+      "explanation": "Le 'Response interceptor' permet de 'gérer les erreurs 401/403 globalement (logout automatique si token invalide)'."
+    }
+  ]
+}
