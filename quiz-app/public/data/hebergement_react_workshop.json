@@ -1,0 +1,572 @@
+{
+  "topic_name": "Hébergement React",
+  "resource_name": "Copy of Workshop Complet Hébergement React.docx",
+  "content_authors": [
+    "Ahmed Fakhfakh",
+    "Mohamed Bouattour"
+  ],
+  "qcm_author": "Baha Eddine Hamdi",
+  "num_questions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "section": "Objectifs du Workshop",
+      "question": "Quel est l'un des objectifs principaux de ce workshop ?",
+      "options": {
+        "a": "Créer une application Angular",
+        "b": "Versionner votre projet React avec Git et GitHub",
+        "c": "Installer un serveur Apache",
+        "d": "Configurer une base de données MySQL"
+      },
+      "correct_answer": "b",
+      "tip": "Le workshop se concentre sur le déploiement d'applications React.",
+      "explanation": "L'un des objectifs principaux est de versionner votre projet React avec Git et GitHub, ce qui permet de gérer les versions du code et de collaborer."
+    },
+    {
+      "id": 2,
+      "section": "Prérequis",
+      "question": "Quel est l'un des prérequis nécessaires pour suivre ce workshop ?",
+      "options": {
+        "a": "Un serveur dédié payant",
+        "b": "Un projet React fonctionnel",
+        "c": "Une licence Adobe Creative Cloud",
+        "d": "Un certificat SSL payant"
+      },
+      "correct_answer": "b",
+      "tip": "Vous devez avoir quelque chose de prêt avant de commencer le déploiement.",
+      "explanation": "Un projet React fonctionnel (avec ou sans json-server) est nécessaire comme point de départ pour pouvoir le déployer."
+    },
+    {
+      "id": 3,
+      "section": "Prérequis",
+      "question": "Quel type de compte Vercel est recommandé pour ce workshop ?",
+      "options": {
+        "a": "Un compte Premium",
+        "b": "Un compte Enterprise",
+        "c": "Un compte gratuit qui se connecte à GitHub",
+        "d": "Un compte payant mensuel"
+      },
+      "correct_answer": "c",
+      "tip": "Le workshop utilise des outils accessibles à tous.",
+      "explanation": "Un compte Vercel gratuit qui se connecte à GitHub est suffisant pour suivre ce workshop et déployer votre application."
+    },
+    {
+      "id": 4,
+      "section": "Partie 1 - Variables d'environnement",
+      "question": "Pourquoi l'URL 'http://localhost:3000/users' ne fonctionnera PAS en ligne ?",
+      "options": {
+        "a": "Parce que localhost n'est pas sécurisé",
+        "b": "Parce que localhost fait référence à votre machine locale, inaccessible en production",
+        "c": "Parce que le port 3000 est bloqué",
+        "d": "Parce que le format de l'URL est incorrect"
+      },
+      "correct_answer": "b",
+      "tip": "Localhost a une signification spécifique en développement.",
+      "explanation": "localhost fait référence à votre propre machine. Une fois l'application déployée en ligne, elle ne peut plus accéder à votre ordinateur local."
+    },
+    {
+      "id": 5,
+      "section": "Partie 1 - Variables d'environnement",
+      "question": "Quel est le nom du fichier à créer à la racine du projet pour stocker les variables d'environnement locales ?",
+      "options": {
+        "a": ".env.production",
+        "b": ".env.local",
+        "c": "config.env",
+        "d": "environment.js"
+      },
+      "correct_answer": "b",
+      "tip": "Le fichier contient 'local' dans son nom.",
+      "explanation": "Le fichier .env.local est créé à la racine du projet pour stocker les variables d'environnement spécifiques à l'environnement local de développement."
+    },
+    {
+      "id": 6,
+      "section": "Partie 1 - Variables d'environnement",
+      "question": "Comment accède-t-on à une variable d'environnement dans un projet Vite/React ?",
+      "options": {
+        "a": "process.env.API_URL",
+        "b": "import.meta.env.VITE_API_URL",
+        "c": "window.env.API_URL",
+        "d": "global.API_URL"
+      },
+      "correct_answer": "b",
+      "tip": "Vite utilise une syntaxe spécifique avec un préfixe particulier.",
+      "explanation": "Dans Vite, on utilise import.meta.env.VITE_API_URL. Le préfixe VITE_ est obligatoire pour exposer la variable au code côté client."
+    },
+    {
+      "id": 7,
+      "section": "Partie 1 - .gitignore",
+      "question": "Quel dossier NE doit PAS être uploadé sur GitHub selon le .gitignore recommandé ?",
+      "options": {
+        "a": "src/",
+        "b": "public/",
+        "c": "node_modules/",
+        "d": "components/"
+      },
+      "correct_answer": "c",
+      "tip": "Ce dossier contient les dépendances installées.",
+      "explanation": "Le dossier node_modules/ contient toutes les dépendances npm et ne doit pas être versionné car il est très volumineux et peut être régénéré avec npm install."
+    },
+    {
+      "id": 8,
+      "section": "Partie 1 - .gitignore",
+      "question": "Pourquoi créer un fichier .env.example ?",
+      "options": {
+        "a": "Pour stocker les mots de passe en clair",
+        "b": "Pour montrer la structure des variables d'environnement aux autres développeurs",
+        "c": "Pour remplacer le fichier .env.local",
+        "d": "Pour accélérer le déploiement"
+      },
+      "correct_answer": "b",
+      "tip": "Ce fichier sert de documentation pour l'équipe.",
+      "explanation": "Le fichier .env.example est commité sur GitHub pour montrer aux autres développeurs quelles variables d'environnement ils doivent configurer, sans révéler les valeurs réelles."
+    },
+    {
+      "id": 9,
+      "section": "Partie 2 - Git",
+      "question": "Quelle commande permet de vérifier si Git est installé sur votre ordinateur ?",
+      "options": {
+        "a": "git check",
+        "b": "git --version",
+        "c": "git status",
+        "d": "git verify"
+      },
+      "correct_answer": "b",
+      "tip": "Cette commande affiche des informations sur l'installation.",
+      "explanation": "La commande git --version affiche la version de Git installée, ce qui permet de vérifier que Git est bien présent sur le système."
+    },
+    {
+      "id": 10,
+      "section": "Partie 2 - Git",
+      "question": "Quelle commande permet d'initialiser un nouveau repository Git ?",
+      "options": {
+        "a": "git start",
+        "b": "git create",
+        "c": "git init",
+        "d": "git new"
+      },
+      "correct_answer": "c",
+      "tip": "Init est l'abréviation d'initialisation.",
+      "explanation": "La commande git init initialise un nouveau repository Git dans le dossier courant, créant le dossier caché .git qui contient tout l'historique."
+    },
+    {
+      "id": 11,
+      "section": "Partie 2 - Git",
+      "question": "Quelle commande permet de voir l'état actuel des fichiers dans Git ?",
+      "options": {
+        "a": "git log",
+        "b": "git status",
+        "c": "git show",
+        "d": "git list"
+      },
+      "correct_answer": "b",
+      "tip": "Cette commande montre quels fichiers sont modifiés ou non trackés.",
+      "explanation": "La commande git status affiche l'état du working directory et de la staging area, montrant quels fichiers sont modifiés, ajoutés ou non trackés."
+    },
+    {
+      "id": 12,
+      "section": "Partie 2 - Git",
+      "question": "Quelle commande ajoute tous les fichiers à la staging area avant un commit ?",
+      "options": {
+        "a": "git commit .",
+        "b": "git add .",
+        "c": "git stage all",
+        "d": "git include *"
+      },
+      "correct_answer": "b",
+      "tip": "Le point (.) représente tous les fichiers du répertoire courant.",
+      "explanation": "La commande git add . ajoute tous les fichiers modifiés et nouveaux du répertoire courant et ses sous-répertoires à la staging area."
+    },
+    {
+      "id": 13,
+      "section": "Partie 2 - Git",
+      "question": "Quelle option permet d'ajouter un message lors d'un commit ?",
+      "options": {
+        "a": "-t",
+        "b": "-msg",
+        "c": "-m",
+        "d": "-c"
+      },
+      "correct_answer": "c",
+      "tip": "C'est l'abréviation de 'message'.",
+      "explanation": "L'option -m permet de spécifier le message du commit directement dans la ligne de commande : git commit -m \"Mon message\"."
+    },
+    {
+      "id": 14,
+      "section": "Partie 2 - GitHub",
+      "question": "Lors de la création d'un nouveau repository sur GitHub, faut-il cocher 'Initialize this repository with a README' ?",
+      "options": {
+        "a": "Oui, toujours",
+        "b": "Non, si vous avez déjà un projet local à pousser",
+        "c": "Oui, uniquement pour les projets privés",
+        "d": "Non, jamais dans aucun cas"
+      },
+      "correct_answer": "b",
+      "tip": "Cela dépend si vous avez déjà du code localement.",
+      "explanation": "Si vous avez déjà un projet local avec des commits, ne cochez pas cette option car cela créerait un conflit. Le README peut être ajouté après le push initial."
+    },
+    {
+      "id": 15,
+      "section": "Partie 2 - GitHub",
+      "question": "Quelle commande permet de connecter votre dossier local à un repository GitHub distant ?",
+      "options": {
+        "a": "git connect origin",
+        "b": "git remote add origin [URL]",
+        "c": "git link github",
+        "d": "git push origin"
+      },
+      "correct_answer": "b",
+      "tip": "On ajoute une 'remote' nommée 'origin'.",
+      "explanation": "La commande git remote add origin [URL] ajoute une référence vers le repository distant GitHub, conventionnellement appelée 'origin'."
+    },
+    {
+      "id": 16,
+      "section": "Partie 2 - GitHub",
+      "question": "Quelle commande renomme la branche actuelle en 'main' ?",
+      "options": {
+        "a": "git rename main",
+        "b": "git branch -M main",
+        "c": "git checkout main",
+        "d": "git switch -c main"
+      },
+      "correct_answer": "b",
+      "tip": "L'option -M force le renommage.",
+      "explanation": "La commande git branch -M main renomme la branche actuelle en 'main'. L'option -M permet de forcer le renommage même si une branche 'main' existe déjà."
+    },
+    {
+      "id": 17,
+      "section": "Partie 2 - Authentification GitHub",
+      "question": "Qu'est-ce qu'un Personal Access Token (PAT) sur GitHub ?",
+      "options": {
+        "a": "Un mot de passe secondaire",
+        "b": "Un jeton qui remplace le mot de passe pour l'authentification Git",
+        "c": "Un code de vérification SMS",
+        "d": "Un certificat SSL"
+      },
+      "correct_answer": "b",
+      "tip": "GitHub n'accepte plus les mots de passe classiques pour Git.",
+      "explanation": "Un Personal Access Token (PAT) est un jeton d'authentification qui remplace le mot de passe lors des opérations Git. Il offre plus de sécurité et peut avoir des permissions limitées."
+    },
+    {
+      "id": 18,
+      "section": "Partie 2 - Authentification GitHub",
+      "question": "Quelle permission minimum faut-il accorder à un PAT pour accéder aux repositories ?",
+      "options": {
+        "a": "admin",
+        "b": "repo",
+        "c": "user",
+        "d": "gist"
+      },
+      "correct_answer": "b",
+      "tip": "Cette permission concerne l'accès aux dépôts de code.",
+      "explanation": "La permission 'repo' donne accès aux repositories (publics et privés). C'est la permission minimum nécessaire pour pousser du code sur GitHub."
+    },
+    {
+      "id": 19,
+      "section": "Partie 3 - MockAPI",
+      "question": "Qu'est-ce que MockAPI.io ?",
+      "options": {
+        "a": "Un framework JavaScript",
+        "b": "Un service de fausse API pour le développement",
+        "c": "Un outil de test unitaire",
+        "d": "Un hébergeur de base de données SQL"
+      },
+      "correct_answer": "b",
+      "tip": "Le mot 'Mock' signifie 'simulé' ou 'faux'.",
+      "explanation": "MockAPI.io est un service qui permet de créer rapidement une fausse API REST pour le développement et les tests, sans avoir besoin de configurer un vrai backend."
+    },
+    {
+      "id": 20,
+      "section": "Partie 3 - MockAPI",
+      "question": "À quoi correspond une 'ressource' dans MockAPI ?",
+      "options": {
+        "a": "Un fichier JavaScript",
+        "b": "Une table de données (ex: users, products)",
+        "c": "Un serveur virtuel",
+        "d": "Une clé API"
+      },
+      "correct_answer": "b",
+      "tip": "Pensez aux tables dans une base de données.",
+      "explanation": "Dans MockAPI, chaque ressource correspond à une table de données. Par exemple, une ressource 'users' stocke les utilisateurs avec leurs propriétés."
+    },
+    {
+      "id": 21,
+      "section": "Partie 3 - MockAPI",
+      "question": "Quel champ est auto-généré par MockAPI pour chaque entrée d'une ressource ?",
+      "options": {
+        "a": "name",
+        "b": "email",
+        "c": "id",
+        "d": "createdAt"
+      },
+      "correct_answer": "c",
+      "tip": "C'est un identifiant unique pour chaque enregistrement.",
+      "explanation": "MockAPI génère automatiquement un champ 'id' unique pour chaque entrée dans une ressource, ce qui permet d'identifier de manière unique chaque enregistrement."
+    },
+    {
+      "id": 22,
+      "section": "Partie 3 - MockAPI",
+      "question": "Quel format a l'URL de base d'un projet MockAPI ?",
+      "options": {
+        "a": "https://mockapi.io/projects/[id]",
+        "b": "https://[id].mockapi.io/api/v1",
+        "c": "https://api.mockapi.io/[id]",
+        "d": "https://mockapi.io/api/[id]"
+      },
+      "correct_answer": "b",
+      "tip": "L'identifiant du projet fait partie du sous-domaine.",
+      "explanation": "L'URL de base MockAPI suit le format https://[id].mockapi.io/api/v1, où [id] est l'identifiant unique de votre projet."
+    },
+    {
+      "id": 23,
+      "section": "Partie 3 - CORS",
+      "question": "Que signifie CORS ?",
+      "options": {
+        "a": "Code Origin Resource System",
+        "b": "Cross-Origin Resource Sharing",
+        "c": "Central Online Request Service",
+        "d": "Client Origin Response Server"
+      },
+      "correct_answer": "b",
+      "tip": "C'est un mécanisme de sécurité lié aux requêtes entre domaines différents.",
+      "explanation": "CORS (Cross-Origin Resource Sharing) est un mécanisme de sécurité qui contrôle comment les ressources d'un domaine peuvent être demandées depuis un autre domaine."
+    },
+    {
+      "id": 24,
+      "section": "Partie 3 - CORS",
+      "question": "Où peut-on activer CORS dans MockAPI si vous avez une erreur ?",
+      "options": {
+        "a": "Dans le code React",
+        "b": "Dans les Settings de MockAPI",
+        "c": "Dans le fichier .env.local",
+        "d": "Dans la console du navigateur"
+      },
+      "correct_answer": "b",
+      "tip": "C'est une configuration côté serveur/API.",
+      "explanation": "Pour résoudre une erreur CORS avec MockAPI, il faut aller dans les Settings du projet MockAPI et s'assurer que 'CORS enabled' est coché."
+    },
+    {
+      "id": 25,
+      "section": "Partie 4 - Vercel",
+      "question": "Comment se connecter à Vercel selon le workshop ?",
+      "options": {
+        "a": "Avec un email et mot de passe",
+        "b": "Avec Continue with GitHub",
+        "c": "Avec un numéro de téléphone",
+        "d": "Avec une clé SSH"
+      },
+      "correct_answer": "b",
+      "tip": "Vercel s'intègre directement avec un service de versioning.",
+      "explanation": "Le workshop recommande de se connecter à Vercel via 'Continue with GitHub', ce qui facilite l'intégration et le déploiement automatique depuis vos repositories."
+    },
+    {
+      "id": 26,
+      "section": "Partie 4 - Vercel",
+      "question": "Quel Framework Preset Vercel détecte-t-il automatiquement pour un projet React avec Vite ?",
+      "options": {
+        "a": "Create React App",
+        "b": "Next.js",
+        "c": "Vite",
+        "d": "Gatsby"
+      },
+      "correct_answer": "c",
+      "tip": "Vercel détecte le type de projet automatiquement.",
+      "explanation": "Vercel détecte automatiquement que c'est un projet Vite et configure les paramètres appropriés pour le build et le déploiement."
+    },
+    {
+      "id": 27,
+      "section": "Partie 4 - Vercel",
+      "question": "Quelle est la commande de build par défaut pour un projet Vite sur Vercel ?",
+      "options": {
+        "a": "npm start",
+        "b": "npm run build",
+        "c": "vite build",
+        "d": "npm run deploy"
+      },
+      "correct_answer": "b",
+      "tip": "C'est la commande standard pour créer une version de production.",
+      "explanation": "La commande npm run build est utilisée pour générer les fichiers de production. Pour Vite, cela exécute 'vite build' qui crée le dossier dist."
+    },
+    {
+      "id": 28,
+      "section": "Partie 4 - Vercel",
+      "question": "Quel est le dossier de sortie (Output Directory) par défaut pour un projet Vite ?",
+      "options": {
+        "a": "build",
+        "b": "public",
+        "c": "dist",
+        "d": "out"
+      },
+      "correct_answer": "c",
+      "tip": "Vite utilise un nom de dossier différent de Create React App.",
+      "explanation": "Vite génère les fichiers de production dans le dossier 'dist' (distribution), contrairement à Create React App qui utilise 'build'."
+    },
+    {
+      "id": 29,
+      "section": "Partie 4 - Variables Vercel",
+      "question": "Où ajoute-t-on les variables d'environnement dans Vercel ?",
+      "options": {
+        "a": "Dans le fichier package.json",
+        "b": "Dans Settings → Environment Variables",
+        "c": "Dans le code source directement",
+        "d": "Dans le fichier vercel.json"
+      },
+      "correct_answer": "b",
+      "tip": "C'est dans l'interface de configuration de Vercel.",
+      "explanation": "Les variables d'environnement sont configurées dans Vercel via Settings → Environment Variables. Cela permet de garder les valeurs sensibles hors du code source."
+    },
+    {
+      "id": 30,
+      "section": "Partie 4 - Vercel",
+      "question": "Que faut-il faire après avoir ajouté une variable d'environnement sur Vercel ?",
+      "options": {
+        "a": "Rien, c'est automatique",
+        "b": "Redéployer l'application",
+        "c": "Modifier le code source",
+        "d": "Recréer le repository"
+      },
+      "correct_answer": "b",
+      "tip": "Les variables ne sont prises en compte qu'au moment du build.",
+      "explanation": "Après avoir ajouté ou modifié une variable d'environnement, il faut redéployer l'application pour que le nouveau build intègre la nouvelle valeur."
+    },
+    {
+      "id": 31,
+      "section": "Partie 5 - Workflow",
+      "question": "Quel préfixe de message de commit utilise-t-on pour une nouvelle fonctionnalité ?",
+      "options": {
+        "a": "fix:",
+        "b": "feat:",
+        "c": "docs:",
+        "d": "style:"
+      },
+      "correct_answer": "b",
+      "tip": "C'est l'abréviation de 'feature'.",
+      "explanation": "Le préfixe 'feat:' (feature) est utilisé pour les commits qui ajoutent une nouvelle fonctionnalité. C'est une convention du Conventional Commits."
+    },
+    {
+      "id": 32,
+      "section": "Partie 5 - Workflow",
+      "question": "Quel préfixe utilise-t-on pour corriger un bug ?",
+      "options": {
+        "a": "bug:",
+        "b": "fix:",
+        "c": "patch:",
+        "d": "repair:"
+      },
+      "correct_answer": "b",
+      "tip": "C'est le terme anglais pour 'réparer'.",
+      "explanation": "Le préfixe 'fix:' est utilisé pour les commits qui corrigent un bug. Exemple : git commit -m \"fix: corriger l'affichage du bouton\"."
+    },
+    {
+      "id": 33,
+      "section": "Partie 5 - Déploiement continu",
+      "question": "Qu'est-ce que le déploiement continu (CD) dans le contexte de Vercel ?",
+      "options": {
+        "a": "Déployer manuellement chaque semaine",
+        "b": "Chaque git push déclenche automatiquement une nouvelle version en ligne",
+        "c": "Télécharger les fichiers via FTP",
+        "d": "Exécuter des tests automatiques"
+      },
+      "correct_answer": "b",
+      "tip": "Le déploiement se fait sans intervention manuelle.",
+      "explanation": "Le déploiement continu (CD) signifie que chaque fois que vous poussez du code sur GitHub (git push), Vercel détecte le changement et déploie automatiquement la nouvelle version."
+    },
+    {
+      "id": 34,
+      "section": "Partie 6 - Problèmes",
+      "question": "Quelle est la cause probable d'une erreur 'Permission denied' lors d'un git push ?",
+      "options": {
+        "a": "Le repository n'existe pas",
+        "b": "Vous avez utilisé votre mot de passe GitHub au lieu d'un token",
+        "c": "Git n'est pas installé",
+        "d": "Le fichier est trop volumineux"
+      },
+      "correct_answer": "b",
+      "tip": "GitHub a changé sa politique d'authentification.",
+      "explanation": "GitHub n'accepte plus les mots de passe classiques pour l'authentification Git. Il faut utiliser un Personal Access Token (PAT) à la place."
+    },
+    {
+      "id": 35,
+      "section": "Partie 6 - Problèmes",
+      "question": "Où trouver les logs d'erreur si le build échoue sur Vercel ?",
+      "options": {
+        "a": "Dans le fichier package.json",
+        "b": "Dans Vercel → Deployments → dernier déploiement → Logs",
+        "c": "Dans la console du navigateur",
+        "d": "Dans le fichier .env.local"
+      },
+      "correct_answer": "b",
+      "tip": "Vercel garde un historique de tous les déploiements.",
+      "explanation": "Pour diagnostiquer un échec de build, allez dans Vercel → Deployments, cliquez sur le dernier déploiement, puis consultez les Logs pour voir les messages d'erreur."
+    },
+    {
+      "id": 36,
+      "section": "Partie 6 - Problèmes",
+      "question": "Si les données ne s'affichent pas sur Vercel, quelle est souvent la cause ?",
+      "options": {
+        "a": "Le CSS est mal configuré",
+        "b": "La variable VITE_API_URL n'est pas configurée ou incorrecte",
+        "c": "Le navigateur est obsolète",
+        "d": "Le fichier index.html manque"
+      },
+      "correct_answer": "b",
+      "tip": "Les variables d'environnement sont essentielles pour la connexion à l'API.",
+      "explanation": "Si les données ne s'affichent pas, c'est souvent parce que la variable d'environnement VITE_API_URL n'est pas configurée dans Vercel ou contient une URL incorrecte."
+    },
+    {
+      "id": 37,
+      "section": "Partie 6 - Problèmes",
+      "question": "Si vos modifications locales ne s'affichent pas après un git push, que devez-vous vérifier ?",
+      "options": {
+        "a": "Que Vercel est connecté",
+        "b": "Que vous avez fait un commit avant le push",
+        "c": "Que MockAPI fonctionne",
+        "d": "Que le navigateur est à jour"
+      },
+      "correct_answer": "b",
+      "tip": "Le push envoie uniquement les commits, pas les fichiers modifiés non commités.",
+      "explanation": "git push envoie uniquement les commits. Si vous avez oublié de faire git add et git commit, vos modifications ne seront pas envoyées sur GitHub."
+    },
+    {
+      "id": 38,
+      "section": "Prochaines étapes",
+      "question": "Quel service est suggéré pour remplacer MockAPI et avoir de vraies données persistantes ?",
+      "options": {
+        "a": "Firebase",
+        "b": "Supabase",
+        "c": "MongoDB Atlas",
+        "d": "AWS DynamoDB"
+      },
+      "correct_answer": "b",
+      "tip": "C'est mentionné comme étape optionnelle avancée.",
+      "explanation": "Le document suggère de migrer vers Supabase pour remplacer MockAPI et avoir de vraies données persistantes avec une base de données complète."
+    },
+    {
+      "id": 39,
+      "section": "Prochaines étapes",
+      "question": "Quelle branche est suggérée de créer pour tester avant de merger sur main ?",
+      "options": {
+        "a": "test",
+        "b": "staging",
+        "c": "develop",
+        "d": "feature"
+      },
+      "correct_answer": "c",
+      "tip": "C'est une convention courante en Git Flow.",
+      "explanation": "La branche 'develop' est suggérée comme branche de développement pour tester les fonctionnalités avant de les fusionner dans la branche principale 'main'."
+    },
+    {
+      "id": 40,
+      "section": "Conclusion",
+      "question": "Quelle est la pipeline complète présentée dans ce workshop ?",
+      "options": {
+        "a": "Développement → Test → Production → Maintenance",
+        "b": "Développement local → Versioning Git/GitHub → MockAPI → Déploiement Vercel",
+        "c": "Conception → Développement → Test → Déploiement manuel",
+        "d": "Analyse → Code → Review → Release"
+      },
+      "correct_answer": "b",
+      "tip": "Le workshop couvre 4 grandes étapes.",
+      "explanation": "La pipeline complète présentée est : Développement local (npm run dev) → Versioning (Git/GitHub) → Données mock (MockAPI) → Déploiement automatique (Vercel)."
+    }
+  ]
+}

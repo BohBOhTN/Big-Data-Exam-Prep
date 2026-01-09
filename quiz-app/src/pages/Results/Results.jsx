@@ -34,6 +34,7 @@ function Results() {
   const [results, setResults] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [expandedTopics, setExpandedTopics] = useState({});
+  const [currentModule, setCurrentModule] = useState(null);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -51,6 +52,12 @@ function Results() {
   }, []);
 
   useEffect(() => {
+    // Load module info
+    const moduleStr = localStorage.getItem('selectedModule');
+    if (moduleStr) {
+      setCurrentModule(JSON.parse(moduleStr));
+    }
+
     const resultsStr = localStorage.getItem('quizResults');
     if (!resultsStr) {
       navigate('/');
@@ -90,6 +97,12 @@ function Results() {
 
   const restartQuiz = () => {
     localStorage.removeItem('quizResults');
+    navigate('/home');
+  };
+
+  const goToModuleSelector = () => {
+    localStorage.removeItem('quizResults');
+    localStorage.removeItem('selectedModule');
     navigate('/');
   };
 
@@ -213,7 +226,11 @@ function Results() {
             </p>
             <p className="moodle-notice">
               <BookOpen size={16} />
-              Tous les supports recommandés proviennent de la <strong>Plateforme Moodle</strong> pour le cours <strong>"Framework et technologies Big Data"</strong>.
+              {currentModule?.id === 'react' ? (
+                <>Tous les supports recommandés proviennent de <strong>Google Classroom</strong> pour le cours <strong>"FRAMEWORK FRONTEND"</strong>.</>
+              ) : (
+                <>Tous les supports recommandés proviennent de la <strong>Plateforme Moodle</strong> pour le cours <strong>"Framework et technologies Big Data"</strong>.</>
+              )}
             </p>
             
             <div className="recommendation-cards">
@@ -239,9 +256,9 @@ function Results() {
             <RotateCcw size={18} />
             Nouveau Quiz
           </button>
-          <button className="btn btn-secondary" onClick={() => navigate('/')}>
+          <button className="btn btn-secondary" onClick={goToModuleSelector}>
             <Home size={18} />
-            Retour à l'Accueil
+            Changer de Module
           </button>
         </motion.section>
       </div>

@@ -62,6 +62,15 @@
   border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
+.conseil.explanation {
+  background: rgba(97, 218, 251, 0.1);
+  border-color: rgba(97, 218, 251, 0.2);
+}
+
+.conseil.explanation svg {
+  color: #61dafb;
+}
+
 .conseil svg {
   color: var(--primary);
   flex-shrink: 0;

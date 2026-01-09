@@ -1,0 +1,572 @@
+{
+  "topic_name": "Le CSS en React",
+  "resource_name": "WORKSHOP PORTFOLIO (2).pdf",
+  "content_authors": [
+    "Ahmed Fakhfakh",
+    "Mohamed Bouattour"
+  ],
+  "qcm_author": "Baha Eddine Hamdi",
+  "num_questions": 40,
+  "questions": [
+    {
+      "id": 1,
+      "section": "CSS Classique",
+      "question": "Quel est l'un des inconvénients de la méthode **CSS Classique** (Feuilles de Style Externes) selon le document?",
+      "options": {
+        "a": "Nécessite une configuration du bundler",
+        "b": "Styles scopés localement au composant",
+        "c": "Risque de conflits de noms de classes",
+        "d": "Pas de possibilité d'utiliser des préprocesseurs"
+      },
+      "correct_answer": "c",
+      "tip": "L'inconvénient principal est lié à la portée globale des styles.",
+      "explanation": "L'inconvénient mentionné est le 'Risque de conflits de noms de classes' car les styles sont globaux, et les 'styles globaux peuvent créer des effets secondaires'."
+    },
+    {
+      "id": 2,
+      "section": "CSS Modules",
+      "question": "Quel est un avantage majeur des **CSS Modules** mentionné dans le document?",
+      "options": {
+        "a": "Utilisation d'objets JavaScript pour les styles",
+        "b": "Génération automatique de noms de classes uniques",
+        "c": "Pas de nécessité de syntaxe d'import",
+        "d": "Performance réduite pour de grands projets"
+      },
+      "correct_answer": "b",
+      "tip": "Le module vise à résoudre le problème de conflit de noms du CSS classique.",
+      "explanation": "Les CSS Modules génèrent automatiquement des noms de classes uniques, évitant ainsi les conflits de styles."
+    },
+    {
+      "id": 3,
+      "section": "Inline Styles",
+      "question": "Quel est un inconvénient des **Styles en Ligne** (Inline Styles) selon le document?",
+      "options": {
+        "a": "Styles dynamiques difficiles à mettre en place",
+        "b": "Pas de pseudo-classes (:hover, :focus)",
+        "c": "Conflits de noms fréquents",
+        "d": "Mauvaise séparation entre structure et style"
+      },
+      "correct_answer": "b",
+      "tip": "Cette méthode utilise des objets JavaScript directement, ce qui limite l'accès à certaines fonctionnalités CSS avancées.",
+      "explanation": "Les inconvénients des Inline Styles incluent 'Pas de pseudo-classes (:hover, :focus)' et 'pas de media queries'."
+    },
+    {
+      "id": 4,
+      "section": "Styled Components",
+      "question": "Quelle est la principale caractéristique de **Styled Components** (CSS-in-JS) mentionnée dans la description?",
+      "options": {
+        "a": "Utilise des classes utilitaires pré-définies",
+        "b": "Écrit du CSS directement dans JavaScript avec des template literals",
+        "c": "Est une méthode classique de feuilles de style externes",
+        "d": "Est uniquement destiné au prototypage rapide"
+      },
+      "correct_answer": "b",
+      "tip": "Cette méthode permet de lier étroitement le CSS et le JavaScript.",
+      "explanation": "Styled Components est une bibliothèque permettant d'écrire du CSS directement dans JavaScript avec des template literals."
+    },
+    {
+      "id": 5,
+      "section": "Styled Components",
+      "question": "Quel est un avantage des **Styled Components**?",
+      "options": {
+        "a": "Taille du bundle légèrement plus petite",
+        "b": "Pas d'autocomplete CSS",
+        "c": "Styles dynamiques basés sur les props",
+        "d": "Pas de surcharge runtime"
+      },
+      "correct_answer": "c",
+      "tip": "La liaison avec les props React est un point fort de cette approche.",
+      "explanation": "Les avantages incluent 'Styles dynamiques basés sur les props', 'théming facile' et 'support complet CSS (pseudo-classes, media queries)'."
+    },
+    {
+      "id": 6,
+      "section": "Tailwind CSS",
+      "question": "Comment est décrite l'approche de **Tailwind CSS** dans le document?",
+      "options": {
+        "a": "Architecture MVC",
+        "b": "CSS-in-JS",
+        "c": "Utility-First",
+        "d": "Feuilles de Style Classiques"
+      },
+      "correct_answer": "c",
+      "tip": "L'approche est caractérisée par l'utilisation de classes pour les utilitaires.",
+      "explanation": "Tailwind CSS est présenté comme 'Tailwind propose des classes utilitaires pour construire rapidement des interfaces' et est catégorisé comme 'Utility-First'."
+    },
+    {
+      "id": 7,
+      "section": "Récapitulatif",
+      "question": "Selon le tableau de récapitulatif, quel est le cas d'usage idéal pour les **Inline Styles**?",
+      "options": {
+        "a": "Applications avec théming dynamique",
+        "b": "Développement rapide",
+        "c": "Styles dynamiques simples, prototypage rapide",
+        "d": "Projets moyens à grands nécessitant l'encapsulation"
+      },
+      "correct_answer": "c",
+      "tip": "L'avantage principal de cette méthode est sa simplicité pour les styles qui changent.",
+      "explanation": "Le tableau indique que les Inline Styles sont idéaux pour 'Styles dynamiques simples, prototypage rapide'."
+    },
+    {
+      "id": 8,
+      "section": "Récapitulatif",
+      "question": "Quelle méthode est recommandée pour le 'Développement rapide' et les 'prototypes' dans le récapitulatif?",
+      "options": {
+        "a": "CSS Classique",
+        "b": "CSS Modules",
+        "c": "Styled Components",
+        "d": "Tailwind CSS"
+      },
+      "correct_answer": "d",
+      "tip": "Cette approche est jugée idéale pour la vitesse de construction.",
+      "explanation": "Tailwind CSS est idéal pour 'Développement rapide, prototypes, équipes voulant un design cohérent'."
+    },
+    {
+      "id": 9,
+      "section": "Correction Q2 - Validation",
+      "question": "Quelle est la condition pour qu'un `emailValide` soit vrai dans la correction de l'exercice 2?",
+      "options": {
+        "a": "`email.length >= 3`",
+        "b": "`email.includes('@') && email.includes('.')`",
+        "c": "`emailTouched` est vrai",
+        "d": "L'e-mail ne doit pas contenir de caractère spécial"
+      },
+      "correct_answer": "b",
+      "tip": "La validation simple de l'e-mail vérifie la présence de deux symboles clés.",
+      "explanation": "La validation simple de l'e-mail est : `const emailValide = email.includes('@') && email.includes('.');`."
+    },
+    {
+      "id": 10,
+      "section": "Correction Q2 - Validation Visuelle",
+      "question": "Dans la correction, quel est le rôle de `nomTouched` lors du calcul de la classe CSS (`getClassNom`)?",
+      "options": {
+        "a": "Il désactive le champ de saisie.",
+        "b": "Il permet d'afficher la classe de style uniquement après que le champ ait perdu le focus.",
+        "c": "Il indique si le nom est valide ou non.",
+        "d": "Il force l'utilisation de `styles.inputValid`."
+      },
+      "correct_answer": "b",
+      "tip": "La classe n'est pas choisie avant que l'utilisateur n'ait interagi avec le champ.",
+      "explanation": "Le code vérifie `if (!nomTouched) return styles.input;`. Le tracker `nomTouched` (mis à `true` sur l'événement `onBlur`) permet de n'appliquer les classes `inputValid` ou `inputInvalid` qu'après que le champ ait été touché."
+    },
+    {
+      "id": 11,
+      "section": "Correction Q2 - Styles",
+      "question": "Quelle est la couleur de bordure utilisée pour la classe CSS `.inputValid`?",
+      "options": {
+        "a": "Rouge (`#f44336`)",
+        "b": "Blanc",
+        "c": "Vert (`#4caf50`)",
+        "d": "Bleu (`#0070f3`)"
+      },
+      "correct_answer": "c",
+      "tip": "La bordure verte indique qu'un champ est valide.",
+      "explanation": "La classe `.inputValid` a une bordure de `2px solid #4caf50` (Vert)."
+    },
+    {
+      "id": 12,
+      "section": "Correction Q3 - Logique",
+      "question": "De quelle manière la variable `formulaireValide` est-elle déterminée dans la correction de l'exercice 3?",
+      "options": {
+        "a": "Elle vérifie uniquement la validité de l'e-mail.",
+        "b": "Elle est vraie si tous les champs (`nom`, `email`, `message`) sont valides.",
+        "c": "Elle est toujours vraie si l'utilisateur est connecté.",
+        "d": "Elle est vraie si au moins un champ est valide."
+      },
+      "correct_answer": "b",
+      "tip": "La condition utilise l'opérateur AND (`&&`).",
+      "explanation": "La variable `formulaireValide` est calculée en combinant les validations de tous les champs : `const formulaireValide = nomValide && emailValide && messageValide;`."
+    },
+    {
+      "id": 13,
+      "section": "Correction Q3 - Bouton",
+      "question": "Quel attribut est utilisé sur le bouton pour le désactiver si la variable `formulaireValide` est fausse?",
+      "options": {
+        "a": "class",
+        "b": "onClick",
+        "c": "disabled",
+        "d": "id"
+      },
+      "correct_answer": "c",
+      "tip": "Cet attribut booléen contrôle l'état d'interactivité d'un élément de formulaire.",
+      "explanation": "Le bouton utilise l'attribut `disabled` avec une condition inversée : `disabled={!formulaireValide}`."
+    },
+    {
+      "id": 14,
+      "section": "Correction Q3 - Styles",
+      "question": "Dans le CSS de la correction, quel effet est appliqué au bouton (`.button:hover`) pour simuler un léger mouvement vers le haut?",
+      "options": {
+        "a": "`box-shadow`",
+        "b": "`transform: translateY(-2px)`",
+        "c": "`cursor: not-allowed`",
+        "d": "`background: #ccc`"
+      },
+      "correct_answer": "b",
+      "tip": "La propriété `transform` est utilisée pour déplacer des éléments sur l'axe Y.",
+      "explanation": "L'effet de survol est obtenu avec : `transform: translateY(-2px);` (Monte légèrement)."
+    },
+    {
+      "id": 15,
+      "section": "Bonus - EmailJS",
+      "question": "Quel est le but de la 'Question de Bonus' (Page 18)?",
+      "options": {
+        "a": "Ajouter de l'authentification à la partie administrative.",
+        "b": "Envoyer un email lors du submit du formulaire pour informer l'administrateur.",
+        "c": "Créer une page 404.",
+        "d": "Implémenter le React Router."
+      },
+      "correct_answer": "b",
+      "tip": "Le document mentionne l'envoi d'un message après la soumission.",
+      "explanation": "La question de bonus est : 'Envoyez un email lors du submit pour informer l'administrateur du message du visiteur'."
+    },
+    {
+      "id": 16,
+      "section": "Correction EmailJS",
+      "question": "Selon le schéma de correction, quel identifiant est le seul qui est 'VISIBLE' côté Visiteur (Browser)?",
+      "options": {
+        "a": "Vos identifiants SMTP",
+        "b": "La Public Key",
+        "c": "Le mot de passe SMTP",
+        "d": "Le service ID"
+      },
+      "correct_answer": "b",
+      "tip": "Les identifiants sensibles sont cachés pour des raisons de sécurité.",
+      "explanation": "Le schéma indique que 'Vos identifiants sont INVISIBLES (seulement la Public Key)' côté React."
+    },
+    {
+      "id": 17,
+      "section": "Correction EmailJS",
+      "question": "Quel est le 'Serveur' SMTP spécifié pour Hostinger dans l'exemple de configuration EmailJS?",
+      "options": {
+        "a": "`smtp.gmail.com`",
+        "b": "`smtp.hostinger.com`",
+        "c": "`mail.votre-domaine.com`",
+        "d": "`emailjs.com`"
+      },
+      "correct_answer": "b",
+      "tip": "C'est l'adresse du serveur d'envoi d'emails.",
+      "explanation": "Le serveur spécifié est 'Serveur : smtp.hostinger.com'."
+    },
+    {
+      "id": 18,
+      "section": "Correction EmailJS",
+      "question": "Quel est le nom du service EmailJS à appeler dans le code JavaScript (`@emailjs/browser`)?",
+      "options": {
+        "a": "`emailjs.connect`",
+        "b": "`emailjs.send`",
+        "c": "`emailjs.init`",
+        "d": "`emailjs.login`"
+      },
+      "correct_answer": "b",
+      "tip": "C'est la fonction asynchrone qui effectue l'envoi de l'email.",
+      "explanation": "La fonction asynchrone utilisée pour l'envoi est `await emailjs.send(...)`."
+    },
+    {
+      "id": 19,
+      "section": "Atelier 2 - Architecture",
+      "question": "Dans l'architecture proposée de l'Atelier 2, quel composant est un 'Composant fixe en bas'?",
+      "options": {
+        "a": "`Navbar.jsx`",
+        "b": "`Layout.jsx`",
+        "c": "`Main (children)`",
+        "d": "`Footer.jsx`"
+      },
+      "correct_answer": "d",
+      "tip": "C'est le composant que l'on retrouve au bas de toutes les pages.",
+      "explanation": "Le `Footer.jsx` est décrit comme 'Composant fixe en bas'."
+    },
+    {
+      "id": 20,
+      "section": "Atelier 2 - Composant Layout",
+      "question": "Quel est le rôle de l'objet `{children}` dans le composant `Layout` (Etape 6)?",
+      "options": {
+        "a": "Il contient le code de la `Navbar` et du `Footer`.",
+        "b": "Il représente les composants statiques du site.",
+        "c": "Il est l'emplacement où s'affiche le contenu de la page courante (Hero, About, Experience).",
+        "d": "Il gère la logique d'authentification."
+      },
+      "correct_answer": "c",
+      "tip": "Il est placé entre `<main>` dans le `Layout`.",
+      "explanation": "Le `{children}` est passé comme prop au composant `Layout` et est affiché dans la balise `<main>`, représentant le contenu dynamique comme `Hero`, `About` et `Experience` dans l'appel `App.jsx`."
+    },
+    {
+      "id": 21,
+      "section": "Atelier 2 - Composant Hero",
+      "question": "Quelle information est associée à 'Emma Smith' dans l'exemple de composant Hero?",
+      "options": {
+        "a": "Full name",
+        "b": "Project Manager",
+        "c": "Engineer at BB Agency Industry",
+        "d": "Backend Developer"
+      },
+      "correct_answer": "c",
+      "tip": "Il s'agit de son titre professionnel et de son employeur.",
+      "explanation": "L'information 'Engineer at BB Agency Industry' est associée à 'Emma Smith'."
+    },
+    {
+      "id": 22,
+      "section": "React Routing - Installation",
+      "question": "Quel package est nécessaire pour installer le React Routing?",
+      "options": {
+        "a": "`npm install react-router`",
+        "b": "`npm install react-router-dom`",
+        "c": "`npm install @router/browser`",
+        "d": "`npm install react-routing`"
+      },
+      "correct_answer": "b",
+      "tip": "Le package inclut les composants spécifiques pour les navigateurs (DOM).",
+      "explanation": "La commande d'installation est `npm install react-router-dom`."
+    },
+    {
+      "id": 23,
+      "section": "React Routing - Définir les Chemins",
+      "question": "Que signifie le chemin `path=\"/\"` dans une `<Route>` ?",
+      "options": {
+        "a": "Toutes les routes non définies",
+        "b": "La page d'accueil",
+        "c": "La page 'À propos'",
+        "d": "Une route dynamique"
+      },
+      "correct_answer": "b",
+      "tip": "C'est la route par défaut d'une application web.",
+      "explanation": "Le chemin `\"/\"` signifie 'Page d'accueil'."
+    },
+    {
+      "id": 24,
+      "section": "React Routing - Définir les Chemins",
+      "question": "Quel est le composant utilisé pour définir un chemin spécifique dans l'application, tel que `/about`?",
+      "options": {
+        "a": "`<BrowserRouter>`",
+        "b": "`<Routes>`",
+        "c": "`<Route>`",
+        "d": "`<Link>`"
+      },
+      "correct_answer": "c",
+      "tip": "Ce composant est imbriqué dans `<Routes>` et prend l'attribut `path`.",
+      "explanation": "La balise `<Route path=\"/about\" element={<About />} />` est utilisée pour définir un chemin."
+    },
+    {
+      "id": 25,
+      "section": "Correction App.jsx",
+      "question": "Dans la correction de `App.jsx`, quelle balise est utilisée pour définir la route de repli (404 Not Found)?",
+      "options": {
+        "a": "`path=\"/404\"`",
+        "b": "`path=\"/erreur\"`",
+        "c": "`path=\"*\"`",
+        "d": "`path=\"/non-trouve\"`"
+      },
+      "correct_answer": "c",
+      "tip": "Ce chemin sert de 'joker' pour toutes les routes non gérées.",
+      "explanation": "La route 404 est définie par `<Route path=\"*\" element={<NotFound />} />`."
+    },
+    {
+      "id": 26,
+      "section": "React Routing - Link",
+      "question": "Selon l'astuce de navigation, quelle balise de navigation **ne doit jamais** être utilisée pour éviter de recharger la page?",
+      "options": {
+        "a": "`<Link to>`",
+        "b": "`<a href>`",
+        "c": "`<Link path>`",
+        "d": "`<Route element>`"
+      },
+      "correct_answer": "b",
+      "tip": "La navigation classique recharge la page, ce qui est incompatible avec le concept de Single Page Application.",
+      "explanation": "Il est clairement indiqué: 'N'utilisez jamais `<a href>` - cela recharge la page!'."
+    },
+    {
+      "id": 27,
+      "section": "React Routing - Outlet",
+      "question": "Quel composant est utilisé pour marquer l'emplacement où le contenu des routes imbriquées (enfants) doit s'afficher dans un `Layout`?",
+      "options": {
+        "a": "`<Link />`",
+        "b": "`<Routes />`",
+        "c": "`<Outlet />`",
+        "d": "`<main />`"
+      },
+      "correct_answer": "c",
+      "tip": "Ce composant est un espace réservé pour le contenu dynamique dans une structure de mise en page commune.",
+      "explanation": "Le composant `<Outlet />` est 'un emplacement où s'affichent les routes imbriquées' (Les pages enfants apparaissent ici)."
+    },
+    {
+      "id": 28,
+      "section": "Correction Layout.jsx",
+      "question": "Dans la correction de `Layout.jsx` (Atelier 5), quel élément CSS permet à la balise `<main>` de s'étendre pour prendre l'espace restant entre la `Navbar` et le `Footer`?",
+      "options": {
+        "a": "`min-h-screen`",
+        "b": "`flex-1`",
+        "c": "`bg-gray-100`",
+        "d": "`flex flex-col`"
+      },
+      "correct_answer": "b",
+      "tip": "Il s'agit d'une classe Tailwind CSS pour les flexbox qui permet à l'élément de grandir.",
+      "explanation": "La balise `<main>` utilise la classe `className=\"flex-1\"` pour prendre l'espace."
+    },
+    {
+      "id": 29,
+      "section": "React Routing - Nested Routes",
+      "question": "Dans le `App.jsx` complet, si un utilisateur navigue vers `/contact`, quels composants seront affichés?",
+      "options": {
+        "a": "Uniquement `<ContactForm />`",
+        "b": "Uniquement `<Layout />`",
+        "c": "`<Layout />` avec `<ContactForm />` dans l'emplacement `<Outlet />`",
+        "d": "Uniquement `<AdminLayout />`"
+      },
+      "correct_answer": "c",
+      "tip": "`/contact` est une route enfant de la route parente `/`.",
+      "explanation": "La route `/contact` est une route enfant de la route qui affiche `<Layout />` comme `element`, signifiant que `<ContactForm />` sera affiché à l'intérieur de l'`<Outlet />` du `Layout`."
+    },
+    {
+      "id": 30,
+      "section": "React Routing - useNavigate",
+      "question": "Quel Hook est utilisé pour effectuer une 'Navigation Programmatique' dans un composant React?",
+      "options": {
+        "a": "`useLocation`",
+        "b": "`useNavigate`",
+        "c": "`useParams`",
+        "d": "`useReducer`"
+      },
+      "correct_answer": "b",
+      "tip": "Ce Hook permet de déclencher une navigation après une action (comme une connexion).",
+      "explanation": "Le Hook `useNavigate` est importé et utilisé pour la 'Navigation Programmatique' (ex: `navigate('/dashboard');`)."
+    },
+    {
+      "id": 31,
+      "section": "ProtectedRoute",
+      "question": "Dans le composant `ProtectedRoute`, que se passe-t-il si la condition `isAllowed` est fausse?",
+      "options": {
+        "a": "Le composant enfant s'affiche quand même.",
+        "b": "L'utilisateur est redirigé vers l'URL `/login` par défaut.",
+        "c": "L'utilisateur est redirigé vers l'URL spécifiée par `redirectPath`.",
+        "d": "Une erreur 404 est affichée."
+      },
+      "correct_answer": "c",
+      "tip": "La redirection utilise le chemin de repli défini dans les props.",
+      "explanation": "Si `!isAllowed` est vrai, le composant retourne `<Navigate to={redirectPath} replace />`. `redirectPath` a une valeur par défaut de `/`."
+    },
+    {
+      "id": 32,
+      "section": "ProtectedRoute - Replace",
+      "question": "Quel est l'avantage de l'utilisation de l'attribut `replace` sur la balise `<Navigate>` dans `ProtectedRoute`?",
+      "options": {
+        "a": "Permet de naviguer vers une page sans historique.",
+        "b": "Empêche l'utilisateur de revenir à la page non autorisée (ex: `/dashboard`) après une redirection (ex: vers `/login`).",
+        "c": "Définit le chemin de redirection par défaut.",
+        "d": "Remplace l'URL actuelle par l'URL cible dans la barre d'adresse sans navigation."
+      },
+      "correct_answer": "b",
+      "tip": "Ceci améliore l'expérience utilisateur en évitant de revenir à une page intermédiaire inutile.",
+      "explanation": "L'utilisation de `replace` résout le problème où l'utilisateur retournerait à la page de login (page inutile) après s'être connecté, en remplaçant la page non autorisée dans l'historique."
+    },
+    {
+      "id": 33,
+      "section": "Correction Atelier 7 - Routes Admin",
+      "question": "Quelle est la condition complète requise pour accéder aux routes imbriquées de `/admin` dans la correction de `App.jsx`?",
+      "options": {
+        "a": "Seul `user.isAuthenticated` est vrai.",
+        "b": "`user.isAuthenticated` est vrai ET `user.role` est `'admin'`. ",
+        "c": "`user.role` est `'admin'` ou `'user'`.",
+        "d": "La route n'est pas protégée, tout le monde peut y accéder."
+      },
+      "correct_answer": "b",
+      "tip": "La route nécessite une double vérification pour être autorisée.",
+      "explanation": "La condition complète est : `isAllowed={user.isAuthenticated && user.role === 'admin'}`."
+    },
+    {
+      "id": 34,
+      "section": "AdminLayout",
+      "question": "Quel composant React-Icons est utilisé pour le lien 'Utilisateurs' dans la barre latérale de `AdminLayout.jsx`?",
+      "options": {
+        "a": "`FaHome`",
+        "b": "`FaSignOutAlt`",
+        "c": "`FaUsers`",
+        "d": "`FaCog`"
+      },
+      "correct_answer": "c",
+      "tip": "L'icône est sémantiquement liée à la gestion des utilisateurs.",
+      "explanation": "Le lien 'Utilisateurs' utilise le composant `<FaUsers />`."
+    },
+    {
+      "id": 35,
+      "section": "AdminLayout",
+      "question": "Dans `AdminLayout.jsx`, à quelle route le lien 'Retour au site' redirige-t-il?",
+      "options": {
+        "a": "`to=\"/admin\"`",
+        "b": "`to=\"/\"`",
+        "c": "`to=\"/login\"`",
+        "d": "`to=\"/admin/settings\"`"
+      },
+      "correct_answer": "b",
+      "tip": "C'est la route de la page d'accueil du site public.",
+      "explanation": "Le lien 'Retour au site' est défini avec `to=\"/\"`."
+    },
+    {
+      "id": 36,
+      "section": "AdminDashboard",
+      "question": "Quel est le nombre de 'Projets Actifs' affiché dans le `Admin Dashboard` d'exemple?",
+      "options": {
+        "a": "1,234",
+        "b": "89",
+        "c": "24",
+        "d": "100"
+      },
+      "correct_answer": "c",
+      "tip": "C'est le chiffre associé au titre 'Projets Actifs'.",
+      "explanation": "Le paragraphe pour 'Projets Actifs' affiche `24`."
+    },
+    {
+      "id": 37,
+      "section": "AdminUsers",
+      "question": "Quelle classe CSS est appliquée au bouton 'Supprimer' dans la liste des utilisateurs d'exemple?",
+      "options": {
+        "a": "`text-indigo-600`",
+        "b": "`text-gray-500`",
+        "c": "`bg-green-100`",
+        "d": "`text-red-600`"
+      },
+      "correct_answer": "d",
+      "tip": "La couleur rouge est utilisée pour indiquer une action de suppression.",
+      "explanation": "Le bouton 'Supprimer' utilise la classe `text-red-600 hover:text-red-900`."
+    },
+    {
+      "id": 38,
+      "section": "AdminUsers",
+      "question": "Quel est l'Email de l'utilisateur 'Marie Martin' dans le tableau d'exemple de `AdminUsers`?",
+      "options": {
+        "a": "`jean@example.com`",
+        "b": "`paul@example.com`",
+        "c": "`marie@example.com`",
+        "d": "`admin@example.com`"
+      },
+      "correct_answer": "c",
+      "tip": "Il faut lire le contenu des données factices (mock data).",
+      "explanation": "L'utilisateur Marie Martin a pour email : `marie@example.com`."
+    },
+    {
+      "id": 39,
+      "section": "Astuce - Ancre Interne",
+      "question": "Quelle est l'utilité principale des 'ancres internes' (ex: `<a href=\"#contact\">`) selon l'astuce fournie?",
+      "options": {
+        "a": "Naviguer vers une autre page du site.",
+        "b": "Naviguer rapidement à l'intérieur d'une page.",
+        "c": "Ajouter des paramètres de requête à l'URL.",
+        "d": "Définir la structure du layout."
+      },
+      "correct_answer": "b",
+      "tip": "Les ancres sont utilisées pour le défilement dans la même page.",
+      "explanation": "Les ancres internes servent à 'naviguer rapidement à l'intérieur d'une page'."
+    },
+    {
+      "id": 40,
+      "section": "Correction EmailJS",
+      "question": "Quelle est l'étape 3 du processus d'envoi d'email avec EmailJS mentionnée dans le document?",
+      "options": {
+        "a": "Récupérer la Public Key.",
+        "b": "Installer le package `@emailjs/browser`.",
+        "c": "Créer un Template Email.",
+        "d": "Ajouter le SMTP Hostinger."
+      },
+      "correct_answer": "c",
+      "tip": "Le template est nécessaire pour définir le contenu de l'email envoyé.",
+      "explanation": "L'Étape 3 est 'Créer un Template Email'."
+    }
+  ]
+}

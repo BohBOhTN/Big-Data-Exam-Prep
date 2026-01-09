@@ -1,8 +1,12 @@
-import { CheckCircle2, XCircle, Lightbulb } from 'lucide-react';
+import { CheckCircle2, XCircle, Lightbulb, Info } from 'lucide-react';
 import './QuestionReview.css';
 
 function QuestionReview({ question }) {
-  const { isCorrect, question_text, userAnswer, correct_answer, conseil } = question;
+  const { isCorrect, question_text, userAnswer, correct_answer, conseil, explanation } = question;
+
+  // Determine which hint to show (conseil for Big Data, explanation for React)
+  const hasBigDataHint = conseil;
+  const hasReactExplanation = explanation;
 
   return (
     <div className={`question-review ${isCorrect ? 'correct' : 'wrong'}`}>
@@ -30,10 +34,18 @@ function QuestionReview({ question }) {
             Réponse correcte : <strong>{correct_answer}</strong>
           </span>
         </div>
-        {conseil && (
+        {/* Big Data conseil */}
+        {hasBigDataHint && (
           <div className="conseil">
             <Lightbulb size={14} />
             <span>{conseil}</span>
+          </div>
+        )}
+        {/* React explanation */}
+        {hasReactExplanation && (
+          <div className="conseil explanation">
+            <Info size={14} />
+            <span><strong>Explication :</strong> {explanation}</span>
           </div>
         )}
       </div>

@@ -39,12 +39,12 @@ function Quiz() {
     try {
       const configStr = localStorage.getItem('quizConfig');
       if (!configStr) {
-        navigate('/');
+        navigate('/home');
         return;
       }
 
       const config = JSON.parse(configStr);
-      const { topics, questionCount } = config;
+      const { topics, questionCount, moduleId } = config;
 
       let allQuestions = [];
       
@@ -52,13 +52,39 @@ function Quiz() {
         const response = await fetch(`/data/${topic.filename}`);
         const data = await response.json();
         
-        const questionsWithTopic = data.questions.map(q => ({
-          ...q,
-          topic_id: topic.id,
-          topic_name: data.topic_name,
-        }));
+        // Normalize questions based on module format
+        const normalizedQuestions = data.questions.map(q => {
+          // Check if it's React format (has 'question' and 'options' as object)
+          if (q.question && typeof q.options === 'object' && !Array.isArray(q.options)) {
+            // React format - convert to standard format
+            const optionsArray = Object.entries(q.options).map(([letter, text]) => ({
+              letter: letter.toUpperCase(),
+              text: text,
+              is_correct: q.correct_answer.toLowerCase() === letter.toLowerCase(),
+            }));
+            
+            return {
+              question_number: q.id,
+              question_text: q.question,
+              options: optionsArray,
+              correct_answer: q.correct_answer.toUpperCase(),
+              tip: q.tip || '',
+              explanation: q.explanation || '',
+              section: q.section || '',
+              topic_id: topic.id,
+              topic_name: data.topic_name || topic.topic_name || topic.id,
+            };
+          } else {
+            // Big Data format - already in standard format
+            return {
+              ...q,
+              topic_id: topic.id,
+              topic_name: data.topic_name || topic.topic_name || topic.id,
+            };
+          }
+        });
         
-        allQuestions = [...allQuestions, ...questionsWithTopic];
+        allQuestions = [...allQuestions, ...normalizedQuestions];
       }
 
       const shuffled = shuffleArray(allQuestions);
@@ -68,7 +94,7 @@ function Quiz() {
       setLoading(false);
     } catch (error) {
       console.error('Error loading questions:', error);
-      navigate('/');
+      navigate('/home');
     }
   };
 
@@ -109,7 +135,7 @@ function Quiz() {
 
   const cancelQuiz = () => {
     localStorage.removeItem('quizConfig');
-    navigate('/');
+    navigate('/home');
   };
 
   const answeredCount = Object.keys(answers).length;

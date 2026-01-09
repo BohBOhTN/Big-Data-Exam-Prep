@@ -1,0 +1,51 @@
+{
+  "module_id": "bigdata",
+  "module_name": "Big Data",
+  "module_description": "Hadoop, HDFS, MapReduce, Hive et plus encore",
+  "total_files": 7,
+  "total_questions": 280,
+  "topics": [
+    {
+      "id": "1_IntroductionGenerale",
+      "filename": "1_IntroductionGenerale_qcm.json",
+      "topic_name": "Introduction au Big Data",
+      "num_questions": 40
+    },
+    {
+      "id": "2_HadoopIntro",
+      "filename": "2_HadoopIntro_qcm.json",
+      "topic_name": "Introduction à Hadoop",
+      "num_questions": 40
+    },
+    {
+      "id": "3_HDFS",
+      "filename": "3_HDFS_qcm.json",
+      "topic_name": "HDFS (Hadoop Distributed File System)",
+      "num_questions": 40
+    },
+    {
+      "id": "4_MapReduce",
+      "filename": "4_MapReduce_qcm.json",
+      "topic_name": "MapReduce",
+      "num_questions": 40
+    },
+    {
+      "id": "Hive",
+      "filename": "Hive_qcm.json",
+      "topic_name": "Apache Hive",
+      "num_questions": 40
+    },
+    {
+      "id": "Hive-Commandes",
+      "filename": "Hive-Commandes_qcm.json",
+      "topic_name": "Hive Commandes",
+      "num_questions": 40
+    },
+    {
+      "id": "TP-HadoopHDFS",
+      "filename": "TP-HadoopHDFS_qcm.json",
+      "topic_name": "TP Hadoop HDFS",
+      "num_questions": 40
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# 🎯 Big Data Quiz Master
+# 🎯 Quiz Master - Big Data & React
 
-An interactive web application for Big Data exam preparation, featuring 280 QCM questions across 7 topics.
+An interactive web application for exam preparation, featuring **480 QCM questions** across **2 modules** (Big Data & React).
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?style=flat-square&logo=vite)
@@ -8,26 +8,34 @@ An interactive web application for Big Data exam preparation, featuring 280 QCM 
 
 ## ⚠️ Disclaimer
 
-This is an **unofficial study tool** created from Big Data course content. It may contain errors. Use it as a supplement to your studies, not as a primary source.
+This is an **unofficial study tool** created from course content. It may contain errors. Use it as a supplement to your studies, not as a primary source.
 
-**Original course content by Mohamed KOUBAA**  
+### Credits
+
+| Module | Course Authors | Platform |
+|--------|---------------|----------|
+| **Big Data** | Mohamed KOUBAA | Moodle - "Framework et technologies Big Data" |
+| **React** | Ahmed Fakhfakh, Mohamed Bouattour | Google Classroom - "FRAMEWORK FRONTEND" |
+
 **Quiz App developed by [BohBOhTN](https://github.com/BohBOhTN)**
 
 ## ✨ Features
 
-- 🎯 **Topic Selection** - Choose from 7 Big Data topics
+- 🎯 **Multi-Module Support** - Choose between Big Data or React
+- 📚 **Topic Selection** - Choose from 12 topics across both modules
 - 📊 **Custom Quiz Length** - Select 5 to 40+ questions
 - 🔀 **Randomized Questions** - Fisher-Yates shuffle for true randomness
 - ⏱️ **Timed Quizzes** - Track your completion time
 - 🎨 **Modern UI** - Beautiful animated dark theme
 - 📱 **Fully Responsive** - Works on desktop and mobile
 - 📈 **Detailed Results** - Per-topic performance analysis
-- 💡 **Study Tips** - Helpful conseils for each question
-- 📚 **PDF Downloads** - Recommended study materials based on weak areas
+- 💡 **Smart Hints** - Tips during quiz (React), explanations in results
+- 📚 **Resource Recommendations** - Study materials based on weak areas
 - ❌ **Cancel Quiz** - Option to abandon with confirmation modal
 
-## 📚 Topics Covered
+## 📚 Modules & Topics
 
+### Big Data Module (280 questions)
 | Topic | Questions |
 |-------|-----------|
 | Introduction Générale au Big Data | 40 |
@@ -37,7 +45,15 @@ This is an **unofficial study tool** created from Big Data course content. It ma
 | Apache Hive | 40 |
 | Hive Commandes | 40 |
 | TP Hadoop HDFS | 40 |
-| **Total** | **280** |
+
+### React Module (200 questions)
+| Topic | Questions |
+|-------|-----------|
+| Principes de React | 40 |
+| Le CSS en React | 40 |
+| Liaison avec les API | 40 |
+| Gestion des Interfaces | 40 |
+| Hébergement React | 40 |
 
 ## 🚀 Quick Start
 
@@ -122,11 +138,14 @@ The application is automatically deployed to the VPS via GitHub Actions when cha
 ```
 quiz-app/
 ├── public/
-│   ├── data/                    # QCM JSON files
-│   │   ├── _index.json
-│   │   ├── 1_IntroductionGenerale_qcm.json
-│   │   ├── 2_HadoopIntro_qcm.json
-│   │   └── ...
+│   ├── data/
+│   │   ├── modules/             # Module index files
+│   │   │   ├── _modules.json    # Master module list
+│   │   │   ├── bigdata_index.json
+│   │   │   └── react_index.json
+│   │   ├── *_qcm.json           # Big Data QCM files
+│   │   ├── *.json               # React QCM files
+│   │   └── _index.json          # Legacy index (Big Data)
 │   └── pdfs/                    # PDF study materials
 ├── src/
 │   ├── components/
@@ -142,7 +161,7 @@ quiz-app/
 │   │   │   └── Disclaimer/
 │   │   ├── quiz/                # Quiz page components
 │   │   │   ├── QuizHeader/
-│   │   │   ├── QuestionCard/
+│   │   │   ├── QuestionCard/    # With tip toggle for React
 │   │   │   ├── OptionButton/
 │   │   │   ├── QuestionNavigator/
 │   │   │   └── QuizNavigation/
@@ -153,6 +172,7 @@ quiz-app/
 │   │       ├── QuestionReview/
 │   │       └── RecommendationCard/
 │   ├── pages/
+│   │   ├── ModuleSelector/      # Module selection (Big Data / React)
 │   │   ├── Home/                # Topic selection & configuration
 │   │   ├── Quiz/                # Quiz interface
 │   │   └── Results/             # Results & recommendations
@@ -213,10 +233,18 @@ Push to main → GitHub Actions → Build Docker image
 
 ## 🎨 Customization
 
-### Adding New Topics
+### Adding New Modules
+
+1. Create module index file in `public/data/modules/`
+2. Add module entry to `public/data/modules/_modules.json`
+3. Add QCM JSON files to `public/data/`
+4. Add topic icons and colors in `src/utils/constants.js`
+5. Update module config in `src/pages/Home/Home.jsx` if needed
+
+### Adding New Topics to Existing Module
 
 1. Add your QCM JSON file to `public/data/`
-2. Update `public/data/_index.json` with the new file
+2. Update the module index file in `public/data/modules/`
 3. Add topic icon and color in `src/utils/constants.js`
 4. Add PDF mapping if applicable
 
@@ -246,11 +274,17 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 Data Source
 
-All quiz questions are derived from the **"Framework et technologies Big Data"** course materials available on **Moodle**. The original course content was created by **Mohamed KOUBAA**.
+### Big Data Module
+- **Platform**: Moodle - "Framework et technologies Big Data"
+- **Course Author**: Mohamed KOUBAA
+
+### React Module
+- **Platform**: Google Classroom - "FRAMEWORK FRONTEND"
+- **Course Authors**: Ahmed Fakhfakh, Mohamed Bouattour
 
 ## 📄 License
 
-This project is for **educational purposes only**. The original course content belongs to Mohamed KOUBAA.
+This project is for **educational purposes only**. The original course content belongs to their respective authors.
 
 ## 👤 Author
 
